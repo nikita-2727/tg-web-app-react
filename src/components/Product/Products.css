@@ -1,0 +1,9 @@
+.product-cell {
+    margin: 25px;
+    padding: 100px;
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+
+}
