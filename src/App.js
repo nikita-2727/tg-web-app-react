@@ -4,7 +4,7 @@ let tg = window.Telegram.WebApp
 function App() {
     return (
         <div className="App">
-            <p>is working</p>
+            <p>is working now edit work</p>
         </div>
     );
 }
