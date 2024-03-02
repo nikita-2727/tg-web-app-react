@@ -4,7 +4,7 @@ import './Products.css'
 function Product(props) {
     return (
         <div id={"product-cell-" + props.productProps.id} className="product-cell">
-            <p>ghbfnthtt</p>
+            <p>{props.productProps.productName}</p>
         </div>
     )
 }
