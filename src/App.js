@@ -1,7 +1,6 @@
 import './App.css';
 let tg = window.Telegram.WebApp
 
-
 function App() {
     return (
         <div className="App">
