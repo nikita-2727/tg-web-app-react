@@ -9,7 +9,7 @@
     margin-left: var(--index);
     display: inline-block;
     overflow: hidden;
-    height: calc(var(--index) * 15);
+    height: calc(var(--index) * 20);
     width: 44%;
     background-color: gray;
 
@@ -17,7 +17,7 @@
 
 .product-photo {
     border-radius: var(--index) var(--index) 0 0;
-    height: calc(var(--index) * 11);
+    height: calc(var(--index) * 12);
     width: 100%;
 }
 
@@ -29,12 +29,19 @@
     margin-left: 2%;
 }
 
+.main-information {
+    font-size: calc(var(--index) * 1.2);
+    margin-top: var(--index);
+}
+
 .button-cart {
+    border-radius: 0 0 var(--index) var(--index);
+    font-size: calc(var(--index) * 1.2);
+    height: calc(var(--index) * 5);
     background-color: orangered;
+    margin-top: var(--index);
+    color: aliceblue;
     outline: none;
     border: none;
     width: 100%;
-    height: 17%;
-    border-radius: 0 0 var(--index) var(--index);
-
 }
