@@ -4,9 +4,12 @@ import './Products.css'
 function Product(props) {
     return (
         <div id={"product-cell-" + props.productProps.id} className="product-cell">
-            <img src={props.productProps.photo} className="product-photo"></img>
-            <p>{props.productProps.productName}</p>
-            
+            <img src={props.productProps.photo} className="product-photo" alt={props.productProps.productName}></img>
+            <p>
+                <span className="product-name">{props.productProps.productName}</span>
+                <span className="product-price">{props.productProps.price}</span>
+            </p>
+            <button className="button-cart">Добавить в корзину</button>
         </div>
     )
 }

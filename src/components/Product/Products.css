@@ -8,14 +8,33 @@
     margin-top: var(--index);
     margin-left: var(--index);
     display: inline-block;
-    height: calc(var(--index) * 14);
-    width: calc(var(--index) * 14);
+    overflow: hidden;
+    height: calc(var(--index) * 15);
+    width: 44%;
     background-color: gray;
 
 }
 
 .product-photo {
-    border-radius: var(--index);
-    height: calc(var(--index) * 10);
-    width: calc(var(--index) * 14);
+    border-radius: var(--index) var(--index) 0 0;
+    height: calc(var(--index) * 11);
+    width: 100%;
+}
+
+.product-price {
+    float: right;
+    margin-right: 5%;
+}
+.product-name {
+    margin-left: 2%;
+}
+
+.button-cart {
+    background-color: orangered;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 17%;
+    border-radius: 0 0 var(--index) var(--index);
+
 }
