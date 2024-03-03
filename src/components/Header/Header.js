@@ -8,7 +8,7 @@ class Header extends Component {
     return (
         <>
             <button onClick={() => tg.close()}>gggg</button>
-            <p>Добро пожаловать в React Online Store, {tg.initDataUnsafe.user.first_name}</p>
+            <p>Добро пожаловать в React Online Store, {}</p>
         </>
     )
   }
