@@ -51,9 +51,10 @@ const productsDescription = [
         specifications: '' 
     },
 ]
-
+const tg = window.Telegram.WebApp
 
 function App() {
+    console.log(tg.initData)
     return (
         <div className="App">
             <Header />
