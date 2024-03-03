@@ -1,4 +1,5 @@
 import ListProducts from "./components/Product/Products";
+import Header from "./components/Header/Header";
 
 const productsDescription = [
     { 
@@ -55,6 +56,7 @@ const productsDescription = [
 function App() {
     return (
         <div className="App">
+            <Header />
             <ListProducts products={productsDescription} />
         </div>
     );
