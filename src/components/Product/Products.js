@@ -4,7 +4,9 @@ import './Products.css'
 function Product(props) {
     return (
         <div id={"product-cell-" + props.productProps.id} className="product-cell">
+            <img src={props.productProps.photo} className="product-photo"></img>
             <p>{props.productProps.productName}</p>
+            
         </div>
     )
 }

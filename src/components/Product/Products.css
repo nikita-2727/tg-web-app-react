@@ -1,8 +1,21 @@
+:root {
+    --index: calc(1vh + 1vw)
+}
+
 .product-cell {
-    margin: 5vw;
+    border: calc(var(--index) * 0.2) black solid;
+    border-radius: var(--index);
+    margin-top: var(--index);
+    margin-left: var(--index);
     display: inline-block;
-    height: 30vh;
-    width: 40vw;
+    height: calc(var(--index) * 14);
+    width: calc(var(--index) * 14);
     background-color: gray;
 
+}
+
+.product-photo {
+    border-radius: var(--index);
+    height: calc(var(--index) * 10);
+    width: calc(var(--index) * 14);
 }
