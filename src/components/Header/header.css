@@ -10,7 +10,6 @@
 .header-text {
     font-family: Comic Sans MS, Comic Sans, cursive;
     display: flex;
-    background-color: var(--tg-theme-header-bg-color);
     color: var(--tg-theme-accent-text-color);
     align-items: center;
     justify-content: center;
@@ -26,13 +25,13 @@
 .header-menu {
     display: flex;
     height: calc(var(--index) * 4);
-    background-color: #0092c7;
+    background-color: var(--tg-theme-secondary-bg-color);
 }
 
 .header-menu-button, 
 .cart-button {
     display: flex;
-    color: var(--tg-theme-accent-text-color);
+    background-color: var(--tg-theme-accent-text-color);
     height: calc(var(--index) * 4);
     width: calc(var(--index) * 7);
     align-items: center;
@@ -42,7 +41,7 @@
     text-decoration: none;
     font-weight: 600;
     border-radius: var(--index);
-    font-size: calc(var(--index) * 1.2);
+    font-size: calc(var(--index) * 1.4);
 }
 
 .cart-icon {

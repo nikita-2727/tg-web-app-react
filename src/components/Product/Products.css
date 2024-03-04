@@ -3,8 +3,8 @@
 }
 
 .product-cell {
-    font-family: Comic Sans MS, Comic Sans, cursive;
-    border: calc(var(--index) * 0.2) black solid;
+    font-family: Arial Narrow, sans-serif;
+    border: calc(var(--index) * 0.3) var(--tg-theme-secondary-bg-color) solid;
     border-radius: var(--index);
     margin-top: var(--index);
     margin-left: var(--index);
@@ -40,7 +40,7 @@
 }
 
 .button-cart {
-    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-family: Arial Narrow, sans-serif;
     border-radius: 0 0 var(--index) var(--index);
     font-size: calc(var(--index) * 1.5);
     font-weight: 600;
