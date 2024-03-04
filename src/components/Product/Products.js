@@ -18,7 +18,7 @@ class Product extends React.Component {
                     <span className="product-name">{this.props.productProps.productName}</span>
                     <span className="product-price">{this.props.productProps.price}</span>
                 </p>
-                <button className="button-cart"><BsFillBasket2Fill className="basket-icon"/>В корзину</button>
+                <button className="button-cart"><BsFillBasket2Fill className="basket-icon"/>Add to cart</button>
             </div>
         )
     }

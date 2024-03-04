@@ -13,9 +13,9 @@ class Header extends Component {
                 <h1 className='market-name'>React Online Store</h1> 
             </div>
             <div className='header-menu'>
-                <a className='header-menu-button'>О нас</a>
-                <a className='header-menu-button'>Отзывы</a>
-                <a className='header-menu-button'>Контакты</a>
+                <a className='header-menu-button'>About us</a>
+                <a className='header-menu-button'>Reviews</a>
+                <a className='header-menu-button'>Contacts</a>
                 <a className='cart-button'><SlBasket className='cart-icon'/></a>
             </div>
         </div>

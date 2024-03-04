@@ -43,7 +43,7 @@
     font-family: Comic Sans MS, Comic Sans, cursive;
     border-radius: 0 0 var(--index) var(--index);
     font-size: calc(var(--index) * 1.5);
-    font-weight: 500;
+    font-weight: 600;
     background-color: var(--tg-theme-button-color);
     color: var(--tg-theme-button-text-color);
     margin-top: calc(var(--index));
