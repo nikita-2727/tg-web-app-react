@@ -1,5 +1,6 @@
 import React from "react";
 import './Products.css'
+import { BsFillBasket2Fill } from "react-icons/bs";
 
 class Product extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class Product extends React.Component {
                     <span className="product-name">{this.props.productProps.productName}</span>
                     <span className="product-price">{this.props.productProps.price}</span>
                 </p>
-                <button className="button-cart">Добавить в корзину</button>
+                <button className="button-cart"><BsFillBasket2Fill className="basket-icon"/>В корзину</button>
             </div>
         )
     }

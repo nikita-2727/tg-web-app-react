@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import { SlBasket } from "react-icons/sl";
 
 
 
@@ -8,7 +8,7 @@ class Header extends Component {
   render() {
     return (
         <>
-            <p>Добро пожаловать в React Online Store, {}</p>
+            <h1 className='market-name'>React Online Store</h1>
         </>
     )
   }
