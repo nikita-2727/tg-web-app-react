@@ -3,6 +3,7 @@
 }
 
 .product-cell {
+    font-family: Comic Sans MS, Comic Sans, cursive;
     border: calc(var(--index) * 0.2) black solid;
     border-radius: var(--index);
     margin-top: var(--index);
@@ -39,16 +40,17 @@
 }
 
 .button-cart {
+    font-family: Comic Sans MS, Comic Sans, cursive;
     border-radius: 0 0 var(--index) var(--index);
     font-size: calc(var(--index) * 1.5);
     font-weight: 500;
-    height: calc(var(--index) * 4.1);
-    background-color: orangered;
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
     margin-top: calc(var(--index));
-    color: aliceblue;
     outline: none;
     border: none;
     width: 100%;
+    height: calc(var(--index) * 3.7);
     transition: transform .2s;
 }
 
@@ -63,3 +65,6 @@
     margin-right: var(--index);
     transform: scale(1.5);
 }
+
+
+

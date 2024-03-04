@@ -1,0 +1,59 @@
+:root {
+    --index: calc(1vh + 1vw)
+}
+
+.header {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    margin-bottom: calc(var(--index) * .5);
+}
+
+.header-text {
+    display: flex;
+    background-color: var(--tg-theme-header-bg-color);
+    color: var(--tg-theme-accent-text-color);
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--index) * 5);
+}
+
+.market-name {
+    font-size: calc(var(--index) * 2.5);
+    margin-left: var(--index);
+}
+
+.header-menu {
+    border: black solid calc(var(--index) * .2);
+    display: flex;
+    height: calc(var(--index) * 3);
+    background-color: #6aeeff;
+}
+
+.header-menu-button, 
+.cart-button {
+    display: flex;
+    background-color: #30e7ff;
+    height: calc(var(--index) * 3);
+    width: calc(var(--index) * 7);
+    align-items: center;
+    justify-content: center;
+
+    margin-left: var(--index);
+    text-decoration: none;
+    font-weight: 600;
+    border-left: black solid calc(var(--index) * .2);
+    border-right: black solid calc(var(--index) * .2);
+    font-size: calc(var(--index) * 1.2);
+}
+
+.cart-icon {
+    font-weight: 900;
+    transform: scale(2.2);
+}
+
+.cart-button {
+    width: calc(var(--index) * 10);
+    margin-left: calc(var(--index) * 2.5);
+    background: linear-gradient(90deg, orangered, rgb(255, 132, 61));
+    color: aliceblue;
+    border-right: none;
+}
