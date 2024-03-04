@@ -51,7 +51,7 @@
     border: none;
     width: 100%;
     height: calc(var(--index) * 3.7);
-    transition: transform .2s;
+    transition: transform .2s, background-color .5s linear;
 }
 
 .button-cart:active {
