@@ -1,5 +1,8 @@
-import ListProducts from "./components/Product/Products";
-import Header from "./components/Header/Header";
+import { Route, Routes, BrowserRouter} from "react-router-dom";
+import MainPage from "./Pages/MainPage";
+import AboutProductPage from "./Pages/AboutProductPage";
+
+
 
 const productsDescription = [
     { 
@@ -51,15 +54,18 @@ const productsDescription = [
         specifications: '' 
     },
 ]
+
 const tg = window.Telegram.WebApp
 
+
 function App() {
-    console.log(tg.initDataUnsafe)
     return (
-        <div className="App">
-            <Header />
-            <ListProducts products={productsDescription} />
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<MainPage products={productsDescription}/>}></Route>
+                <Route path="about-product" element={<AboutProductPage productProps={productsDescription[0]}/>}></Route>
+            </Routes>
+        </BrowserRouter>
     );
 }
 
