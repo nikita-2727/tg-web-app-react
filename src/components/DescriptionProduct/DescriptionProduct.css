@@ -1,0 +1,26 @@
+:root {
+    --index: calc(1vh + 1vw)
+}
+
+.product-photo-description {
+    width: 100%;
+    height: calc(var(--index) * 20);
+}
+
+.close-icon {
+    transform: scale(2.5);
+    position: fixed;
+    padding: calc(var(--index) * 1.5);
+    color: var(--tg-theme-button-color);
+    right: 0;
+}
+
+.about-product {
+    border-radius: var(--index);
+    border: calc(var(--index) * .3) solid black;
+    width: 100%;
+}
+
+.heading-about {
+    color: var(--tg-theme-button-color);
+}

@@ -29,6 +29,7 @@
     margin-right: 5%;
 }
 .product-name {
+    text-decoration: none;
     font-size: calc(var(--index) * 1.5);
     font-weight: 600;
     margin-left: 2%;
@@ -68,3 +69,14 @@
 
 
 
+.custom-link {
+    text-decoration: none;
+    color: var(--tg-theme-text-color);
+    transition: color .3s;
+}
+.custom-link:hover {
+    color: var(--tg-theme-button-color)
+}
+.custom-link:active {
+    color: var(--tg-theme-button-color);
+}

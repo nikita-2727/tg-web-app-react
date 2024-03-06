@@ -19,11 +19,13 @@ export class Product extends React.Component {
         return (
             <div id={"product-cell-" + this.props.productProps.id} className="product-cell">
                 
-                <Link to="about-product"> 
+                <Link to="about-product" > 
                     <img id={this.props.productProps.id} onClick={this.props.onClick} src={this.props.productProps.photo} className="product-photo" alt={this.props.productProps.productName}></img>
                 </Link>
                 <p className="main-information">
-                    <span className="product-name">{this.props.productProps.productName}</span>
+                    <Link to="about-product" className="custom-link">
+                        <span id={this.props.productProps.id} className="product-name" onClick={this.props.onClick}>{this.props.productProps.productName}</span>
+                    </Link>
                     <span className="product-price">{this.props.productProps.price}</span>
                 </p>
 
