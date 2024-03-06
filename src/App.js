@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Route, Routes, BrowserRouter} from "react-router-dom";
 import MainPage from "./Pages/MainPage";
 import AboutProductPage from "./Pages/AboutProductPage";
@@ -56,17 +57,31 @@ const productsDescription = [
 ]
 
 const tg = window.Telegram.WebApp
+class App extends React.Component {
+    constructor (props) {
+        super(props)
+        this.state = {
+            id: 0
+        }
+    }
+    
+    render() {
+        return (
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<MainPage products={productsDescription} onClick={e => this.getValueId(e.target.id)}/>} > </Route>
+                    <Route path="about-product" element={<AboutProductPage productProps={productsDescription[this.state.id - 1]}/>}></Route>
+                </Routes>
+            </BrowserRouter>
+        );
+    }
 
+    getValueId(id) {
+        this.setState({id: id})
+        console.log(id)
+        
+    }
 
-function App() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<MainPage products={productsDescription}/>}></Route>
-                <Route path="about-product" element={<AboutProductPage productProps={productsDescription[0]}/>}></Route>
-            </Routes>
-        </BrowserRouter>
-    );
 }
 
 export default App;

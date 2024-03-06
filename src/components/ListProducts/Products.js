@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import './Products.css'
+
 import UnvisibleCount from "./UnvisibleCount";
 
 
@@ -14,10 +15,12 @@ export class Product extends React.Component {
     }
 
     render() {
+        
         return (
-            <div id={"product-cell-" + this.props.productProps.id} className="product-cell" >
+            <div id={"product-cell-" + this.props.productProps.id} className="product-cell">
+                
                 <Link to="about-product"> 
-                    <img src={this.props.productProps.photo} className="product-photo" alt={this.props.productProps.productName}></img>
+                    <img id={this.props.productProps.id} onClick={this.props.onClick} src={this.props.productProps.photo} className="product-photo" alt={this.props.productProps.productName}></img>
                 </Link>
                 <p className="main-information">
                     <span className="product-name">{this.props.productProps.productName}</span>
@@ -36,7 +39,7 @@ function ListProducts(props) {
     const listProductComponent = []
     for (let index = 0; index < props.products.length; index++) {
         // добавляю в массив компоненты товаров и передаю словарь со свойствами каждого товара в каждую компоненту по отдельности
-        listProductComponent.push(<Product key={index} productProps={props.products[index]} />)
+        listProductComponent.push(<Product key={index} productProps={props.products[index]}  onClick={props.onClick}/>)
     }
     return (
         <>{listProductComponent.map(productComponent => productComponent)}</>

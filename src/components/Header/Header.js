@@ -8,7 +8,7 @@ import './header.css'
 class Header extends Component {
   render() {
     return (
-        <div className='header'>
+        <div className='header' onClick={this.props.onClick}>
             <div className='header-text'>
                 <h1 className='market-name'>React Online Store</h1> 
             </div>

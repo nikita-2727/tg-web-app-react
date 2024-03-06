@@ -1,18 +1,12 @@
 import React from "react";
-import { Product } from "../ListProducts/Products";
 
 class DescriptionProduct extends React.Component {
-    constructor(props) {
-        super(props)
-        this.instanceOfProduct = new Product(this.props.productProps)
-    }
-    
-
     render() {
+        console.log(this.props.productProps)
         return (
             <div className="description-product">
                 <img src={this.props.productProps.photo} className="product-photo-description" alt={this.props.productProps.productName}
-                height={200} width={200}></img>
+                height={300} width={500}></img>
             </div>
             
         )
