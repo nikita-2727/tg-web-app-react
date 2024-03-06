@@ -4,7 +4,7 @@
 
 .product-photo-description {
     width: 100%;
-    height: calc(var(--index) * 20);
+    height: calc(var(--index) * 25);
 }
 
 .close-icon {
@@ -17,10 +17,11 @@
 
 .about-product {
     border-radius: var(--index);
-    border: calc(var(--index) * .3) solid black;
+    border: calc(var(--index) * .3) solid var(--tg-theme-button-color);
     width: 100%;
 }
 
 .heading-about {
     color: var(--tg-theme-button-color);
+    margin: calc(var(--index) * .5);
 }
