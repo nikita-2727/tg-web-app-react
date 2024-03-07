@@ -12,7 +12,7 @@
 .button-plus,
 .button-minus {
     position: absolute;
-    transform: scale(2.5);
+    transform: scale(2.2);
     color: orangered;
 }
 
