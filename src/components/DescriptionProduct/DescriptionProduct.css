@@ -111,4 +111,5 @@
 
 .cell-specification-product {
     background-color: var(--tg-theme-secondary-bg-color);
+    border-radius: 0 0 var(--index) var(--index);
 }
