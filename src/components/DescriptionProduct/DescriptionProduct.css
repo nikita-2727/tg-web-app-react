@@ -17,6 +17,7 @@
 
 
 .about-product {
+    font-family: Arial Narrow, sans-serif;
     background-color: var(--tg-theme-secondary-bg-color);
     height: calc(var(--index) * 12.5);
     overflow: hidden;
@@ -25,14 +26,15 @@
 }
 
 .heading-about {
-    background-color: (--tg-theme-button-color);
-    color: var(--tg-theme-button-text-color);
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    color: var(--tg-theme-button-color);
     margin: calc(var(--index) * .5);
 }
 
 .about {
     margin-top: calc(var(--index) * .5);
     line-height: calc(var(--index) * 1.7);
+    font-size: calc(var(--index) * 1.2);
 }
 
 .open-about-button {
