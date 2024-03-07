@@ -38,6 +38,7 @@
     margin-top: calc(var(--index) * .5);
     line-height: calc(var(--index) * 1.7);
     font-size: calc(var(--index) * 1.4);
+    
 }
 
 .open-about-button,
@@ -84,7 +85,7 @@
 .specification-product {
     font-family: Arial Narrow, sans-serif;
     background-color: var(--tg-theme-secondary-bg-color);
-    height: 100%;
+    height: calc(var(--index) * 9);
     overflow: hidden;
     width: 100%;
 }
@@ -103,10 +104,6 @@
 
 .spec-arrow-icon {
     margin-left: calc(var(--index) * .5);
-}
-
-.specification-product {
-    height: calc(var(--index) * 9);
 }
 
 .cell-specification-product {

@@ -37,7 +37,6 @@
     width: calc(var(--index) * 7);
     align-items: center;
     justify-content: center;
-
     margin-left: var(--index);
     text-decoration: none;
     font-weight: 600;

@@ -1,0 +1,32 @@
+:root {
+    --index: calc(1vh + 1vw)
+}
+
+.custom-market-cart {
+    display: flex;
+    width: 100%;
+    height: calc(var(--index) * 2.5);
+    margin-top: calc(var(--index) * 2.5);
+}
+
+.button-plus,
+.button-minus {
+    position: absolute;
+    transform: scale(2.5);
+    color: orangered;
+}
+
+.button-minus {
+    margin-left: 5%;
+    margin-right: 35%;
+}
+
+.button-plus {
+    margin-left: 35%;
+}
+
+.counter {
+    font-size: calc(var(--index) * 1.2);
+    margin-left: 48%;
+    font-weight: 600;
+}

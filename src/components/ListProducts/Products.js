@@ -7,12 +7,7 @@ import UnvisibleCount from "./UnvisibleCount";
 
 
 export class Product extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            visible: true,
-        }
-    }
+
 
     render() {
         
@@ -29,7 +24,7 @@ export class Product extends React.Component {
                     <span className="product-price">{this.props.productProps.price}</span>
                 </p>
 
-                <UnvisibleCount state={this.state.visible} />
+                <UnvisibleCount />
             </div>
         )
     }
