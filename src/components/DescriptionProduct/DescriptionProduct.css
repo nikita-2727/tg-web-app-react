@@ -11,7 +11,7 @@
     transform: scale(2.5);
     position: fixed;
     margin: calc(var(--index) * 1.5);
-    color: var(--tg-theme-button-color);
+    color: orangered;
     cursor: pointer;
     right: 0;
 }
@@ -26,19 +26,22 @@
     
 }
 
-.heading-about {
+.heading-about,
+.heading-specification {
     font-family: Comic Sans MS, Comic Sans, cursive;
     color: var(--tg-theme-button-color);
     margin: calc(var(--index) * .5);
 }
 
-.about {
+.about,
+.specification {
     margin-top: calc(var(--index) * .5);
     line-height: calc(var(--index) * 1.7);
     font-size: calc(var(--index) * 1.4);
 }
 
-.open-about-button {
+.open-about-button,
+.open-specification-button {
     width: 100%;
     outline: none;
     border: none;
@@ -70,9 +73,34 @@
     right: calc(var(--index) * 3);
 }
 
-.dimmer-text {
+.dimmer-text,
+.dimmer-text-specification {
     position: absolute;
     height: calc(var(--index) * 12.5);
     width: 100%;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, var(--tg-theme-secondary-bg-color));
+}
+
+.specification-product {
+    font-family: Arial Narrow, sans-serif;
+    background-color: var(--tg-theme-secondary-bg-color);
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+.dimmer-text-specification {
+    height: calc(var(--index) * 9);
+}
+
+.open-specification-button {
+    background-color: var(--tg-theme-accent-text-color);
+    width: calc(var(--index) * 10);
+    border-radius: var(--index);
+    margin-left: var(--index);
+    margin-bottom: var(--index);
+}
+
+.spec-arrow-icon {
+    margin-left: calc(var(--index) * .5);
 }
