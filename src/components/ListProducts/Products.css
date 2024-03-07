@@ -19,6 +19,7 @@
 .product-photo {
     border-radius: var(--index) var(--index) 0 0;
     height: calc(var(--index) * 12);
+    user-select: none;
     width: 100%;
 }
 

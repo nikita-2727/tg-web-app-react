@@ -31,6 +31,7 @@ class DescriptionProduct extends React.Component {
                 <div className="cell-about-product">
                     <h1 className="heading-about">About the product</h1>
                     <div className="about-product">
+                        <div className="dimmer-text"></div>
                         <p className="about">{this.props.productProps.description}</p>
                     </div>
                     <button className="open-about-button" onClick={this.openAboutBlock}>{this.state.stateButtonText}</button>

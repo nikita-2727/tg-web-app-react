@@ -69,3 +69,10 @@
     top: calc(var(--index) * 12);
     right: calc(var(--index) * 3);
 }
+
+.dimmer-text {
+    position: absolute;
+    height: calc(var(--index) * 12.5);
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, var(--tg-theme-secondary-bg-color));
+}
