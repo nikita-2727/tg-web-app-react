@@ -108,3 +108,7 @@
 .specification-product {
     height: calc(var(--index) * 9);
 }
+
+.cell-specification-product {
+    background-color: var(--tg-theme-secondary-bg-color);
+}
