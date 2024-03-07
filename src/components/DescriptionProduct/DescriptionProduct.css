@@ -15,9 +15,6 @@
     right: 0;
 }
 
-.cell-about-product {
-    background-color: var(--tg-theme-button-color);
-}
 
 .about-product {
     background-color: var(--tg-theme-secondary-bg-color);
@@ -28,6 +25,7 @@
 }
 
 .heading-about {
+    background-color: (--tg-theme-button-color);
     color: var(--tg-theme-button-text-color);
     margin: calc(var(--index) * .5);
 }
@@ -39,11 +37,13 @@
 
 .open-about-button {
     width: 100%;
+    outline: none;
+    border: none;
     margin-top: calc(var(--index) * .7);
-    height: calc(var(--index) * 2.5);
+    height: calc(var(--index) * 4);
     border-radius: 0 0 var(--index) var(--index);
     background-color: orangered;
     color: var(--tg-theme-button-text-color);
     font-weight: 600;
-    font-size: calc(var(--index) * 1.3);
+    font-size: calc(var(--index) * 1.5);
 }
