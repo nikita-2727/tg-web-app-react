@@ -48,7 +48,7 @@
     margin-top: calc(var(--index) * .7);
     height: calc(var(--index) * 4);
     border-radius: 0 0 var(--index) var(--index);
-    background-color: orangered;
+    background-color: var(--tg-theme-accent-text-color);
     color: var(--tg-theme-button-text-color);
     font-weight: 600;
     font-size: calc(var(--index) * 1.5);
@@ -94,7 +94,7 @@
 }
 
 .open-specification-button {
-    background-color: var(--tg-theme-accent-text-color);
+    background-color: orangered;
     width: calc(var(--index) * 10);
     border-radius: var(--index);
     margin-left: var(--index);
@@ -103,4 +103,8 @@
 
 .spec-arrow-icon {
     margin-left: calc(var(--index) * .5);
+}
+
+.specification-product {
+    height: calc(var(--index) * 9);
 }
