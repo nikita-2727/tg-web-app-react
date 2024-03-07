@@ -46,12 +46,15 @@ class DescriptionProduct extends React.Component {
     }
     openAboutBlock() {
         let element = document.getElementsByClassName("about-product")
+        let dimmer = document.getElementsByClassName("dimmer-text")
         
         if (element[0].style.height == 'auto') {
             element[0].style.height = 'calc(var(--index) * 12.5)'
+            dimmer[0].style.background = 'linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, var(--tg-theme-secondary-bg-color))'
             this.setState({stateButtonText: 'Expand the description'})
         } else {
             element[0].style.height = 'auto'
+            dimmer[0].style.background = 'rgba(0, 0, 0, 0)'
             this.setState({stateButtonText: 'Hide the description'})
         }
     }
