@@ -20,7 +20,7 @@ export class Product extends React.Component {
             <div id={"product-cell-" + this.props.productProps.id} className="product-cell">
                 
                 <Link to="about-product" > 
-                    <img id={this.props.productProps.id} onClick={this.props.onClick} src={this.props.productProps.photo} className="product-photo" alt={this.props.productProps.productName}></img>
+                    <img id={this.props.productProps.id} onClick={this.props.onClick} src={this.props.productProps.photo[0]} className="product-photo" alt={this.props.productProps.productName}></img>
                 </Link>
                 <p className="main-information">
                     <Link to="about-product" className="custom-link">

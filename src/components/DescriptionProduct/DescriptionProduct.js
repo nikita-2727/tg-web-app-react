@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import './DescriptionProduct.css'
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { FaArrowCircleRight } from "react-icons/fa";
+import { FaArrowCircleLeft } from "react-icons/fa";
 
 
 
@@ -8,10 +10,12 @@ class DescriptionProduct extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            stateButtonText: 'Expand the description'
+            stateButtonText: 'Expand the description',
+            indexPhoto: 0,
         }
 
         this.openAboutBlock = this.openAboutBlock.bind(this)
+        this.flippingPhotos = this.flippingPhotos.bind(this)
     }
 
     render() {
@@ -19,7 +23,11 @@ class DescriptionProduct extends React.Component {
         return (
             <div className="description-product">
                 <IoMdCloseCircleOutline className="close-icon" onClick={() => window.history.back()} />
-                <img src={this.props.productProps.photo} className="product-photo-description" alt={this.props.productProps.productName}></img>
+                <img src={this.props.productProps.photo[this.state.indexPhoto]} className="product-photo-description" alt={this.props.productProps.productName}></img>
+                <FaArrowCircleLeft className="left-button" onClick={() => this.flippingPhotos(-1)}/>
+                <FaArrowCircleRight className="right-button" onClick={() => this.flippingPhotos(1)}/>
+                
+
                 <div className="cell-about-product">
                     <h1 className="heading-about">About the product</h1>
                     <div className="about-product">
@@ -44,6 +52,12 @@ class DescriptionProduct extends React.Component {
         } else {
             element[0].style.height = 'auto'
             this.setState({stateButtonText: 'Hide the description'})
+        }
+    }
+
+    flippingPhotos(counter) {
+        if (this.state.indexPhoto + counter < this.props.productProps.photo.length && this.state.indexPhoto + counter >= 0) {
+            this.setState({indexPhoto: this.state.indexPhoto + counter})
         }
     }
 

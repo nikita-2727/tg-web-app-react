@@ -34,7 +34,7 @@
 .about {
     margin-top: calc(var(--index) * .5);
     line-height: calc(var(--index) * 1.7);
-    font-size: calc(var(--index) * 1.2);
+    font-size: calc(var(--index) * 1.4);
 }
 
 .open-about-button {
@@ -48,4 +48,21 @@
     color: var(--tg-theme-button-text-color);
     font-weight: 600;
     font-size: calc(var(--index) * 1.5);
+}
+
+
+.left-button {
+    color: var(--tg-theme-accent-text-color);
+    transform: scale(2);
+    position: absolute;
+    top: calc(var(--index) * 12);
+    left: calc(var(--index) * 2);
+}
+
+.right-button {
+    color: var(--tg-theme-accent-text-color);
+    transform: scale(2);
+    position: absolute;
+    top: calc(var(--index) * 12);
+    right: calc(var(--index) * 3);
 }
