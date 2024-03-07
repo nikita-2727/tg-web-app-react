@@ -15,13 +15,35 @@
     right: 0;
 }
 
+.cell-about-product {
+    background-color: var(--tg-theme-button-color);
+}
+
 .about-product {
-    border-radius: var(--index);
-    border: calc(var(--index) * .3) solid var(--tg-theme-button-color);
+    background-color: var(--tg-theme-secondary-bg-color);
+    height: calc(var(--index) * 12.5);
+    overflow: hidden;
     width: 100%;
+    
 }
 
 .heading-about {
-    color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
     margin: calc(var(--index) * .5);
+}
+
+.about {
+    margin-top: calc(var(--index) * .5);
+    line-height: calc(var(--index) * 1.7);
+}
+
+.open-about-button {
+    width: 100%;
+    margin-top: calc(var(--index) * .7);
+    height: calc(var(--index) * 2.5);
+    border-radius: 0 0 var(--index) var(--index);
+    background-color: orangered;
+    color: var(--tg-theme-button-text-color);
+    font-weight: 600;
+    font-size: calc(var(--index) * 1.3);
 }
