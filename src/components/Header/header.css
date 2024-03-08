@@ -57,3 +57,19 @@
     color: aliceblue;
     border-right: none;
 }
+
+.circle-counter {
+    z-index: 1;
+    background-color: var(--tg-theme-accent-text-color);
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: calc(var(--index) * 1.5);
+    margin-left: calc(var(--index) * 3);
+    margin-bottom: calc(var(--index) * 3);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--index) * 3);
+    width: calc(var(--index) * 3);
+    border-radius: 100%;
+}

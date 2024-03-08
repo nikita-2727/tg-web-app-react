@@ -16,7 +16,10 @@ class Header extends Component {
                 <a className='header-menu-button'>About us</a>
                 <a className='header-menu-button'>Reviews</a>
                 <a className='header-menu-button'>Contacts</a>
-                <a className='cart-button'><SlBasket className='cart-icon'/></a>
+                <a className='cart-button'>
+                    <SlBasket className='cart-icon'/>
+                    <div className='circle-counter'>1</div>
+                </a>
             </div>
         </div>
         
