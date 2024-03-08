@@ -9,7 +9,7 @@ class Header extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            buyCounter: ''
+            buyCounter: 0
         }
         this.sumCounterProduct = this.sumCounterProduct.bind(this)
 
