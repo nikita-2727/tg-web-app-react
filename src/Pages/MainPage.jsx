@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 export default function MainPage(props) {
     return (
         <div className="main-page">
-            <Header onClick={props.onClick}/>
+            <Header />
             <ListProducts products={props.products} onClick={props.onClick}/>
         </div>
     );
