@@ -25,7 +25,7 @@ export class UnvisibleCount extends React.Component {
             return (
                 <button className="button-cart" onClick={() => {
                     this.cartPlus()
-                    setTimeout(() => window.sumCounterProduct(), 100)
+                    setTimeout(() => window.sumCounterProduct(), 1)
                 }}> <BsFillBasket2Fill className="basket-icon"/>Add to cart </button>
             )
         } else {
@@ -33,12 +33,12 @@ export class UnvisibleCount extends React.Component {
                 <div className="custom-market-cart">
                     <LuMinusCircle className="button-minus" onClick={() => {
                         this.cartMinus()
-                        setTimeout(() => window.sumCounterProduct(), 100)
+                        setTimeout(() => window.sumCounterProduct(), 1)
                     }} />
                     <p className="counter">{this.state.counter}</p>
                     <LuPlusCircle className="button-plus" onClick={() => {
                         this.cartPlus()
-                        setTimeout(() => window.sumCounterProduct(), 100)
+                        setTimeout(() => window.sumCounterProduct(), 1)
                     }} />
                 </div>
             );

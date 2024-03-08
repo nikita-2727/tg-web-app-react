@@ -32,7 +32,6 @@ class Header extends Component {
                     </a>
                 </div>
             </div>
-
         )
     }
 
@@ -47,6 +46,16 @@ class Header extends Component {
         } else {
             this.setState({buyCounter: this.state.buyCounter + 1})
         }    
+        setTimeout(() => this.ifCounterIsNull(), 1)
+    }
+
+    ifCounterIsNull() {
+        let element  = document.getElementsByClassName('circle-counter');
+        if (this.state.buyCounter == 0) {
+            element[0].style.display = 'none'
+        } else {
+            element[0].style.display = 'flex'
+        }
     }
 }
 
