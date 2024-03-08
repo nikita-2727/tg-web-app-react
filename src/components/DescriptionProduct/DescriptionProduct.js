@@ -37,7 +37,7 @@ class DescriptionProduct extends React.Component {
                     <h1 className="heading-specification">Specifications</h1>
                     <div className="specification-product">
                         <div className="dimmer-text-specification"></div>
-                        <p className="specification">{this.props.productProps.description}</p>
+                        <p className="specification">{this.props.productProps.specifications}</p>
                     </div>
                     <button className="open-specification-button" onClick={this.openSpecBlock}>{this.state.stateButtonSpecText}</button>
                 </div>
