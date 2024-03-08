@@ -10,6 +10,7 @@
 .close-icon {
     transform: scale(2.5);
     position: fixed;
+    z-index: 1;
     margin: calc(var(--index) * 1.5);
     color: orangered;
     cursor: pointer;
@@ -33,6 +34,10 @@
     margin: calc(var(--index) * .5);
 }
 
+.heading-about {
+    color: orangered;
+}
+
 .about,
 .specification {
     margin-top: calc(var(--index) * .5);
@@ -43,6 +48,7 @@
 
 .open-about-button,
 .open-specification-button {
+    cursor: pointer;
     width: 100%;
     outline: none;
     border: none;
@@ -55,6 +61,7 @@
     font-size: calc(var(--index) * 1.5);
 }
 
+.open-about-button {background: linear-gradient(180deg, orangered, rgb(255, 132, 61));}
 
 .left-button {
     cursor: pointer;
@@ -95,7 +102,7 @@
 }
 
 .open-specification-button {
-    background-color: orangered;
+    background: linear-gradient(90deg, var(--tg-theme-accent-text-color), var(--tg-theme-button-color));
     width: calc(var(--index) * 10);
     border-radius: var(--index);
     margin-left: var(--index);

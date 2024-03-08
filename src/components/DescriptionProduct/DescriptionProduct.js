@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './DescriptionProduct.css'
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { FaArrowCircleRight } from "react-icons/fa";
@@ -33,6 +33,15 @@ class DescriptionProduct extends React.Component {
                 <FaArrowCircleLeft className="left-button" onClick={() => this.flippingPhotos(-1)}/>
                 <FaArrowCircleRight className="right-button" onClick={() => this.flippingPhotos(1)}/>
                 
+                <div className="cell-specification-product">
+                    <h1 className="heading-specification">Specifications</h1>
+                    <div className="specification-product">
+                        <div className="dimmer-text-specification"></div>
+                        <p className="specification">{this.props.productProps.description}</p>
+                    </div>
+                    <button className="open-specification-button" onClick={this.openSpecBlock}>{this.state.stateButtonSpecText}</button>
+                </div>
+
 
                 <div className="cell-about-product">
                     <h1 className="heading-about">About the product</h1>
@@ -41,15 +50,6 @@ class DescriptionProduct extends React.Component {
                         <p className="about">{this.props.productProps.description}</p>
                     </div>
                     <button className="open-about-button" onClick={this.openAboutBlock}>{this.state.stateButtonAboutText}</button>
-                </div>
-
-                <div className="cell-specification-product">
-                    <h1 className="heading-specification">Specifications</h1>
-                    <div className="specification-product">
-                        <div className="dimmer-text-specification"></div>
-                        <p className="specification">{this.props.productProps.description}</p>
-                    </div>
-                    <button className="open-specification-button" onClick={this.openSpecBlock}>{this.state.stateButtonSpecText}</button>
                 </div>
             </div>
 
@@ -63,7 +63,7 @@ class DescriptionProduct extends React.Component {
         let element = document.getElementsByClassName("about-product")
         let dimmer = document.getElementsByClassName("dimmer-text")
         
-        if (element[0].style.height == 'auto') {
+        if (element[0].style.height === 'auto') {
             element[0].style.height = 'calc(var(--index) * 12.5)'
             dimmer[0].style.background = 'linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, var(--tg-theme-secondary-bg-color))'
             this.setState({stateButtonAboutText: 'Expand the description'})
@@ -78,7 +78,7 @@ class DescriptionProduct extends React.Component {
         let element = document.getElementsByClassName("specification-product")
         let dimmer = document.getElementsByClassName("dimmer-text-specification")
         
-        if (element[0].style.height == 'auto') {
+        if (element[0].style.height === 'auto') {
             element[0].style.height = 'calc(var(--index) * 9)'
             dimmer[0].style.background = 'linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, var(--tg-theme-secondary-bg-color))'
             this.setState({stateButtonSpecText: <span>Unwrap<FaArrowDown className="spec-arrow-icon"/></span>})
