@@ -74,3 +74,12 @@
     width: calc(var(--index) * 2.7);
     border-radius: 100%;
 }
+
+.selected-block {
+    pointer-events: none;
+}
+
+.selected-button {
+    background-color: orangered;
+    color: aliceblue;
+}

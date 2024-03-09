@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { SlBasket } from "react-icons/sl";
 import './header.css'
+import '../ListProducts/Products.css'
+import { Link } from 'react-router-dom';
 
 
 
@@ -18,18 +20,27 @@ class Header extends Component {
 
     render() {
         return (
-            <div className='header' onClick={this.sumCounterProduct}>
+            <div className='header' >
                 <div className='header-text'>
                     <h1 className='market-name'>React Online Store</h1>
                 </div>
                 <div className='header-menu'>
-                    <a className='header-menu-button'>About us</a>
-                    <a className='header-menu-button'>Reviews</a>
-                    <a className='header-menu-button'>Contacts</a>
-                    <a className='cart-button'>
+                    <Link to="/about-as" className={'custom-link ' + (this.props.selectedPage == 1 ? 'selected-block' : '')}>
+                        <span className={'header-menu-button ' + (this.props.selectedPage == 1 ? 'selected-button' : '')}>About us</span>
+                    </Link>
+
+                    <Link to="/reviews" className={'custom-link ' + (this.props.selectedPage == 2 ? 'selected-block' : '')}>
+                        <span className={'header-menu-button ' + (this.props.selectedPage == 2 ? 'selected-button' : '')}>Reviews</span>
+                    </Link>
+
+                    <Link to="/contacts" className={'custom-link ' + (this.props.selectedPage == 3 ? 'selected-block' : '')}>
+                        <span className={'header-menu-button ' + (this.props.selectedPage == 3 ? 'selected-button' : '')}>Contacts</span>
+                    </Link>
+                    
+                    <div className='cart-button'>
                         <SlBasket className='cart-icon' />
-                        <div className='circle-counter'>{this.state.buyCounter}</div>
-                    </a>
+                        <span className='circle-counter'>{this.state.buyCounter}</span>
+                    </div>
                 </div>
             </div>
         )

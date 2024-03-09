@@ -1,0 +1,21 @@
+:root {
+    --index: calc(1vh + 1vw)
+}
+
+.button-back {
+    font-family: Arial Narrow, sans-serif;
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+
+    padding: calc(var(--index) * 1.7) calc(var(--index) * 2.5);
+
+    text-decoration: none;
+    font-weight: 600;
+    font-size: calc(var(--index) * 1.5);
+    border-radius: var(--index) 0 0 var(--index) ;
+
+    background-color: var(var(--tg-theme-accent-text-color));
+    color: aliceblue;
+}

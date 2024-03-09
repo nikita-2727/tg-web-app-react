@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Route, Routes, BrowserRouter} from "react-router-dom";
 import MainPage from "./Pages/MainPage";
 import AboutProductPage from "./Pages/AboutProductPage";
-
+import AboutUsPage from "./Pages/AboutUsPage";
+import ReviewsPage from "./Pages/ReviewsPage";
+import ContactsPage from "./Pages/ContactsPage";
 
 
 const productsDescription = [
@@ -93,6 +95,9 @@ class App extends React.Component {
                 <Routes>
                     <Route path="/" element={<MainPage products={productsDescription} onClick={e => this.getValueId(e.target.id)}/>} > </Route>
                     <Route path="about-product" element={<AboutProductPage productProps={productsDescription[this.state.id - 1]}/>}></Route>
+                    <Route path="about-as" element={<AboutUsPage />}></Route>
+                    <Route path="reviews" element={<ReviewsPage />}></Route>
+                    <Route path="contacts" element={<ContactsPage />}></Route>
                 </Routes>
             </BrowserRouter>
         );
