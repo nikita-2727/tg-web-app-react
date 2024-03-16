@@ -25,16 +25,16 @@ class Header extends Component {
                     <h1 className='market-name'>React Online Store</h1>
                 </div>
                 <div className='header-menu'>
-                    <Link to="/about-as" className={'custom-link ' + (this.props.selectedPage == 1 ? 'selected-block' : '')}>
-                        <span className={'header-menu-button ' + (this.props.selectedPage == 1 ? 'selected-button' : '')}>About us</span>
+                    <Link to="/about-as" className={'custom-link ' + (this.props.selectedPage === 1 ? 'selected-block' : '')}>
+                        <span className={'header-menu-button ' + (this.props.selectedPage === 1 ? 'selected-button' : '')}>About us</span>
                     </Link>
 
-                    <Link to="/reviews" className={'custom-link ' + (this.props.selectedPage == 2 ? 'selected-block' : '')}>
-                        <span className={'header-menu-button ' + (this.props.selectedPage == 2 ? 'selected-button' : '')}>Reviews</span>
+                    <Link to="/reviews" className={'custom-link ' + (this.props.selectedPage === 2 ? 'selected-block' : '')}>
+                        <span className={'header-menu-button ' + (this.props.selectedPage === 2 ? 'selected-button' : '')}>Reviews</span>
                     </Link>
 
-                    <Link to="/contacts" className={'custom-link ' + (this.props.selectedPage == 3 ? 'selected-block' : '')}>
-                        <span className={'header-menu-button ' + (this.props.selectedPage == 3 ? 'selected-button' : '')}>Contacts</span>
+                    <Link to="/contacts" className={'custom-link ' + (this.props.selectedPage === 3 ? 'selected-block' : '')}>
+                        <span className={'header-menu-button ' + (this.props.selectedPage === 3 ? 'selected-button' : '')}>Contacts</span>
                     </Link>
                     
                     <div className='cart-button'>
@@ -62,7 +62,7 @@ class Header extends Component {
 
     ifCounterIsNull() {
         let element  = document.getElementsByClassName('circle-counter');
-        if (this.state.buyCounter == 0) {
+        if (this.state.buyCounter === 0) {
             element[0].style.display = 'none'
         } else {
             element[0].style.display = 'flex'

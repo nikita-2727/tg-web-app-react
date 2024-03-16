@@ -7,10 +7,7 @@ import UnvisibleCount from "./UnvisibleCount";
 
 
 export class Product extends React.Component {
-
-
     render() {
-        
         return (
             <div id={"product-cell-" + this.props.productProps.id} className="product-cell">
                 
@@ -19,7 +16,7 @@ export class Product extends React.Component {
                 </Link>
                 <p className="main-information">
                     <Link to="about-product" className="custom-link">
-                        <span id={this.props.productProps.id} className="product-name" onClick={this.props.onClick}>{this.props.productProps.productName}</span>
+                        <span id={this.props.productProps.id} className="product-name" onClick={this.props.onClick}>{this.props.productProps.productname}</span>
                     </Link>
                     <span className="product-price">{this.props.productProps.price}</span>
                 </p>
