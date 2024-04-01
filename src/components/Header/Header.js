@@ -37,10 +37,10 @@ class Header extends Component {
                         <span className={'header-menu-button ' + (this.props.selectedPage === 3 ? 'selected-button' : '')}>Contacts</span>
                     </Link>
                     
-                    <div className='cart-button'>
+                    <Link to="/cart" className='cart-button'>
                         <SlBasket className='cart-icon' />
                         <span className='circle-counter'>{this.state.buyCounter}</span>
-                    </div>
+                    </Link>
                 </div>
             </div>
         )

@@ -21,7 +21,7 @@ export class Product extends React.Component {
                     <span className="product-price">{this.props.productProps.price}</span>
                 </p>
 
-                <UnvisibleCount />
+                <UnvisibleCount productProps={this.props.productProps}/>
             </div>
         )
     }
