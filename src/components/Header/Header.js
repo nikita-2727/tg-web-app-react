@@ -22,7 +22,7 @@ class Header extends Component {
         return (
             <div className='header' >
                 <div className='header-text'>
-                    <h1 className='market-name'>React Online Store</h1>
+                    <h1 className='market-name'>VeeZee Prod. (Collab)</h1>
                 </div>
                 <div className='header-menu'>
                     <Link to="/about-as" className={'custom-link ' + (this.props.selectedPage === 1 ? 'selected-block' : '')}>

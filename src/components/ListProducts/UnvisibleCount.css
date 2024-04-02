@@ -13,14 +13,14 @@
 .button-minus {
     position: absolute;
     transform: scale(2);
-    color: orangered;
+    color: rgb(2, 131, 19);
     transition: transform .4s ease-in-out, color 1s linear;
 }
 
 .button-minus:hover,
 .button-plus:hover {
     transform: rotate(180deg) scale(2);
-    color: orange;
+    color: whitesmoke;
     
 }
 

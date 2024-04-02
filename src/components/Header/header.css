@@ -3,14 +3,24 @@
 }
 
 .header {
+    background: url('G:\проекты_vs_code\shop-tg-react\tg-web-app-react\images\header.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: Arial Narrow, sans-serif;
     margin-bottom: calc(var(--index) * .7);
 }
 
 .header-text {
     font-family: Comic Sans MS, Comic Sans, cursive;
+    text-shadow: 2px 2px whitesmoke;
     display: flex;
-    color: var(--tg-theme-accent-text-color);
+
+    background-image: linear-gradient(to right, #000000, #001d11, #00150a);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
     align-items: center;
     justify-content: center;
     height: calc(var(--index) * 5);
@@ -26,13 +36,13 @@
     display: flex;
     align-items: center;
     height: calc(var(--index) * 5);
-    background-color: var(--tg-theme-secondary-bg-color);
+    background: linear-gradient(to bottom, transparent, black)
 }
 
 .header-menu-button, 
 .cart-button {
     display: flex;
-    background-color: var(--tg-theme-accent-text-color);
+    background-color: #002301;
     height: calc(var(--index) * 4);
     width: calc(var(--index) * 7);
     align-items: center;
@@ -41,6 +51,7 @@
     text-decoration: none;
     font-weight: 600;
     border-radius: var(--index);
+    border-top: calc(var(--index) * .2) solid whitesmoke;
     font-size: calc(var(--index) * 1.4);
 }
 
@@ -52,15 +63,17 @@
 .cart-button {
     width: calc(var(--index) * 10);
     border-radius: var(--index) 0 0 var(--index);
+    border-top: calc(var(--index) * .2) solid black;
     margin-left: calc(var(--index) * 2.5);
-    background: linear-gradient(90deg, orangered, rgb(255, 132, 61));
-    color: aliceblue;
+    background: linear-gradient(90deg, rgb(223, 223, 223), whitesmoke);
+    color: #1dab04;
     border-right: none;
 }
 
 .circle-counter {
     z-index: 1;
-    background-color: var(--tg-theme-accent-text-color);
+    background: linear-gradient(90deg, rgb(6, 90, 0), rgb(2, 149, 11));
+    color: whitesmoke;
     font-family: Comic Sans MS, Comic Sans, cursive;
     font-weight: 600;
     font-size: calc(var(--index) * 1.5);
@@ -80,6 +93,7 @@
 }
 
 .selected-button {
-    background-color: orangered;
-    color: aliceblue;
+    border-top-color: black;
+    background-color: whitesmoke;
+    color: black;
 }
