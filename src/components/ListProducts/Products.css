@@ -68,11 +68,11 @@
 .custom-link {
     text-decoration: none;
     color: whitesmoke;
-    transition: color .3s;
+    transition: color .3s, transform .3s;
 }
 .custom-link:hover {
     color: white
 }
 .custom-link:active {
-    color: var(--tg-theme-button-color);
+    transform: scale(1.07);
 }
