@@ -3,12 +3,13 @@
 }
 
 .header {
-    background: url('G:\проекты_vs_code\shop-tg-react\tg-web-app-react\images\header.jpg');
+    background: url('https://lh3.googleusercontent.com/fife/ALs6j_HmGCBIav6ecMN_ZzG3m3zwzHw5kyVFi4___6JkwVlhIAMhzce3mkzbYQgIDRifd4mlaUXM2Ad-1TJrSQoTKKEF6Fw-OuoCNkPHfDV_eCAT2Pis66gt6TKvWZR2GlF3pI80L4z-3Ukofx8FpySr3I_HZeqs464QbyC1_-MjSb9oL8jQn_iESNyCkjjjdcr4-OU6Fo8fV-RfUsVWctuA0WTEa6eg7tCnV_NejVeLypk4orqPGAB1xhgRBPgAO4QcdOnnlLwTmRuAhKyiAIfNx3lrZg66f_DNJ5Y3lMengr0BjPE-CweVTXIIZUo9RY6j9QucP9Ukc0D7ucmbeIjk-qifmMHXNkPnEzWy5ypeK3p71T9auaBy3-LAG16hA68AcMxjGgZmYuGmwAdZzZlVVSUhw7oBpLgGnAFC2AGvv22Y4i-P2_XRFz8qveDxPangrxFgvNivXJ2nztyRxbtvOlec1u81imWFEGc2PeBPuEFL7SziZMd2JboZEwDRx9StlqJd6o3mMUWBsUIU13wcVISfC_JoVwuVVuq1u2UT6lN9Qz-JjwL5NsMRPgPQxRaHFH34Yw46VwIvBwLn1Ov92ABIH2N3KKAJXpvUmw6bN4-iu9Qocj1-Uwkte979tcuMNDUufEyEZl5z2fuHUiye76nGCdKPaO2Ad3eShgC6p8yKR9rbO7scHuqJj7g-xkU2je8dYD48H5f5y3bHWadC_l1iPN0DOI8FVKP0j0qtjWfXSsrU1017jTw1A5pJ8JiDkRtyHbaZhbON__ILwIRHhD1aHUNkbFsYZrCz9kpKSSJ_PwBRqXm3xKh_Uhy3UGu5ElvMQ5Q6c80BEJKFJ5pVEhMTfw4oPfiW_BIMlbIuxQUTWjGpTuBnS25y87Tk5_KSMsZmXaGZINbGh_SOcdfIC62AtlKvXNCHQjz6GNj_QrN5bm-Y2DP2-p9rV6hZ8piuOHI9WgKeY9Euja2Udn2kIDQ22rrigBXyHP36ZmY5sc1O4_YNhtSSrGZV2gguNBOlestu0iRSOGGGj2F9fbyNlLBqyIgOit1VSA1kM1xwV3jBWXR-didkq9xOPKDslhrJIC_yPChftDgsoz4poG5hpF4YiMOXo2mHVH6Kwz2gQBctaHHYi-7sqzqc2MhbS2wz_tlKzUKhjwI50wAuA-ItbJ1NjzB6zLc-Mse1m1QOkb-2xLSSij9BgPbCQ6osjDxNPCwaAO4CDonXQQlXG1X9RAxNF9phOnXAIUUk-OnXZz7MnhCjvgE1S0p09PytMJrVr2qf0795TY7HzzqWaBmTR-Ut23L_vho5LiJrUDDXdlF46JtxDosmTy_blljXtiwObCnKRDq0rb24xETE_S40NxLYKagQniZRAXWYFmgR--Uc6iI5XU6qlnBntsldHNcuwy65VFymkAy5JX8Hh5ryubZVsWbWFr93mFXpATk1xLtezLx1t2SgZN3C2VgxWN6UOFjzDzcr6nGPCVVnQOYt_dNNfqnSgvs02EnxBl740yjhrPXkU6lnCEJZp5DN2ayiZw-t_wqu3I8ngO5zwhlwNHF5qXchI4pCohP62ksTDYCDvFzSNIUhxtbwWAK-vIEj1JVemJaEWg6Vkw=w1848-h879');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: Arial Narrow, sans-serif;
     margin-bottom: calc(var(--index) * .7);
+    height: calc(var(--index) * 12.5);
 }
 
 .header-text {
@@ -35,8 +36,8 @@
 .header-menu {
     display: flex;
     align-items: center;
-    height: calc(var(--index) * 5);
-    background: linear-gradient(to bottom, transparent, black)
+    height: calc(var(--index) * 7);
+    background: linear-gradient(to bottom, transparent, black 90%);
 }
 
 .header-menu-button, 
