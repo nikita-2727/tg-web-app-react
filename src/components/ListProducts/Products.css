@@ -1,18 +1,19 @@
 :root {
-    --index: calc(1vh + 1vw)
+    --index: calc(1vh + 1vw);
+    --font: Arial Narrow, sans-serif;
 }
 
 .product-cell {
-    font-family: Arial Narrow, sans-serif;
-    border: calc(var(--index) * 0.3) #282828 solid;
+    font-family: var(--font);
+    border: calc(var(--index) * 0.3) #202020 solid;
     border-radius: var(--index);
     margin-top: var(--index);
     margin-left: var(--index);
     display: inline-block;
     overflow: hidden;
-    height: calc(var(--index) * 20);
+    height: calc(var(--index) * 22);
     width: 44%;
-    background-color: #151515;
+    background-color: #012900;
 
 }
 
@@ -35,28 +36,6 @@
     margin-top: calc(var(--index));
 }
 
-.button-cart {
-    font-family: Arial Narrow, sans-serif;
-    border-radius: 0 0 var(--index) var(--index);
-    font-size: calc(var(--index) * 1.5);
-    font-weight: 600;
-    background-color: whitesmoke;
-    color: green;
-    margin-top: calc(var(--index) * 1.4);
-    outline: none;
-    border: none;
-    width: 100%;
-    height: calc(var(--index) * 3.7);
-    transition: transform .2s, opacity .5s linear;
-}
-
-.button-cart:active {
-    transform: scale(1.1);
-}
-.button-cart:hover {
-    opacity: .2;
-}
-
 .basket-icon {
     margin-right: var(--index);
     transform: scale(1.5);
@@ -75,4 +54,14 @@
 }
 .custom-link:active {
     transform: scale(1.07);
+}
+
+
+.name-music {
+    display: flex;
+    height: calc(var(--index) * 2.2);
+    font-size: calc(var(--index) * 1.3);
+    justify-content: center;
+    align-items: center;
+
 }

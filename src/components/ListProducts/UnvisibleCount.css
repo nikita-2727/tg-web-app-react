@@ -1,46 +1,96 @@
 :root {
-    --index: calc(1vh + 1vw)
+    --index: calc(1vh + 1vw);
+    --font: Arial Narrow, sans-serif;
 }
 
-.custom-market-cart {
+.button-cart {
+    font-family: var(--font);
+    border-radius: 0 0 var(--index) var(--index);
+    font-size: calc(var(--index) * 1.5);
+    font-weight: 600;
+    background-color: whitesmoke;
+    color: green;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: calc(var(--index) * 3.7);
+    transition: transform .2s, opacity .5s linear;
+}
+
+.button-cart:active {
+    transform: scale(1.1);
+}
+.button-cart:hover {
+    opacity: .2;
+}
+
+
+.custom-market-cart,
+.delete-check-mark-cart {
     display: flex;
     width: 100%;
     height: calc(var(--index) * 2.5);
     margin-top: calc(var(--index) * 2.5);
 }
 
-.button-plus,
-.button-minus {
-    position: absolute;
-    transform: scale(1.7);
-    color: rgb(2, 131, 19);
-    transition: transform .4s ease-in-out, color 1s linear;
-}
-
-.button-minus:hover,
-.button-plus:hover {
-    transform: rotate(180deg) scale(1.7);
-    color: whitesmoke;
-    
-}
-
-.button-minus:active,
-.button-plus:active {
-    transform: rotate(180deg) scale(2.2);
-}
-
-
-.button-minus {
-    margin-left: 5%;
-    margin-right: 35%;
-}
-
-.button-plus {
-    margin-left: 35%;
-}
-
-.counter {
-    font-size: calc(var(--index) * 1.2);
-    margin-left: 48%;
+.button-exclusive,
+.button-lizing {
+    font-family: var(--font);
+    font-size: calc(var(--index) * 1.5);
     font-weight: 600;
+    position: relative;
+    margin-top: -4vh;
+    height: calc(var(--index) * 3.7);
+    outline: none;
+    border: none;
+    transition: transform .3s ease-in-out;
+}
+
+.button-exclusive {
+    width: calc(var(--index) * 10);
+    background-color: whitesmoke;
+    color: #025b00;
+}
+
+.button-lizing {
+    width: calc(var(--index) * 6);
+    background-color: #002301;
+    color: whitesmoke;
+}
+
+.button-exclusive:hover,
+.button-lizing:hover {
+    transform: scale(1.05);
+}
+
+.button-exclusive:active,
+.button-lizing:active {
+    transform: scale(.95);
+}
+
+
+.add-to-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font);
+    border-radius: 0 0 0 var(--index);
+    font-size: calc(var(--index) * 1.5);
+    font-weight: 600;
+    position: relative;
+    margin-top: -4vh;
+    height: calc(var(--index) * 3.7);
+    width: calc(var(--index) * 14.3);
+    background-color: black;
+}
+
+.delete-button {
+    height: calc(var(--index) * 3.7);
+    width: calc(var(--index) * 3.7);
+    margin-top: -4vh;
+}
+
+.icon-delete {
+    margin-top: .5vh;
+    transform: scale(1.3);
 }

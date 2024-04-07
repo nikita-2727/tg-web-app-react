@@ -6,6 +6,7 @@ import AboutUsPage from "./Pages/AboutUsPage";
 import ReviewsPage from "./Pages/ReviewsPage";
 import ContactsPage from "./Pages/ContactsPage";
 import CartPage from "./Pages/CartPage";
+import LoadingPage from "./Pages/LoadingPage";
 
 
 class App extends React.Component {
@@ -33,7 +34,7 @@ class App extends React.Component {
     }
     
     render() {
-        if (this.state.isLoaded) { /* пока не получили данные от сервера, рендер станицы загрузки
+        if (false) { /* пока не получили данные от сервера, рендер станицы загрузки
         иначе возвращаем маршрутизатор с главной страницей списка продуктов */
             return (
                 <BrowserRouter>
@@ -51,9 +52,12 @@ class App extends React.Component {
             )
         } else {
             return (
-                <p>loading...</p>
+                <>
+                    <LoadingPage />
+                </>   
             )
         }
+
     }
 
     getValueId(id) {

@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import './Products.css'
 
 import UnvisibleCount from "./UnvisibleCount";
-
+import CustomAudioRecoder from "./CustomAudioRecoder";
 
 
 export class Product extends React.Component {
@@ -14,12 +15,11 @@ export class Product extends React.Component {
                 <Link to="about-product" > 
                     <img id={this.props.productProps.id} onClick={this.props.onClick} src={this.props.productProps.photo[0]} className="product-photo" alt={this.props.productProps.productName}></img>
                 </Link>
-                <p className="main-information">
-                    <Link to="about-product" className="custom-link">
-                        <span id={this.props.productProps.id} className="product-name" onClick={this.props.onClick}>здесь будет запись с битом</span>
-                    </Link>
-                </p>
-
+                <div className="name-music">
+                    <p >21 Savage Type Beat Lost u </p>
+                </div>
+                
+                <CustomAudioRecoder src="https://www.dropbox.com/scl/fi/osmi3f2aqr3y9dsz5crso/21-Savage-Type-Beat-Lost-u.mp3?rlkey=y9cthunbpp8gndujsv06ru9uc&dl=1" />
                 <UnvisibleCount productProps={this.props.productProps}/>
             </div>
         )
