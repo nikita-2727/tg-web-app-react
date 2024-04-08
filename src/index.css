@@ -3,6 +3,9 @@
     padding: 0;
 
 }
+html, body {
+    overflow-x: hidden; /* чтобы события скролла работали стабильно */
+  }
 
 body {
     background-color: black;

@@ -15,7 +15,7 @@ export default function AboutUs() {
             </div>
             
             <div className="history-block">
-                <h2 style={{fontSize: '25vh'}}className="heading-history">History of creation</h2>
+                <h2 style={{fontSize: '30vh'}}className="heading-history">History of creation</h2>
 
             </div>
             

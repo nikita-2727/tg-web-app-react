@@ -1,0 +1,42 @@
+:root {
+    --index: calc(1vh + 1vw)
+}
+
+ul {
+    list-style-type: none;
+}
+
+.others {
+    background-color: #111;
+    margin: var(--index);
+    padding: var(--index);
+    border-radius: var(--index);
+    margin-top: calc(var(--index) * 5);
+}
+
+.others li {
+    display: inline-block;
+    line-height: calc(var(--index) * 1.7);
+    margin-top: calc(var(--index) * 1.3);
+    width: auto;
+}
+
+.header-contacts {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: calc(var(--index) * 2);
+    color: #00ff2a;
+}
+
+.subtitle {
+    display: block;
+    width: 30vw;
+
+    font-weight: 600;
+    font-size: calc(var(--index) * 1.2);
+}
+
+
+.link {
+    font-family: Arial Narrow, sans-serif;
+    color: rgb(0, 140, 16);
+}

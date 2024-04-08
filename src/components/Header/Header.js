@@ -45,11 +45,11 @@ class Header extends Component {
     }
 
     componentDidMount() {
-        document.body.addEventListener('scroll', this.headerFixedRelative, { passive: true })
+        document.addEventListener('scroll', this.headerFixedRelative, { passive: true })
     }
 
     componentWillUnmount() {
-        document.body.removeEventListener('scroll', this.headerFixedRelative)
+        document.removeEventListener('scroll', this.headerFixedRelative)
     }
 
     // функции для обработки скролла страницы
