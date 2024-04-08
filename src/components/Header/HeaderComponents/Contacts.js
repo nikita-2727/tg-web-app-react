@@ -20,41 +20,66 @@ export default function Contacts() {
                     <ul className="list-others">
                         <li>
                             <span className="subtitle">TG Chanel:</span> 
-                            <span className="link">https://t.me/VeeZee666prod</span>
+                            <a href="https://t.me/VeeZee666prod" className="link">https://t.me/VeeZee666prod</a>
                         </li> 
                         <li>
                             <span className="subtitle">VK Community:</span>
-                            <span className="link">https://vk.com/iitsbig092mlboa</span>
+                            <a href="https://vk.com/iitsbig092mlboa" className="link">https://vk.com/iitsbig092mlboa</a>
                         </li>
                         <li>
                             <span className="subtitle">Web site:</span> 
-                            <span className="link">https://gendcidmusic.ru</span>
+                            <a href="https://gendcidmusic.ru" className="link">https://gendcidmusic.ru</a>
                         </li>
                     </ul>
                 </div>
 
                 <div className="creators">
-                    <span className="header-contacts">Contact information: (The creators)</span>
+                    <span className="header-contacts-creators">Contact information: (The creators)</span>
 
                     <div className="ceo">
                         <span className="ceo-header">CEO: Shmyglia Mikhail (Lil VeeZee)</span>
                         <ul className="list-ceo">
-                            <li><FaPhoneSquare /> - +7 919-829-10 86</li>
-                            <li><MdEmail /> - LilVeeZee666@gmail.com</li>
-                            <li><FaTelegram /> - https://t.me/VeeZee666prodby</li>
-                            <li><FaInstagramSquare /> - https://www.instagram.com/prod_by_veezee?igsh=NnhlZGo2cWt3Ym94&utm_source=qr</li>
-                            <li><FaVk /> - https://vk.com/lil_veezee</li>
-                            <li><FaTwitterSquare /> (Now X) - https://x.com/Prod_by_VeeZee</li>
+                            <li>
+                                <FaPhoneSquare className="icon"/>
+                                <span className="link">+7 919-829-10 86</span>
+                            </li>
+                            <li>
+                                <MdEmail className="icon"/> 
+                                <span className="link">LilVeeZee666@gmail.com</span>
+                            </li>
+                            <li>
+                                <FaTelegram className="icon"/> 
+                                <a href="https://t.me/VeeZee666prodby" className="link">https://t.me/VeeZee666prodby</a>
+                            </li>
+                            <li>
+                                <FaInstagramSquare className="icon"/> 
+                                <a href="https://www.instagram.com/prod_by_veezee?igsh=NnhlZGo2cWt3Ym94&utm_source=qr"
+                                 className="link">https://www.instagram.com/prod_by_veezee?igsh=NnhlZGo2cWt3Ym94&utm_source=qr</a>
+                            </li>
+                            <li>
+                                <FaVk className="icon"/> 
+                                <a href="https://vk.com/lil_veezee" className="link">https://vk.com/lil_veezee</a>
+                            </li>
+                            <li>
+                                <FaTwitterSquare className="icon"/> 
+                                <a href="https://x.com/Prod_by_VeeZee" className="link">https://x.com/Prod_by_VeeZee</a> 
+                            </li>
                         </ul>
                     </div>
                                         
                     <div className="mgmt">
-                        <span className="mgmt-header">Full Stack Developer (MGMT)</span>
+                        <span className="mgmt-header">Full Stack Developer (MGMT) (Provotorov Nikita)</span>
                         <ul className="list-mgmt">
-                            <li><FaPhoneSquare /> - +7 917-329-08 10</li>
-                            <li><MdEmail /> - provotorovnikita@gmail.com</li>
-                            <li><FaTelegram /> - https://t.me/n200p_7</li>
-                            <li><FaVk /> - https://vk.com/n207p</li>
+                            <li><FaPhoneSquare className="icon"/><span className="link">+7 917-329-08 10</span></li>
+                            <li><MdEmail className="icon"/> <span className="link">provotorovnikita@gmail.com</span></li>
+                            <li>
+                                <FaTelegram className="icon"/> 
+                                <a href="https://t.me/n200p_7" className="link">https://t.me/n200p_7</a>
+                            </li>
+                            <li>
+                                <FaVk className="icon"/> 
+                                <a href="https://vk.com/n207p"className="link">https://vk.com/n207p</a>
+                            </li>
                         </ul>
 
                     </div>
@@ -67,19 +92,38 @@ export default function Contacts() {
                     <div className="young-bimpie">
                         <span className="young-bimpie-header">Young Bimpie (Prod. by GodDamnBimpieDisShiHard)</span>
                         <ul className="list-young-bimpie">
-                            <li><FaHeadphones /> - https://beatstars.com/youngbimpie2023</li>
-                            <li><FaPhoneSquare /> - +7 960-350-84 70</li>
-                            <li><MdEmail /> - Youngbimpie.14@gmail.com</li>
-                            <li><FaInstagramSquare /> - https://www.instagram.com/goddamnbimpie?igsh=OGVuODk2OG8zdWF6</li>
+                            <li>
+                                <FaHeadphones className="icon"/> 
+                                <a href="https://beatstars.com/youngbimpie2023" className="link">https://beatstars.com/youngbimpie2023</a>
+                            </li>
+                            <li>
+                                <FaPhoneSquare className="icon"/> 
+                                <span className="link">+7 960-350-84 70</span>
+                            </li>
+                            <li>
+                                <MdEmail className="icon"/> 
+                                <span className="link">Youngbimpie.14@gmail.com</span>
+                            </li>
+                            <li>
+                                <FaInstagramSquare className="icon"/> 
+                                <a href="https://www.instagram.com/goddamnbimpie?igsh=OGVuODk2OG8zdWF6"
+                                className="link">https://www.instagram.com/goddamnbimpie?igsh=OGVuODk2OG8zdWF6</a>
+                            </li>
                         </ul>
                     </div>
                     
                     <div className="thekillingmachinebeats">
-                        <span className="header-contacts">THEKILLINGMACHINEBEATS (prod.by KillingMachine)</span>
+                        <span className="thekillingmachinebeats-header">THEKILLINGMACHINEBEATS (prod.by KillingMachine)</span>
                         <ul className="list-thekillingmachinebeats">
-                            <li><FaHeadphones /> - beatstars.com/thekillingmachinebeat</li>
-                            <li><MdEmail /> - prodthekillingmachine@gmail.com</li>
-                            <li><FaInstagramSquare /> - https://www.instagram.com/thekillingmachinebeat?igsh=MXFmbG0zdGwwbjc0aw==</li>
+                            <li>
+                                <FaHeadphones className="icon"/> 
+                                <a href="beatstars.com/thekillingmachinebeat" className="link">beatstars.com/thekillingmachinebeat</a>
+                            </li>
+                            <li><MdEmail className="icon"/> <span className="link">prodthekillingmachine@gmail.com</span></li>
+                            <li>
+                                <FaInstagramSquare className="icon"/>
+                                <a href="https://www.instagram.com/thekillingmachinebeat?igsh=MXFmbG0zdGwwbjc0aw==" 
+                                className="link">https://www.instagram.com/thekillingmachinebeat?igsh=MXFmbG0zdGwwbjc0aw==</a></li>
                         </ul>
                     </div>
                     

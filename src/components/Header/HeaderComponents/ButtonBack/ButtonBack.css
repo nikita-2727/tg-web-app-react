@@ -16,6 +16,6 @@
     font-size: calc(var(--index) * 1.5);
     border-radius: var(--index) 0 0 var(--index) ;
 
-    background-color: var(var(--tg-theme-accent-text-color));
-    color: aliceblue;
+    background-color: #007d21;
+    color: whitesmoke;
 }

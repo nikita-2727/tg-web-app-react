@@ -16,27 +16,90 @@ ul {
 
 .others li {
     display: inline-block;
-    line-height: calc(var(--index) * 1.7);
+    line-height: calc(var(--index) * 2);
     margin-top: calc(var(--index) * 1.3);
+    
     width: auto;
 }
 
 .header-contacts {
     font-family: Comic Sans MS, Comic Sans, cursive;
-    font-size: calc(var(--index) * 2);
+    font-size: calc(var(--index) * 2.75);
     color: #00ff2a;
 }
 
 .subtitle {
     display: block;
-    width: 30vw;
-
     font-weight: 600;
-    font-size: calc(var(--index) * 1.2);
+    font-size: calc(var(--index) * 2);
 }
 
 
 .link {
     font-family: Arial Narrow, sans-serif;
+    font-size: calc(var(--index) * 1.75);
     color: rgb(0, 140, 16);
+}
+
+
+
+
+.creators,
+.cooperation {
+    background-color: #111;
+    margin: var(--index);
+    padding: var(--index);
+    border-radius: var(--index);
+    margin-top: calc(var(--index) * 2);
+}
+
+.ceo-header, 
+.mgmt-header {
+    display: block;
+    font-weight: 600;
+    margin-top: calc(var(--index) * 1.5);
+    margin-bottom: calc(var(--index) * 1.5);
+    font-size: calc(var(--index) * 1.8);
+    color: #00ff2a;
+}
+
+.creators .icon {
+    bottom: 0;
+    color: rgb(0, 140, 16);
+}
+
+.icon { 
+    bottom: 0;
+    color: whitesmoke;
+}
+
+.creators li {
+    margin-top: calc(var(--index) * .5);
+}
+
+.header-contacts-creators {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: calc(var(--index) * 2.75);
+    color: whitesmoke;
+}
+
+.creators .link {
+    color: whitesmoke;
+    margin-left: var(--index);
+}
+
+
+.cooperation .link {
+    color: rgb(0, 140, 16);
+    margin-left: var(--index);
+}
+
+.young-bimpie-header,
+.thekillingmachinebeats-header {
+    display: block;
+    font-weight: 600;
+    margin-top: calc(var(--index) * 1.5);
+    margin-bottom: calc(var(--index) * 1.5);
+    font-size: calc(var(--index) * 1.8);
+    color: whitesmoke;
 }
