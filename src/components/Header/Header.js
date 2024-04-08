@@ -11,7 +11,7 @@ class Header extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            buyCounter: 0
+            buyCounter: 0,
         }
         this.sumCounterProduct = this.sumCounterProduct.bind(this)
 
@@ -21,10 +21,8 @@ class Header extends Component {
     render() {
         return (
             <div className='header' >
-                <div className='header-text'>
-                    <h1 className='market-name'>VeeZee Prod. (Collab)</h1>
-                </div>
-                <div className='header-menu'>
+
+                <div className='header-menu' id='menu'>
                     <Link to="/about-as" className={'custom-link ' + (this.props.selectedPage === 1 ? 'selected-block' : '')}>
                         <span className={'header-menu-button ' + (this.props.selectedPage === 1 ? 'selected-button' : '')}>About us</span>
                     </Link>
@@ -46,6 +44,32 @@ class Header extends Component {
         )
     }
 
+    componentDidMount() {
+        document.body.addEventListener('scroll', this.headerFixedRelative, { passive: true })
+    }
+
+    componentWillUnmount() {
+        document.body.removeEventListener('scroll', this.headerFixedRelative)
+    }
+
+    // функции для обработки скролла страницы
+    headerFixedRelative() {
+        let menu = document.getElementById('menu')
+        // если меню выходит за верхнюю границу то фиксируем его в верхней части видимой области
+        if (window.pageYOffset > 200) {
+            menu.style.background = 'linear-gradient(to bottom, black, transparent 600%)'
+            menu.style.position = 'fixed'
+            menu.style.top = 0
+        } else {
+            menu.style.background = 'linear-gradient(to bottom, transparent, black 99%)'
+            menu.style.position = 'absolute'
+            menu.style.top = 'calc(var(--index) * 10.5)'
+        }
+        console.log(window.pageYOffset)
+    }
+
+
+    // функции пересчета количества товаров в корзине
     sumCounterProduct() {
         if (document.getElementsByClassName('counter') !== undefined) {
             let elements = document.getElementsByClassName('counter');
@@ -68,6 +92,7 @@ class Header extends Component {
             element[0].style.display = 'flex'
         }
     }
+
 }
 
 export default Header;

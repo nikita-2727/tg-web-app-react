@@ -1,5 +1,7 @@
+
 import ListProducts from "../components/ListProducts/Products";
 import Header from "../components/Header/Header";
+
 
 export default function MainPage(props) {
     return (

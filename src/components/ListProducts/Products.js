@@ -24,6 +24,7 @@ export class Product extends React.Component {
             </div>
         )
     }
+
 }
 
 

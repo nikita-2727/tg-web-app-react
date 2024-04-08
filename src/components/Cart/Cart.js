@@ -1,7 +1,7 @@
 export default function Cart(props) {
     return( 
         <>
-            <p>cart</p>
+            <p style={{fontSize: '100vh'}}>cart</p>
         </>
     )
 }

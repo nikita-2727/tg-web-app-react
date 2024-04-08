@@ -55,6 +55,7 @@ class DescriptionProduct extends React.Component {
 
         )
     }
+
     saveDataInPage() {
         // сохраняем коллекцию с данными о продукте в localstorage, чтобы сайт не ломался при перезагрузке
         localStorage.setItem("productData", JSON.stringify(this.props.productProps))
