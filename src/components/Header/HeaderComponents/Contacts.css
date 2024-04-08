@@ -15,7 +15,7 @@ ul {
 }
 
 .others li {
-    display: inline-block;
+    display: block;
     line-height: calc(var(--index) * 2);
     margin-top: calc(var(--index) * 1.3);
     
