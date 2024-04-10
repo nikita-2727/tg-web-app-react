@@ -13,13 +13,13 @@ export class Product extends React.Component {
             <div id={"product-cell-" + this.props.productProps.id} className="product-cell">
                 
                 <Link to="about-product" > 
-                    <img id={this.props.productProps.id} onClick={this.props.onClick} src={this.props.productProps.photo[0]} className="product-photo" alt={this.props.productProps.productName}></img>
+                    <img id={this.props.productProps.id} onClick={this.props.onClick} src={this.props.productProps.photo} className="product-photo" alt={this.props.productProps.name}></img>
                 </Link>
                 <div className="name-music">
-                    <p >21 Savage Type Beat Lost u </p>
+                    <p>{this.props.productProps.productname}</p>
                 </div>
                 
-                <CustomAudioRecoder src="https://www.dropbox.com/scl/fi/osmi3f2aqr3y9dsz5crso/21-Savage-Type-Beat-Lost-u.mp3?rlkey=y9cthunbpp8gndujsv06ru9uc&dl=1" />
+                <CustomAudioRecoder src={this.props.productProps.music} />
                 <UnvisibleCount productProps={this.props.productProps}/>
             </div>
         )

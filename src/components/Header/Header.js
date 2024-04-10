@@ -65,7 +65,6 @@ class Header extends Component {
             menu.style.position = 'absolute'
             menu.style.top = 'calc(var(--index) * 10.5)'
         }
-        console.log(window.pageYOffset)
     }
 
 

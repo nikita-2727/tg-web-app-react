@@ -1,0 +1,22 @@
+:root {
+    --index: calc(1vh + 1vw)
+}
+
+.about-block {
+    background-color: #002301;
+    padding: var(--index);
+    margin: var(--index);
+    margin-top: calc(var(--index) * 5);
+    border-radius: var(--index);
+}
+
+.heading-about-us {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    color: rgb(0, 255, 47);
+}
+
+.about {
+    font-family: Arial Narrow, sans-serif;
+    font-size: calc(var(--index) * 1.5);
+    color: whitesmoke;
+}

@@ -15,7 +15,7 @@
 
 .header-menu {
     position: absolute;
-    background: linear-gradient(to bottom, transparent, black 99%);
+    background: linear-gradient(to bottom, transparent, black 33%);
     z-index: 100;
     display: flex;
     align-items: center;
