@@ -43,7 +43,7 @@ function ListPerformers(props) {
         performersComponents.push(<a key={index} className={performer.replace(' ', '-') + ' performer-button'} onClick={(e) => {
             e.stopPropagation() // убираем обработчик клика родительского элемента с дочернего
             let idLabel = e.target.className.split(' ')[0]
-            let element = document.getElementById('21-Savage')
+            let element = document.getElementById(idLabel)
             element.scrollIntoView()
             window.scroll({top: window.pageYOffset - 50})
         }}>{performer}</a>)
