@@ -65,3 +65,33 @@
     align-items: center;
 
 }
+
+.label-block {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    margin-top: calc(var(--index) * 2.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.performer-block {
+    margin: var(--index);
+    
+    border-radius: var(--index);
+    background-color: #202020;
+    height: calc(var(--index) * 5);
+    overflow: hidden;
+}
+
+.performer-button {
+    font-family: var(--font);
+    font-size: calc(var(--index) * 1.4);
+    display: inline-block;
+    margin: calc(var(--index) * .5);
+    padding: var(--index);
+    background-color: black;
+    border-radius: var(--index);
+    cursor: pointer;
+}
