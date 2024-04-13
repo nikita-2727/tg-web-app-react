@@ -114,7 +114,6 @@ function ListProducts(props) {
         listProductComponent.push(<Product key={index} productProps={props.products[index]}  onClick={props.onClick}/>)
 
     }
-    console.log(listProductComponent)
     return (
         <>
             <ListPerformers />

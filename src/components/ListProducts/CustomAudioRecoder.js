@@ -18,18 +18,21 @@ class CustomAudioRecoder extends React.Component {
         }
         
         this.audio = new Audio(this.props.src)
+
+        this.audio.preload = 'none'
         this.audio.oncanplaythrough = () => {
             this.setState({isLoadAudio: true})
             if (this.state.isPlayFlag) {
                 this.interval = setInterval(() => this.setState({timeAudio: this.state.timeAudio + 1}), 1000)
             }
-            
         }
          // при завершении кнопка паузы меняется на play,счетчик обнуляется и выключается
         this.audio.onended = () => {
             clearInterval(this.interval)
             this.setState({isPlayFlag: false, timeAudio: 0})
         }
+
+        
     }
 
 
