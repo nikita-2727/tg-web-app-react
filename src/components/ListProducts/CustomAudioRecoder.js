@@ -3,6 +3,8 @@ import './CustomAudioRecoder.css'
 
 import { FaPlay } from "react-icons/fa";
 import { FaPause } from "react-icons/fa";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+
 
 
 class CustomAudioRecoder extends React.Component {
@@ -11,10 +13,18 @@ class CustomAudioRecoder extends React.Component {
 
         this.state = {
             isPlayFlag: false,
+            isLoadAudio: false,
             timeAudio: 0,
         }
         
         this.audio = new Audio(this.props.src)
+        this.audio.oncanplaythrough = () => {
+            this.setState({isLoadAudio: true})
+            if (this.state.isPlayFlag) {
+                this.interval = setInterval(() => this.setState({timeAudio: this.state.timeAudio + 1}), 1000)
+            }
+            
+        }
          // при завершении кнопка паузы меняется на play,счетчик обнуляется и выключается
         this.audio.onended = () => {
             clearInterval(this.interval)
@@ -32,14 +42,20 @@ class CustomAudioRecoder extends React.Component {
                 onClick={() => {
                     this.audio.play()
                     this.setState({isPlayFlag: true}) // при клике на play эта кнопка исчезает и появляется кнопка pause, меняется флаг воспроизведения
-                    this.interval = setInterval(() => this.setState({timeAudio: this.state.timeAudio + 1}), 1000) // обновляю состояние времени каждую секунду, если флаг воспроизведения true
+                    if (this.state.isLoadAudio) {
+                        this.interval = setInterval(() => this.setState({timeAudio: this.state.timeAudio + 1}), 1000) // обновляю состояние времени каждую секунду, если флаг воспроизведения true
+                    } 
+                    
                 }} />
-                <FaPause className="pause" style={{display: !this.state.isPlayFlag ? 'none' : 'block'}} 
+                <FaPause className="pause" style={{display: this.state.isPlayFlag && this.state.isLoadAudio ? 'block' : 'none'}} 
                 onClick={() => {
                     this.audio.pause()
                     this.setState({isPlayFlag: false})
                     clearInterval(this.interval) // перестаю обновлять состояние
                 }} />
+
+                <AiOutlineLoading3Quarters className="loading" style={{display: this.state.isPlayFlag && !this.state.isLoadAudio ? "block" : "none"}}/>
+
                 <div className="time-line"></div>
             </div>
         )
