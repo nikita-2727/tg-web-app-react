@@ -20,7 +20,7 @@ export class Product extends React.Component {
                 </div>
                 
                 <CustomAudioRecoder src={this.props.productProps.music} />
-                <UnvisibleCount />
+                <UnvisibleCount productProps={this.props.productProps}/>
             </div>
         )
     }
