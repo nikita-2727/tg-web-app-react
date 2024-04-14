@@ -33,19 +33,6 @@ class App extends React.Component {
         }))
         .catch((error) => console.log(error)) 
 
-        
-        fetch('http://localhost:3001/addChatId', {
-            method: 'POST',
-            body: JSON.stringify(tgData),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log('Запрос отправлен')
-            }
-        })
     }
     
     render() {
