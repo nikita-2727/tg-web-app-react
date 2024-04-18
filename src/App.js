@@ -8,8 +8,6 @@ import ContactsPage from "./Pages/ContactsPage";
 import CartPage from "./Pages/CartPage";
 import LoadingPage from "./Pages/LoadingPage";
 
-const tgData = window.Telegram.WebApp.initDataUnsafe
-
 class App extends React.Component {
     constructor (props) {
         super(props)

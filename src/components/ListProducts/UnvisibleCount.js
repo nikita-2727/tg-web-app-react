@@ -64,6 +64,7 @@ class UnvisibleCount extends React.Component {
                     <span className="add-to-cart">Added <IoIosCheckmarkCircle /></span>
                     <button className="delete-button" onClick={() => {
                         this.editStateCart(0)
+                        this.requestDelProduct()
                         setTimeout(() => window.sumCounterProduct(), 1) // ПОД ЗАМЕНУ
                     }}><RiDeleteBin5Fill className="icon-delete"/></button>
 
@@ -85,7 +86,45 @@ class UnvisibleCount extends React.Component {
         // отправляю на сервер данные продукта, который хотят добавить в корзину
         fetch('http://localhost:3001/api/add-product', {
             method: 'POST',
-            body: JSON.stringify(this.props.productProps, this.tgData),
+            body: JSON.stringify(this.props.productProps),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Запрос отправлен')
+            }
+        })
+        .then(() => {
+            console.log('ok')
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+
+        // получаем id пользователя из tg и отправляем на сервер
+        fetch('http://localhost:3001/getChatId', {
+            method: 'POST',
+            body: JSON.stringify(this.tgData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Запрос отправлен')
+            }
+        })
+    }
+
+
+    requestDelProduct() {
+
+        // отправляю на сервер данные продукта, который хотят добавить в корзину
+        fetch('http://localhost:3001/api/del-product', {
+            method: 'POST',
+            body: JSON.stringify(this.props.productProps),
             headers: {
                 'Content-Type': 'application/json'
             }
