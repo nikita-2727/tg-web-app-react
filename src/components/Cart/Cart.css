@@ -1,0 +1,40 @@
+:root {
+    -index: calc(1vh + 1vw)
+}
+
+
+.cell-cart {
+    background-color: #101010;
+    margin: 2vw;
+    width: 94vw;
+    height: 15vh;
+    border-radius: var(--index);
+    border: calc(var(--index) * .4) solid #323232;
+}
+
+.photo-cart {
+    width: 15vh;
+    height: 15vh;
+    border-radius: var(--index) 0 0 var(--index);
+}
+
+.name-box {
+    display: flex;
+    justify-content: center;
+    margin-top: -15vh;
+    margin-left: 15vh;
+    width: 70vw;
+    height: 9vh;
+}
+.name-cart {
+    font-family: Arial Narrow, sans-serif;
+    font-size: calc(var(--index) * 2);
+    width: 65vw;
+    color: whitesmoke;
+}
+
+.download-cart {
+    margin-left: 80vw;
+    transform: scale(1.5);
+    color: rgb(0, 172, 0);
+}
