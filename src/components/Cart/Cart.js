@@ -18,7 +18,7 @@ export default function Cart(props) {
             console.log(totalCount)
             let totalPrice = 0
             for (let product of data) {
-                totalPrice += product.price
+                totalPrice += 50
             }
             setTotalCount(totalPrice)
         }
@@ -56,7 +56,7 @@ function ProductCellCart(props) {
                 <span className='name-cart'>{props.product.productname}</span>
             </div>
             
-            <span className='price-cart'>{props.product.price} $</span>
+            <span className='price-cart'>50 $</span>
             <a  href={props.product.music}><FaDownload className="download-cart"/></a>
         </div>
     )
