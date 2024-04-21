@@ -21,13 +21,14 @@ class UnvisibleCount extends React.Component {
 
         this.tgData = window.Telegram.WebApp.initDataUnsafe
 
-        if (this.props.mode == 'sold') { // если товар уже в корзине, то оставляем счетчик 1
-            this.setState({counter: 1})
-        } 
     }
 
     
     render() {
+        if (this.props.mode == 'sold') { // если товар уже в корзине, то оставляем счетчик 1
+            this.setState({counter: 1})
+        } 
+
         if (this.state.counter === 1) {
             return(
                 <div className="delete-check-mark-cart">
