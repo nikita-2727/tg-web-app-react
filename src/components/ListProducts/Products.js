@@ -111,9 +111,6 @@ function ListProducts(props) {
         .then(data => changeData(data))
     }, [])
 
-    setTimeout(() => console.log(dataInCart), 1000)
-    console.log(props.products)
-
     const listProductComponent = []
     if (dataInCart) { // если данные с бд получены
         for (let index = 0; index < props.products.length; index++) {

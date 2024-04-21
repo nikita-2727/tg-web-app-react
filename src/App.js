@@ -13,11 +13,14 @@ class App extends React.Component {
         super(props)
         this.state = {
             id: 0,
-            isLoaded: false,
+            isLoadedData: false,
+            isGetChatId: false,
             productsDescription: undefined
         }
         this.getValueId = this.getValueId.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
+
+        this.tgData = window.Telegram.WebApp.initDataUnsafe
     }
 
     componentDidMount() {
@@ -27,14 +30,29 @@ class App extends React.Component {
         .then(response => response.json()) // переводим содержимое body в json
         .then(data => this.setState({ // закидываем полученный объект в состояние и обновляем статус загрузки страницы
             productsDescription: data,
-            isLoaded: true
+            isLoadedData: true
         }))
         .catch((error) => console.log(error)) 
+
+        // получаем id пользователя для получения доступа k его корзине
+        fetch('http://localhost:3001/getChatId', {
+            method: 'POST',
+            body: JSON.stringify(this.tgData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Запрос отправлен')
+            }
+        })
+        .then(() => this.setState({isGetChatId: true}))
 
     }
     
     render() {
-        if (this.state.isLoaded) { /* пока не получили данные от сервера, рендер станицы загрузки
+        if (this.state.isLoadedData && this.state.isGetChatId) { /* пока не получили данные от сервера, рендер станицы загрузки
         иначе возвращаем маршрутизатор с главной страницей списка продуктов */
             return (
                 <BrowserRouter>
