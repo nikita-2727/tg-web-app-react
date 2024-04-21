@@ -26,10 +26,8 @@ class UnvisibleCount extends React.Component {
 
     
     render() {
-        if (this.props.mode == 'sold') { 
-            // пересичтываем общее количество в корзине
-            window.sumCounterProduct()
-        } 
+        // пересичтываем общее количество в корзине
+        window.sumCounterProduct()
 
         if (this.state.counter === 1) {
             return(
