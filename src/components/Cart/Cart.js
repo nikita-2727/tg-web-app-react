@@ -6,7 +6,7 @@ import './Cart.css';
 
 
 export default function Cart(props) {
-    const [totalCount, setTotalCount] = useState(undefined)
+    const [totalCount, setTotalCount] = useState(0)
     const [data, getdata] = useState(undefined)
     
 
@@ -14,21 +14,21 @@ export default function Cart(props) {
         fetch('http://localhost:3001/api/cart', {method: 'GET'})
         .then(response => response.json())
         .then(response => getdata(response))
-        .then(() => {
-            console.log(data)
-            let totalPrice = 0
-            for (let product of data) {
-                totalPrice += 50
-            }
-            setTotalCount(totalPrice)
-        })
+        // .then(() => {
+        //     console.log(data)
+        //     let totalPrice = 0
+        //     for (let product of data) {
+        //         totalPrice += 50
+        //     }
+        //     setTotalCount(totalPrice)
+        // })
     }, [])
 
 
     const listProductsComponents = []
         
 
-    if (data && totalCount) {
+    if (data) {
         
         for (let product of data) {
             listProductsComponents.push(<ProductCellCart product={product}></ProductCellCart>)   
