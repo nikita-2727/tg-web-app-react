@@ -12,7 +12,8 @@ class UnvisibleCount extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            counter: 0,
+             // если товар уже в корзине, то оставляем счетчик 1 и 
+            counter: this.props.mode == 'sold'  ? 1 : 0,
             lizingExclusiveFlag: false, 
         }
 
@@ -26,9 +27,8 @@ class UnvisibleCount extends React.Component {
     
     render() {
         if (this.props.mode == 'sold') { 
-            // если товар уже в корзине, то оставляем счетчик 1 и пересичтываем общее количество в корзине
+            // пересичтываем общее количество в корзине
             window.sumCounterProduct()
-            this.setState({counter: 1})
         } 
 
         if (this.state.counter === 1) {
