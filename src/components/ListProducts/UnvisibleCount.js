@@ -24,7 +24,22 @@ class UnvisibleCount extends React.Component {
 
     
     render() {
-        if (this.state.counter === 0 && !this.state.lizingExclusiveFlag) {
+        if (this.props.mode == 'sold' || this.state.counter === 1) {
+            return(
+                <div className="delete-check-mark-cart">
+                    <span className="add-to-cart">Added <IoIosCheckmarkCircle /></span>
+                    <button className="delete-button" onClick={() => {
+                        this.editStateCart(0)
+                        this.requestDelProduct()
+                        setTimeout(() => window.sumCounterProduct(), 1) // ПОД ЗАМЕНУ
+                    }}><RiDeleteBin5Fill className="icon-delete"/></button>
+
+                    {/* псевдоэлемент для быстрого подсчёта товаров в корзине без обращения к серверу 
+                    возможно переделаю в пересчет длины таблицы*/}
+                    <span className="counter" style={{display: "none"}}>{this.state.counter}</span> 
+                </div>
+            )
+        } else if (this.state.counter === 0 && !this.state.lizingExclusiveFlag) {
             return (
                 <>
                     <button className="button-cart" onClick={() => {
@@ -58,22 +73,7 @@ class UnvisibleCount extends React.Component {
                     <span className="counter" style={{display: "none"}}>{this.state.counter}</span> 
                 </div>
             );
-        } else {
-            return(
-                <div className="delete-check-mark-cart">
-                    <span className="add-to-cart">Added <IoIosCheckmarkCircle /></span>
-                    <button className="delete-button" onClick={() => {
-                        this.editStateCart(0)
-                        this.requestDelProduct()
-                        setTimeout(() => window.sumCounterProduct(), 1) // ПОД ЗАМЕНУ
-                    }}><RiDeleteBin5Fill className="icon-delete"/></button>
-
-                    {/* псевдоэлемент для быстрого подсчёта товаров в корзине без обращения к серверу 
-                    возможно переделаю в пересчет длины таблицы*/}
-                    <span className="counter" style={{display: "none"}}>{this.state.counter}</span> 
-                </div>
-            )
-        }
+        } 
     }
 
     editStateCart(quantity) {this.setState({counter: quantity})}

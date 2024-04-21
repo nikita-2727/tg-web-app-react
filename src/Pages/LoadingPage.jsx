@@ -14,7 +14,7 @@ class LoadingPage extends React.Component {
                     <span style={{color: '#00b649'}}>Hey Bro,</span> it's loading...</p>
                 
                 <motion.img src="https://i.postimg.cc/k4Dmgdsw/93-1.png" 
-                style={{height: '20vh', width: '35vw', userSelect: 'none', position: 'absolute', bottom: '5vh', right: '7vw'}}
+                style={{height: '20vh', width: '20vh', userSelect: 'none', position: 'absolute', bottom: '5vh', right: '7vw'}}
                 animate={{rotate: 720}}
                 transition={{repeat: Infinity, repeatType: 'loop', duration: 7, type: 'just', ease: 'easeInOut'}}></motion.img>
             </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import './Products.css'
@@ -20,7 +20,7 @@ export class Product extends React.Component {
                 </div>
                 
                 <CustomAudioRecoder src={this.props.productProps.music} />
-                <UnvisibleCount productProps={this.props.productProps}/>
+                <UnvisibleCount productProps={this.props.productProps} productsInCart={this.props.productsInCart} mode={this.props.mode}/>
             </div>
         )
     }
@@ -102,18 +102,42 @@ function LabelMusic(props) {
 
 
 function ListProducts(props) {
+    const [dataInCart, changeData] = useState(undefined)
+
+    useEffect(() => {
+        // получаем данные из корзины, чтобы знать какой рендерить unvisibleCount
+        fetch('http://localhost:3001/api/cart', {method: 'GET'})
+        .then(data => data.json())
+        .then(data => changeData(data))
+    }, [])
+
+    setTimeout(() => console.log(dataInCart), 1000)
+    console.log(props.products)
+
     const listProductComponent = []
-    for (let index = 0; index < props.products.length; index++) {
+    if (dataInCart) { // если данные с бд получены
+        for (let index = 0; index < props.products.length; index++) {
+            
+            if (LabelMusic({key: -index-1, productProps: props.products, index: index})) {
+                listProductComponent.push(<LabelMusic key={-index - 1} productProps={props.products} index={index}></LabelMusic>)
+            }
         
-        if (LabelMusic({key: -index-1, productProps: props.products, index: index})) {
-            listProductComponent.push(<LabelMusic key={-index - 1} productProps={props.products} index={index}></LabelMusic>)
+            let fuckingFlag = false
+            // добавляю в массив компоненты товаров и передаю словарь со свойствами каждого товара в каждую компоненту по отдельности
+            for (let indexCart = 0; indexCart < dataInCart.length; indexCart++) {
+                if (dataInCart[indexCart].productname == props.products[index].productname) {
+                    // если данные товара из корзины совпадают с рендерируемым, то передаем мод куплено
+                    listProductComponent.push(<Product key={index} productProps={props.products[index]} onClick={props.onClick} mode='sold'/>)
+                    fuckingFlag = true
+                    break
+                } 
+            } if (!fuckingFlag) {
+                listProductComponent.push(<Product key={index} productProps={props.products[index]} onClick={props.onClick} mode={undefined}/>)
+            }
+
         }
-       
-
-        // добавляю в массив компоненты товаров и передаю словарь со свойствами каждого товара в каждую компоненту по отдельности
-        listProductComponent.push(<Product key={index} productProps={props.products[index]}  onClick={props.onClick}/>)
-
     }
+
     return (
         <>
             <ListPerformers />
