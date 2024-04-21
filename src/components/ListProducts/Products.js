@@ -109,6 +109,8 @@ function ListProducts(props) {
         fetch('http://localhost:3001/api/cart', {method: 'GET'})
         .then(data => data.json())
         .then(data => changeData(data))
+
+        
     }, [])
 
     const listProductComponent = []

@@ -34,7 +34,22 @@
 }
 
 .download-cart {
-    margin-left: 80vw;
-    transform: scale(1.5);
+    
+    transform: scale(1.2);
     color: rgb(0, 172, 0);
+    transition: transform 1s, opacity 1s;
+}
+.download-cart:hover {
+    transform: scale(1.4);
+    opacity: .7;
+}
+.download-cart:active {
+    transform: scale(1);
+}
+
+.price-cart {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    color: chartreuse;
+    margin-left: 28vw;
+    margin-right: 45vw;
 }

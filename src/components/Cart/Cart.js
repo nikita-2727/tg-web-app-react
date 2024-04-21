@@ -7,26 +7,37 @@ import './Cart.css';
 
 export default function Cart(props) {
     const [data, getdata] = useState(undefined)
+    const [totalCount, setTotalCount] = useState(0)
 
     useEffect(() => {
         fetch('http://localhost:3001/api/cart', {method: 'GET'})
         .then(response => response.json())
         .then(response => getdata(response))
+
+        if (data) {
+            console.log(totalCount)
+            let totalPrice = 0
+            for (let product of data) {
+                totalPrice += product.price
+            }
+            setTotalCount(totalPrice)
+        }
     }, [])
 
 
     const listProductsComponents = []
         
 
-    console.log(data)
     if (data) {
+        
         for (let product of data) {
-            listProductsComponents.push(<ProductCellCart product={product}></ProductCellCart>)
+            listProductsComponents.push(<ProductCellCart product={product}></ProductCellCart>)   
         }
-        console.log(listProductsComponents)
+        
         return ( 
             <>
                 {listProductsComponents.map(product => product)}
+                <p className='total-cart'>{totalCount} $</p>
             </>
         )
     } else {
@@ -45,8 +56,8 @@ function ProductCellCart(props) {
                 <span className='name-cart'>{props.product.productname}</span>
             </div>
             
-            
-            <a className="download-cart" href={props.product.music}><FaDownload /></a>
+            <span className='price-cart'>{props.product.price} $</span>
+            <a  href={props.product.music}><FaDownload className="download-cart"/></a>
         </div>
     )
 }
