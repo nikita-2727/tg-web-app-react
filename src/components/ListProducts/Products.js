@@ -20,7 +20,7 @@ export class Product extends React.Component {
                 </div>
                 
                 <CustomAudioRecoder src={this.props.productProps.music} />
-                <UnvisibleCount productProps={this.props.productProps} productsInCart={this.props.productsInCart} mode={this.props.mode}/>
+                <UnvisibleCount productProps={this.props.productProps} price={this.props.price} mode={this.props.mode}/>
             </div>
         )
     }
@@ -179,12 +179,12 @@ function ListProducts(props) {
             for (let indexCart = 0; indexCart < dataInCart.length; indexCart++) {
                 if (dataInCart[indexCart].productname == props.products[index].productname) {
                     // если данные товара из корзины совпадают с рендерируемым, то передаем мод куплено
-                    listProductComponent.push(<Product key={index} productProps={props.products[index]} onClick={props.onClick} mode='sold'/>)
+                    listProductComponent.push(<Product key={index} productProps={props.products[index]} onClick={props.onClick} price={dataInCart[indexCart].price} mode='sold'/>)
                     fuckingFlag = true
                     break
                 } 
             } if (!fuckingFlag) {
-                listProductComponent.push(<Product key={index} productProps={props.products[index]} onClick={props.onClick} mode={undefined}/>)
+                listProductComponent.push(<Product key={index} productProps={props.products[index]} onClick={props.onClick} price={undefined} mode={undefined}/>)
             }
 
         }

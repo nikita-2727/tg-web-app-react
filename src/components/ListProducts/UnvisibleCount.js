@@ -35,6 +35,8 @@ class UnvisibleCount extends React.Component {
                 <div className="delete-check-mark-cart">
                     <span className="add-to-cart">Added <IoIosCheckmarkCircle /></span>
                     <button className="delete-button" onClick={() => {
+                        // при перезагрузке страницы у нас исчезают цены, поэтому подгружаем их из базы данных для конкретного продукта
+                        this.props.productProps.price = this.props.price 
                         this.editStateCart(0)
                         this.requestDelProduct()
                         setTimeout(() => window.sumCounterProduct(), 1) // ПОД ЗАМЕНУ
