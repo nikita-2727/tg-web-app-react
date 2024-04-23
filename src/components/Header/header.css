@@ -3,24 +3,24 @@
 }
 
 .header {
-    background: url('https://i.postimg.cc/W4NVxZJB/photo-2024-04-06-23-24-42.jpg');
-    background-position: center;
+    background: url('https://i.postimg.cc/Zq36c7Jy/photo-2024-04-22-18-44-06.jpg');
+
     background-repeat: no-repeat;
     background-size: cover;
     font-family: Arial Narrow, sans-serif;
-    margin-bottom: calc(var(--index) * 3.5);
-    height: calc(var(--index) * 12);
+    margin-bottom: calc(var(--index) * 1);
+    height: calc(var(--index) * 17);
 }
 
 
 .header-menu {
     position: absolute;
-    background: linear-gradient(to bottom, transparent, black 33%);
+    background: linear-gradient(to top, black, transparent 150%);
     z-index: 100;
     display: flex;
     align-items: center;
     height: calc(var(--index) * 5);
-    top: calc(var(--index) * 10.5);
+    top: calc(var(--index) * 12);
     transition: position 1s;
 
 }

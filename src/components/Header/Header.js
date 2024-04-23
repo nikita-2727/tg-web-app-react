@@ -63,7 +63,7 @@ class Header extends Component {
         } else {
             menu.style.background = 'linear-gradient(to bottom, transparent, black 99%)'
             menu.style.position = 'absolute'
-            menu.style.top = 'calc(var(--index) * 10.5)'
+            menu.style.top = 'calc(var(--index) * 12)'
         }
     }
 

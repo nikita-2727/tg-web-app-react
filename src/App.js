@@ -7,6 +7,7 @@ import ReviewsPage from "./Pages/ReviewsPage";
 import ContactsPage from "./Pages/ContactsPage";
 import CartPage from "./Pages/CartPage";
 import LoadingPage from "./Pages/LoadingPage";
+import PayPage from "./Pages/PayPage";
 
 class App extends React.Component {
     constructor (props) {
@@ -65,6 +66,7 @@ class App extends React.Component {
                         <Route path="reviews" element={<ReviewsPage />}></Route>
                         <Route path="contacts" element={<ContactsPage />}></Route>
                         <Route path="cart" element={<CartPage />}></Route>
+                        <Route path="cart/pay" element={<PayPage />}></Route>
                     </Routes>
                 </BrowserRouter>
             )

@@ -4,6 +4,7 @@
 
 
 .cell-cart {
+    user-select: none;
     background-color: #101010;
     margin: 2vw;
     width: 94vw;
@@ -34,7 +35,6 @@
 }
 
 .download-cart {
-    
     transform: scale(1.2);
     color: rgb(0, 172, 0);
     transition: transform 1s, opacity 1s;
@@ -52,4 +52,36 @@
     color: chartreuse;
     margin-left: 28vw;
     margin-right: 45vw;
+}
+
+.total-cart {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    color: whitesmoke;
+    font-weight: 900;
+    margin-left: 2vw;
+    margin-top: 3vh;
+    user-select: none;
+
+}
+
+.buy-button {
+
+    font-family: Arial Narrow, sans-serif;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    padding: calc(var(--index) * 1.4) calc(var(--index) * 9);
+
+    text-decoration: none;
+    font-weight: 600;
+    font-size: calc(var(--index) * 2);
+    border-radius: 0 var(--index) var(--index) 0;
+
+    background: linear-gradient(90deg, rgb(6, 90, 0), rgb(2, 149, 11));
+    color: whitesmoke;
+
+    user-select: none;
+
 }

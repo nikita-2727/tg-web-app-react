@@ -9,13 +9,15 @@
     bottom: 0;
     right: 0;
 
-    padding: calc(var(--index) * 1.7) calc(var(--index) * 2.5);
+    padding: calc(var(--index) * 1.7) calc(var(--index) * 1.5);
 
     text-decoration: none;
     font-weight: 600;
     font-size: calc(var(--index) * 1.5);
     border-radius: var(--index) 0 0 var(--index) ;
 
-    background-color: #007d21;
-    color: whitesmoke;
+    background-color: #ffffff;
+    color: #1dab04;
+
+    user-select: none;
 }

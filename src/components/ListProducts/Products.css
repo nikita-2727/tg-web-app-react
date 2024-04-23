@@ -67,12 +67,15 @@
 }
 
 .label-block {
-    font-family: Comic Sans MS, Comic Sans, cursive;
-    margin-top: calc(var(--index) * 2.5);
+    margin-top: calc(var(--index) * 2);
     display: flex;
     align-items: center;
     justify-content: center;
+}
 
+.label-img {
+    width: 100vw;
+    height: (calc(var(--index) * 2));
 }
 
 
