@@ -46,7 +46,7 @@
 
 .custom-link {
     text-decoration: none;
-    color: whitesmoke;
+    color: rgb(245, 245, 245);
     transition: color .3s, transform .3s;
 }
 .custom-link:hover {
@@ -83,7 +83,7 @@
     margin: var(--index);
     
     border-radius: var(--index);
-    background-color: #202020;
+    background-color: #ffffff;
     height: calc(var(--index) * 5);
     overflow: hidden;
 }
@@ -96,6 +96,7 @@
     padding: var(--index);
     background-color: black;
     border-radius: var(--index);
+    color: #ffe62c;
     cursor: pointer;
 }
 
