@@ -47,13 +47,13 @@
 }
 
 .button-exclusive {
-    width: calc(var(--index) * 10);
+    width: calc(var(--index) * 10.5);
     background-color: whitesmoke;
     color: #000000;
 }
 
 .button-lizing {
-    width: calc(var(--index) * 6);
+    width: calc(var(--index) * 7);
     background-color: #1f1f1f;
     color: whitesmoke;
 }
