@@ -31,22 +31,73 @@ function ListPerformers(props) {
     const [isVisible, valueChange] = useState(false)
 
 
-    const performers = [
-        '21 Savage', 'Baby Tron', 'Big30', 'BossMan Dlow', 
-        'Est Gee', 'GetRichZay', 'Key Glock', 'Lil Baby', 'Lil Durk',
-        'Nardo Wick', 'Rio Da Yang Og', 'Rob49', 'YTB Fatt',
+    const performersAndButtonImg = [
+        {
+            name: '21 Savage',
+            url: 'https://i.postimg.cc/R0FhpNdT/photo-2024-04-25-20-57-24.jpg'
+        }, 
+        {
+            name: 'Baby Tron',
+            url: 'https://i.postimg.cc/cLW8hxPD/photo-2024-04-25-21-02-20.jpg'
+        }, 
+        {
+            name: 'Big30',
+            url: 'https://i.postimg.cc/cCYr72hy/photo-2024-04-25-21-13-47.jpg'
+        }, 
+        {
+            name: 'BossMan Dlow',
+            url: 'https://i.postimg.cc/sgK1JpYX/photo-2024-04-25-20-59-15.jpg'
+        }, 
+        {
+            name: 'Est Gee',
+            url: 'https://i.postimg.cc/T2WLX567/photo-2024-04-25-21-14-14.jpg'
+        }, 
+        {
+            name: 'GetRichZay',
+            url: 'https://i.postimg.cc/HsDJWWWp/photo-2024-04-25-21-14-47.jpg'
+        }, 
+        {
+            name: 'Key Glock',
+            url: 'https://i.postimg.cc/Zq7BJrng/photo-2024-04-25-21-10-13.jpg'
+        }, 
+        {
+            name: 'Lil Baby',
+            url: 'https://i.postimg.cc/yYcZ0gpg/photo-2024-04-25-21-01-14.jpg'
+        }, 
+        {
+            name: 'Lil Durk',
+            url: 'https://i.postimg.cc/9Xv94tbH/photo-2024-04-25-21-00-43.jpg'
+        }, 
+        {
+            name: 'Nardo Wick',
+            url: 'https://i.postimg.cc/sXGXyqtQ/photo-2024-04-25-21-00-01.jpg'
+        }, 
+        {
+            name: 'Rio Da Yang Og',
+            url: 'https://i.postimg.cc/4dYKymh3/photo-2024-04-25-21-12-04.jpg'
+        },
+        {
+            name: 'Rob49',
+            url: 'https://i.postimg.cc/QdqKyL3j/photo-2024-04-25-21-04-25.jpg'
+        },
+        {
+            name: 'YTB Fatt',
+            url: 'https://i.postimg.cc/G264ydkx/photo-2024-04-25-21-13-20.jpg'
+        },
     ]
 
     let index = 0
     const performersComponents = []
-    for (let performer of performers) {
-        performersComponents.push(<a key={index} className={performer.replaceAll(' ', '-') + ' performer-button'} onClick={(e) => {
+    for (let performer of performersAndButtonImg) {
+        performersComponents.push(<img key={index} className={performer.name.replaceAll(' ', '-') + ' performer-button'} 
+        src={performer.url}
+        onClick={(e) => {
             e.stopPropagation() // убираем обработчик клика родительского элемента с дочернего
             let idLabel = e.target.className.split(' ')[0]
             let element = document.getElementById(idLabel)
             element.scrollIntoView()
             window.scroll({top: window.pageYOffset - 30})
-        }}>{performer}</a>)
+        }}></img>)
         index++
     }
 
@@ -70,10 +121,10 @@ function ListPerformers(props) {
 }
 
 function LabelMusic(props) {
-    const performers = [
+    const performersAndLabelImg = [
         {
             name: '21 Savage',
-            url: ''
+            url: 'https://i.postimg.cc/50RR5FrF/photo-2024-04-23-22-18-49.jpg'
         }, 
         {
             name: 'Baby Tron',
@@ -85,7 +136,7 @@ function LabelMusic(props) {
         }, 
         {
             name: 'BossMan Dlow',
-            url: ''
+            url: 'https://i.postimg.cc/8cfnZz8X/photo-2024-04-23-23-03-28.jpg'
         }, 
         {
             name: 'Est Gee',
@@ -105,7 +156,7 @@ function LabelMusic(props) {
         }, 
         {
             name: 'Lil Durk',
-            url: ''
+            url: 'https://i.postimg.cc/V66hbFK8/photo-2024-04-23-22-51-51.jpg'
         }, 
         {
             name: 'Nardo Wick',
@@ -128,16 +179,16 @@ function LabelMusic(props) {
     let labelUrl = '' 
     let labelName = ''
 
-    for (let index_performer = 0; index_performer < performers.length; index_performer++ ) {
-        if (props.index == 0 && props.productProps[props.index].productname.includes(performers[index_performer].name)) {
-            labelUrl = performers[index_performer].url
-            labelName = performers[index_performer].name
+    for (let index_performer = 0; index_performer < performersAndLabelImg.length; index_performer++ ) {
+        if (props.index == 0 && props.productProps[props.index].productname.includes(performersAndLabelImg[index_performer].name)) {
+            labelUrl = performersAndLabelImg[index_performer].url
+            labelName = performersAndLabelImg[index_performer].name
             break
         }
         // если исполнитель этого товара не совпадает с исполнителем предыдущего, то рендерим фотографию-разделитель категории
-        if (props.productProps[props.index].productname.includes(performers[index_performer].name) && !(props.productProps[props.index - 1].productname).includes(performers[index_performer].name)) {
-            labelUrl = performers[index_performer].url
-            labelName = performers[index_performer].name
+        if (props.productProps[props.index].productname.includes(performersAndLabelImg[index_performer].name) && !(props.productProps[props.index - 1].productname).includes(performersAndLabelImg[index_performer].name)) {
+            labelUrl = performersAndLabelImg[index_performer].url
+            labelName = performersAndLabelImg[index_performer].name
             break
         }
     }

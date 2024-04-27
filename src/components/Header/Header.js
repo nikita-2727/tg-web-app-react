@@ -24,15 +24,18 @@ class Header extends Component {
 
                 <div className='header-menu' id='menu'>
                     <Link to="/about-as" className={'custom-link ' + (this.props.selectedPage === 1 ? 'selected-block' : '')}>
-                        <span className={'header-menu-button ' + (this.props.selectedPage === 1 ? 'selected-button' : '')}>About us</span>
+                        <img src='https://i.postimg.cc/W1shr9JC/photo-2024-04-25-20-45-59.jpg'
+                        className={'header-menu-button ' + (this.props.selectedPage === 1 ? 'selected-button' : '')}></img>
                     </Link>
 
                     <Link to="/reviews" className={'custom-link ' + (this.props.selectedPage === 2 ? 'selected-block' : '')}>
-                        <span className={'header-menu-button ' + (this.props.selectedPage === 2 ? 'selected-button' : '')}>Reviews</span>
+                        <img src='https://i.postimg.cc/N0zM3BPv/photo-2024-04-25-20-48-12.jpg'
+                        className={'header-menu-button ' + (this.props.selectedPage === 2 ? 'selected-button' : '')}></img>
                     </Link>
 
                     <Link to="/contacts" className={'custom-link ' + (this.props.selectedPage === 3 ? 'selected-block' : '')}>
-                        <span className={'header-menu-button ' + (this.props.selectedPage === 3 ? 'selected-button' : '')}>Contacts</span>
+                        <img src='https://i.postimg.cc/L6tJJdhj/photo-2024-04-25-20-45-00.jpg'
+                        className={'header-menu-button ' + (this.props.selectedPage === 3 ? 'selected-button' : '')}></img>
                     </Link>
                     
                     <Link to="/cart" className='cart-button'>
@@ -63,7 +66,7 @@ class Header extends Component {
         } else {
             menu.style.background = 'linear-gradient(to bottom, transparent, black 99%)'
             menu.style.position = 'absolute'
-            menu.style.top = 'calc(var(--index) * 12)'
+            menu.style.top = 'calc(var(--index) * 18.3)'
         }
     }
 

@@ -3,7 +3,7 @@
 }
 
 .header {
-    background: url('https://i.postimg.cc/bND5kkQv/photo-2024-04-25-17-10-46.png');
+    background: url('https://i.postimg.cc/BvLdbpb1/photo-2024-04-25-17-10-46-2.jpg');
 
     background-repeat: no-repeat;
     background-position: center center;
@@ -19,7 +19,6 @@
 
 .header-menu {
     position: absolute;
-    background: linear-gradient(to top, black, transparent 150%);
     z-index: 100;
     display: flex;
     align-items: center;
@@ -32,20 +31,16 @@
 .header-menu-button, 
 .cart-button {
     display: flex;
-    background-color: #ffde2396;
-    height: calc(var(--index) * 4);
-    width: calc(var(--index) * 7);
+    height: calc(var(--index) * 4.3);
+    width: calc(var(--index) * 7.3);
     align-items: center;
     justify-content: center;
     margin-left: var(--index);
-    text-decoration: none;
-    font-weight: 600;
     border-radius: var(--index);
-    border-top: calc(var(--index) * .2) solid rgba(245, 245, 245, 0.801);
-    border-right: calc(var(--index) * .2) solid rgba(245, 245, 245, 0.701);
-    font-size: calc(var(--index) * 1.4);
     transition: background-color .3s;
+    border: calc(var(--index) * .2) solid rgb(0, 0, 0);
 }
+
 
 .header-menu-button:hover {
     background-color: #003c02;
@@ -61,11 +56,10 @@
 .cart-button {
     width: calc(var(--index) * 10);
     border-radius: var(--index) 0 0 var(--index);
-    border-top: calc(var(--index) * .2) solid black;
+
     margin-left: calc(var(--index) * 2.5);
     background: linear-gradient(90deg, rgb(223, 223, 223), whitesmoke);
     color: #000000;
-    border-right: none;
     transition: color .3s;
 }
 
@@ -75,7 +69,7 @@
 
 .circle-counter {
     z-index: 1;
-    background: linear-gradient(90deg, rgb(241, 255, 82), rgb(210, 186, 3));
+    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(142, 142, 142));
     color: rgb(0, 0, 0);
     font-family: Comic Sans MS, Comic Sans, cursive;
     font-weight: 600;

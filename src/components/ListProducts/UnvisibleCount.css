@@ -9,7 +9,7 @@
     font-size: calc(var(--index) * 1.5);
     font-weight: 600;
     background-color: whitesmoke;
-    color: green;
+    color: rgb(0, 0, 0);
     outline: none;
     border: none;
     width: 100%;
@@ -49,12 +49,12 @@
 .button-exclusive {
     width: calc(var(--index) * 10);
     background-color: whitesmoke;
-    color: #025b00;
+    color: #000000;
 }
 
 .button-lizing {
     width: calc(var(--index) * 6);
-    background-color: #002301;
+    background-color: #1f1f1f;
     color: whitesmoke;
 }
 
