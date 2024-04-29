@@ -42,7 +42,7 @@ export default function Cart(props) {
             return ( 
                 <>
                     {listProductsComponents.map(product => product)}
-                    <p className='total-cart'>Total amount: {totalCount} $</p>
+                    <p className='total-cart'>Total amount: <span className='total-price'>{totalCount} $</span></p>
                     <Link to='pay' className='buy-button'>
                         <span>Pay</span>
                     </Link>
@@ -51,9 +51,18 @@ export default function Cart(props) {
             )
         } else {
             return (
-                <div className='info-block'>
-                    <p className='info'>Bro, the basket is still empty</p>
-                </div>
+                <>
+                    <div className='info-block'>
+                        <p className='info'>Bro, the basket is still empty</p>
+                    </div>
+                    
+                    <img src='https://i.postimg.cc/TYFb3rhq/photo-2024-04-28-10-12-36.jpg' className='info-image'></img>
+
+                    <div className='info-block-2'>
+                        <p className='info-2'>all your selected bits will appear here</p>
+                    </div>
+                </>
+                
             )
         }
         

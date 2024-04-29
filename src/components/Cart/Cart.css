@@ -31,12 +31,12 @@
     font-family: Arial Narrow, sans-serif;
     font-size: calc(var(--index) * 2);
     width: 65vw;
-    color: whitesmoke;
+    color: rgb(194, 194, 194);
 }
 
 .download-cart {
     transform: scale(1.2);
-    color: rgb(0, 172, 0);
+    color: rgb(135, 135, 135);
     transition: transform 1s, opacity 1s;
 }
 .download-cart:hover {
@@ -49,19 +49,28 @@
 
 .price-cart {
     font-family: Comic Sans MS, Comic Sans, cursive;
-    color: chartreuse;
+    color: whitesmoke;
     margin-left: 28vw;
     margin-right: 45vw;
 }
 
+
+
 .total-cart {
     font-family: Comic Sans MS, Comic Sans, cursive;
-    color: whitesmoke;
-    font-weight: 900;
+    background-color: rgb(194, 194, 194);
+    border: 2vw solid rgb(194, 194, 194);
+    color: black;
+    font-weight: 600;
     margin-left: 2vw;
     margin-top: 3vh;
     user-select: none;
+    width: 92vw;
+    margin-bottom: calc(VAR(--index) * 7);
+}
 
+.total-price {
+    font-weight: 900;
 }
 
 .buy-button {
@@ -79,9 +88,42 @@
     font-size: calc(var(--index) * 2);
     border-radius: 0 var(--index) var(--index) 0;
 
-    background: linear-gradient(90deg, rgb(6, 90, 0), rgb(2, 149, 11));
+    background: linear-gradient(90deg, rgb(99, 99, 99), rgb(70, 70, 70));
     color: whitesmoke;
 
     user-select: none;
 
+}
+
+.info-image {
+    height: 75vh;
+    width: 100vw;
+}
+
+.info-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    color: whitesmoke;
+    font-size: calc(var(--index) * 2.5);
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    text-shadow: 2px 2px rgb(68, 68, 68);
+}
+
+.info-block-2 {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-2 {
+    color: rgb(167, 167, 167);
+    font-size: calc(var(--index) * 2.5);
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    text-shadow: 2px 2px rgb(54, 54, 54);
+    width: 88vw;
 }

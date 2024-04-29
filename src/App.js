@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes, BrowserRouter} from "react-router-dom";
 import MainPage from "./Pages/MainPage";
-import AboutProductPage from "./Pages/AboutProductPage";
+import AudioRecoderPage from "./Pages/AudioRecoderPage";
 import AboutUsPage from "./Pages/AboutUsPage";
 import ReviewsPage from "./Pages/ReviewsPage";
 import ContactsPage from "./Pages/ContactsPage";
@@ -53,15 +53,17 @@ class App extends React.Component {
     }
     
     render() {
-        if (this.state.isLoadedData && this.state.isGetChatId) { /* пока не получили данные от сервера, рендер станицы загрузки
+        if (!this.state.isLoadedData && !this.state.isGetChatId) { /* пока не получили данные от сервера, рендер станицы загрузки
         иначе возвращаем маршрутизатор с главной страницей списка продуктов */
+            localStorage.setItem('dataProducts', JSON.stringify(this.state.productsDescription)) // закидываем весь список продуктов в localstorage
+
             return (
                 <BrowserRouter>
                     <Routes>
                         {/* при клике получаем id элемента и добавляем его в состояние */} 
                         <Route path="/" element={<MainPage products={this.state.productsDescription} onClick={e => this.getValueId(e.target.id)}/>} > </Route>
                         {/* т. к. id соответствует индексации в списке продуктов, то рендерим станицу с информацией из списка с индексом кликабельного элемента */}
-                        <Route path="about-product" element={<AboutProductPage productProps={this.state.productsDescription[this.state.id - 1]}/>}></Route> 
+                        <Route path="audio-recoder" element={<AudioRecoderPage />}></Route> 
                         <Route path="about-as" element={<AboutUsPage />}></Route>
                         <Route path="reviews" element={<ReviewsPage />}></Route>
                         <Route path="contacts" element={<ContactsPage />}></Route>
@@ -81,8 +83,8 @@ class App extends React.Component {
     }
 
     getValueId(id) {
-        /* метод для записи id элемента в состояние */
-        this.setState({id: id})        
+        /* метод для записи id элемента в storage */
+        localStorage.setItem("indexProduct", JSON.stringify(id - 1))  
     }
 }
 

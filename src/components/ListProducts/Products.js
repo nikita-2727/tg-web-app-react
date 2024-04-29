@@ -12,7 +12,7 @@ export class Product extends React.Component {
         return (
             <div id={"product-cell-" + this.props.productProps.id} className="product-cell">
                 
-                <Link to="about-product" > 
+                <Link to="audio-recoder" > 
                     <img id={this.props.productProps.id} onClick={this.props.onClick} src={this.props.productProps.photo} className="product-photo" alt={this.props.productProps.name}></img>
                 </Link>
                 <div className="name-music">
@@ -237,9 +237,9 @@ function ListProducts(props) {
             } if (!fuckingFlag) {
                 listProductComponent.push(<Product key={index} productProps={props.products[index]} onClick={props.onClick} price={undefined} mode={undefined}/>)
             }
-
         }
     }
+
 
     return (
         <>
