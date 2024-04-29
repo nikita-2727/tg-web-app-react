@@ -11,7 +11,7 @@ ul {
     margin: var(--index);
     padding: var(--index);
     border-radius: var(--index);
-    margin-top: calc(var(--index) * 5);
+    margin-top: calc(var(--index) * 2);
 }
 
 .others li {
@@ -25,20 +25,21 @@ ul {
 .header-contacts {
     font-family: Comic Sans MS, Comic Sans, cursive;
     font-size: calc(var(--index) * 2.75);
-    color: #00ff2a;
+    color: whitesmoke;
 }
 
 .subtitle {
     display: block;
     font-weight: 600;
     font-size: calc(var(--index) * 2);
+    color: #a6a6a6;
 }
 
 
 .link {
     font-family: Arial Narrow, sans-serif;
     font-size: calc(var(--index) * 1.75);
-    color: rgb(0, 140, 16);
+    color: rgb(255, 255, 255);
 }
 
 
@@ -46,11 +47,12 @@ ul {
 
 .creators,
 .cooperation {
-    background-color: #111;
+    background-color: #202020;
     margin: var(--index);
     padding: var(--index);
     border-radius: var(--index);
     margin-top: calc(var(--index) * 2);
+    color: rgb(0, 0, 0);
 }
 
 .ceo-header, 
@@ -60,12 +62,13 @@ ul {
     margin-top: calc(var(--index) * 1.5);
     margin-bottom: calc(var(--index) * 1.5);
     font-size: calc(var(--index) * 1.8);
-    color: #00ff2a;
+    color: whitesmoke;
 }
 
 .creators .icon {
     bottom: 0;
-    color: rgb(0, 140, 16);
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
 }
 
 .icon { 
@@ -80,26 +83,27 @@ ul {
 .header-contacts-creators {
     font-family: Comic Sans MS, Comic Sans, cursive;
     font-size: calc(var(--index) * 2.75);
-    color: whitesmoke;
+    color: rgb(0, 0, 0);
+    font-weight: 900;
 }
 
 .creators .link {
-    color: whitesmoke;
+    color: rgb(184, 184, 184);
     margin-left: var(--index);
 }
 
 
 .cooperation .link {
-    color: rgb(0, 140, 16);
+    color: rgb(136, 136, 136);
     margin-left: var(--index);
 }
 
 .young-bimpie-header,
 .thekillingmachinebeats-header {
     display: block;
-    font-weight: 600;
+    font-weight: 900;
     margin-top: calc(var(--index) * 1.5);
     margin-bottom: calc(var(--index) * 1.5);
     font-size: calc(var(--index) * 1.8);
-    color: whitesmoke;
+    color: rgb(0, 0, 0);
 }

@@ -7,7 +7,7 @@ export default function AboutUs() {
         <div className="about-as-page">
             <Header selectedPage={1}/>
             <div className="about-block">
-                <h1 className="heading-about-us"> about our store</h1>
+                <h1 className="heading-about-us"> About our store</h1>
 
                 <p className="about">
                     Welcome bro. This is the biggest project u've ever seen. 
