@@ -53,7 +53,7 @@ class App extends React.Component {
     }
     
     render() {
-        if (!this.state.isLoadedData && !this.state.isGetChatId) { /* пока не получили данные от сервера, рендер станицы загрузки
+        if (this.state.isLoadedData && this.state.isGetChatId) { /* пока не получили данные от сервера, рендер станицы загрузки
         иначе возвращаем маршрутизатор с главной страницей списка продуктов */
             localStorage.setItem('dataProducts', JSON.stringify(this.state.productsDescription)) // закидываем весь список продуктов в localstorage
 
