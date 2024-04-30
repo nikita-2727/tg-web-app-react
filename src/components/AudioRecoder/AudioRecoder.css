@@ -2,3 +2,7 @@
     --index: calc(1vh + 1vw)
 }
 
+.video-frame {
+    width: 100vw;
+    height: 50vh;
+}

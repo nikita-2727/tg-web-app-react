@@ -16,7 +16,7 @@ export class Product extends React.Component {
                     <img id={this.props.productProps.id} onClick={this.props.onClick} src={this.props.productProps.photo} className="product-photo" alt={this.props.productProps.name}></img>
                 </Link>
                 <div className="name-music">
-                    <p>{this.props.productProps.productname}</p>
+                    <p>{this.props.name}</p>
                 </div>
                 
                 <CustomAudioRecoder src={this.props.productProps.music} />
@@ -219,7 +219,9 @@ function ListProducts(props) {
 
     const listProductComponent = []
     if (dataInCart) { // если данные с бд получены
+        
         for (let index = 0; index < props.products.length; index++) {
+            let name = newName(props.products[index].productname)
             
             if (LabelMusic({key: -index-1, productProps: props.products, index: index})) {
                 listProductComponent.push(<LabelMusic key={-index - 1} productProps={props.products} index={index}></LabelMusic>)
@@ -230,16 +232,15 @@ function ListProducts(props) {
             for (let indexCart = 0; indexCart < dataInCart.length; indexCart++) {
                 if (dataInCart[indexCart].productname == props.products[index].productname) {
                     // если данные товара из корзины совпадают с рендерируемым, то передаем мод куплено
-                    listProductComponent.push(<Product key={index} productProps={props.products[index]} onClick={props.onClick} price={dataInCart[indexCart].price} mode='sold'/>)
+                    listProductComponent.push(<Product name={name} key={index} productProps={props.products[index]} onClick={props.onClick} price={dataInCart[indexCart].price} mode='sold'/>)
                     fuckingFlag = true
                     break
                 } 
             } if (!fuckingFlag) {
-                listProductComponent.push(<Product key={index} productProps={props.products[index]} onClick={props.onClick} price={undefined} mode={undefined}/>)
+                listProductComponent.push(<Product name={name} key={index} productProps={props.products[index]} onClick={props.onClick} price={undefined} mode={undefined}/>)
             }
         }
     }
-
 
     return (
         <>
@@ -248,5 +249,22 @@ function ListProducts(props) {
         </>
     )
 }
+
+function newName(name) {
+    let lstDelStr = [
+        '21 Savage ', 'Baby Tron ', 'Big30 ', 'BossMan Dlow ', 'Est Gee ', 'GetRichZay ', 'Key Glock ', 'Lil Baby ',
+        'Lil Durk ', 'Nardo Wick ', 'Rio Da Yang Og ', 'Rob49 ', 'YTB Fatt '
+    ]
+
+    let newName = name
+    for (let s of lstDelStr) {
+        if (newName.includes(s)) {
+            newName = newName.replace(s, '')
+        }
+    }
+
+    return newName
+}
+
 
 export default ListProducts;

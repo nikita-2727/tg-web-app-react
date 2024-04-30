@@ -69,7 +69,7 @@ class UnvisibleCount extends React.Component {
                         this.requestAddProduct() // добавление информации о товаре в базу данных корзины
                         this.editStateCart(1) // изменяем counter
                         setTimeout(() => window.sumCounterProduct(), 1) // изменяем состояние счетчика в Header 
-                    }} >lizing</button>
+                    }} >leasing</button>
                     <button className="button-exclusive" onClick={() => {
                         this.editStateFlag(false) // полностью аналогично
                         this.props.productProps.price = 120

@@ -26,8 +26,8 @@
 
 .product-name {
     text-decoration: none;
-    font-size: calc(var(--index) * 1.2);
-    font-weight: 600;
+    font-size: calc(var(--index) * 1.5);
+    font-weight: 900;
     margin-left: calc(var(--index) * 1.5);
 }
 
