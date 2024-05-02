@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import './Products.css'
@@ -16,7 +16,7 @@ export class Product extends React.Component {
                     <img id={this.props.productProps.id} onClick={this.props.onClick} src={this.props.productProps.photo} className="product-photo" alt={this.props.productProps.name}></img>
                 </Link>
                 <div className="name-music">
-                    <p>{this.props.name}</p>
+                    <p>{this.props.nameAndExecutor[0]}</p>
                 </div>
                 
                 <CustomAudioRecoder src={this.props.productProps.music} />
@@ -217,11 +217,17 @@ function ListProducts(props) {
         
     }, [])
 
+    useEffect(() => {
+        // если покупатель перешел на другую страницу и перешел обратно к продуктам, то перематываем его к тому месту, где он остановился
+        scrollByY(localStorage.getItem('scroll-products'), 1000)
+    })
+
+
     const listProductComponent = []
     if (dataInCart) { // если данные с бд получены
         
         for (let index = 0; index < props.products.length; index++) {
-            let name = newName(props.products[index].productname)
+            let nameAndExecutor = newName(props.products[index].productname)
             
             if (LabelMusic({key: -index-1, productProps: props.products, index: index})) {
                 listProductComponent.push(<LabelMusic key={-index - 1} productProps={props.products} index={index}></LabelMusic>)
@@ -232,12 +238,14 @@ function ListProducts(props) {
             for (let indexCart = 0; indexCart < dataInCart.length; indexCart++) {
                 if (dataInCart[indexCart].productname == props.products[index].productname) {
                     // если данные товара из корзины совпадают с рендерируемым, то передаем мод куплено
-                    listProductComponent.push(<Product name={name} key={index} productProps={props.products[index]} onClick={props.onClick} price={dataInCart[indexCart].price} mode='sold'/>)
+                    listProductComponent.push(<Product nameAndExecutor={nameAndExecutor} key={index} 
+                        productProps={props.products[index]} onClick={props.onClick} price={dataInCart[indexCart].price} mode='sold'/>)
                     fuckingFlag = true
                     break
                 } 
             } if (!fuckingFlag) {
-                listProductComponent.push(<Product name={name} key={index} productProps={props.products[index]} onClick={props.onClick} price={undefined} mode={undefined}/>)
+                listProductComponent.push(<Product nameAndExecutor={nameAndExecutor} key={index} 
+                    productProps={props.products[index]} onClick={props.onClick} price={undefined} mode={undefined}/>)
             }
         }
     }
@@ -251,20 +259,36 @@ function ListProducts(props) {
 }
 
 function newName(name) {
+    /* функция для кастомного отображения названий битов */
     let lstDelStr = [
         '21 Savage ', 'Baby Tron ', 'Big30 ', 'BossMan Dlow ', 'Est Gee ', 'GetRichZay ', 'Key Glock ', 'Lil Baby ',
         'Lil Durk ', 'Nardo Wick ', 'Rio Da Yang Og ', 'Rob49 ', 'YTB Fatt '
     ]
 
     let newName = name
+    let executor = undefined
     for (let s of lstDelStr) {
         if (newName.includes(s)) {
             newName = newName.replace(s, '')
+            executor = s
         }
     }
 
-    return newName
+    return [newName, executor]
 }
-
+// важная функция
+async function scrollByY(y, time) {
+    /* функция для плавного скролла */
+    const start = performance.now()
+    const startY = window.scrollY
+    const endY = startY + y
+    while (performance.now() < start + time) {
+      const progress = (performance.now() - start) / time
+      window.scrollTo(0, startY + y * progress)
+      // wait for the next frame
+      await new Promise(requestAnimationFrame)
+    }
+    window.scrollTo(0, endY)
+  }
 
 export default ListProducts;

@@ -23,7 +23,7 @@ class CustomAudioRecoder extends React.Component {
         this.audio.oncanplaythrough = () => {
             this.setState({isLoadAudio: true})
             if (this.state.isPlayFlag) {
-                this.interval = setInterval(() => this.setState({timeAudio: this.state.timeAudio + 1}), 1000)
+                this.interval = setInterval(() => this.setState({timeAudio: this.audio.currentTime}), 100)
             }
         }
          // при завершении кнопка паузы меняется на play,счетчик обнуляется и выключается
@@ -35,7 +35,9 @@ class CustomAudioRecoder extends React.Component {
         
     }
 
-
+    componentWillUnmount() {
+        this.audio.pause() // при переходе на другую страницу останавливаю звук
+    }
 
     render() {
         return (
@@ -46,7 +48,7 @@ class CustomAudioRecoder extends React.Component {
                     this.audio.play()
                     this.setState({isPlayFlag: true}) // при клике на play эта кнопка исчезает и появляется кнопка pause, меняется флаг воспроизведения
                     if (this.state.isLoadAudio) {
-                        this.interval = setInterval(() => this.setState({timeAudio: this.state.timeAudio + 1}), 1000) // обновляю состояние времени каждую секунду, если флаг воспроизведения true
+                        this.interval = setInterval(() => this.setState({timeAudio: this.audio.currentTime}), 100) // обновляю состояние времени каждую секунду, если флаг воспроизведения true
                     } 
                     
                 }} />
@@ -66,9 +68,9 @@ class CustomAudioRecoder extends React.Component {
 
     correctFormTime() {
         if (this.state.timeAudio % 60 < 10) {
-            return `${Math.floor(this.state.timeAudio / 60)}:0${this.state.timeAudio % 60}`
+            return `${Math.floor(this.state.timeAudio / 60)}:0${Math.floor(this.state.timeAudio) % 60}`
         } else if (this.state.timeAudio < 60) {
-            return `${Math.floor(this.state.timeAudio / 60)}:${this.state.timeAudio % 60}`
+            return `${Math.floor(this.state.timeAudio / 60)}:${Math.floor(this.state.timeAudio) % 60}`
         } 
 
     }

@@ -68,6 +68,11 @@ class Header extends Component {
             menu.style.position = 'absolute'
             menu.style.top = 'calc(var(--index) * 18.3)'
         }
+        // если человек на главной странице, записываем его информацию о скролле страницы каждую секунду
+        if (window.location.href == 'http://localhost:3000/') {
+            setTimeout(() => localStorage.setItem('scroll-products', window.pageYOffset), 500)
+        }
+        
     }
 
 

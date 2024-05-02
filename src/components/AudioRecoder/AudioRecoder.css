@@ -2,7 +2,119 @@
     --index: calc(1vh + 1vw)
 }
 
-.video-frame {
+.audio-block .image-player {
+    position: absolute;
+    top: 10vh;
     width: 100vw;
     height: 50vh;
+}
+
+.audio-block .name-executor-block {
+    position: absolute;
+    left: 5vw;
+    top: 62.5vh;
+}
+
+.audio-block .name-player {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 3.8vh;
+}
+.audio-block .executor-player {
+    font-family: Arial Narrow, sans-serif;
+    color: rgb(87, 87, 87);
+    margin-top: 1.5vh;
+}
+
+.audio-block .custom-recoder {
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(17, 17, 17);
+    overflow: hidden;
+    width: 100%;
+    height: 20vh;
+}
+
+.audio-block .play,
+.audio-block .pause,
+.audio-block .loading {
+    position: absolute;
+    bottom: 5vh;
+    right: calc(50vw - 3.5vh);
+    height: 7vh;
+    width: 7vh;
+}
+
+.audio-block .next-icon,
+.audio-block .previous-icon {
+    position: absolute;
+    height: 6vh;
+    width: 6vh;
+}
+
+.audio-block .previous-icon {
+    right: 25vw;
+    bottom: 5vh;
+}
+
+.audio-block .next-icon {
+    position: absolute;
+    left: 25vw;
+    bottom: 5vh;
+}
+
+.audio-block .timer {
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+    font-size: calc(var(--index) * 1.8);
+}
+.audio-block .total-timer {
+    position: absolute;
+    top: 5vh;
+    right: 5vw;
+    font-size: calc(var(--index) * 1.8);
+}
+
+.audio-block .time-line {
+    position: absolute;
+    background-color: rgb(155, 155, 155);
+    border-radius: var(--index);
+    height: 1vh;
+    width: 90vw;
+    right: 5vw;
+    top: 5vh;
+}
+
+@keyframes loading {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+.audio-block .loading {
+    animation: loading 5s linear infinite;
+}
+
+.back-icon {
+    position: absolute;
+    text-decoration: none;
+    color: whitesmoke;
+    transform: scale(2);
+    right: 5vh;
+    top: 4vh
+}
+
+.mix-icon {
+    position: absolute;
+    height: 5vh;
+    width: 5vh;
+    left: 5vw;
+    bottom: 5vh;
+}
+
+.loop-icon {
+    position: absolute;
+    height: 4.5vh;
+    width: 4.5vh;
+    right: 5.5vw;
+    bottom: 5vh;
 }
