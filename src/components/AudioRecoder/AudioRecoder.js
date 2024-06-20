@@ -29,6 +29,9 @@ class AudioRecoder extends React.Component {
             isLoadAudio: false,
             timeAudio: 0,
             durationAudio: 0,
+
+            isLoopAudio: false,
+            isMixingAudio: false,
         }
 
         this.newAudioAndPostServerQuery()
@@ -80,13 +83,22 @@ class AudioRecoder extends React.Component {
                     <AiOutlineLoading3Quarters className="loading" style={{display: !this.state.isPlayFlag && !this.state.isLoadAudio ? "block" : "none"}}/>
 
                     <div className="time-line" onClick={() => {
+                        this.audio.currentTime = 100
+                        this.setState({timeAudio: 100})
                     }}></div>
 
                     <ImPrevious className="next-icon" onClick={() => {this.nextPreviousMusic(-1)}} />
                     <ImNext className="previous-icon" onClick={() => {this.nextPreviousMusic(1)}} />
 
-                    <ImLoop className="loop-icon" />
-                    <TbArrowsShuffle className="mix-icon" />
+                    <ImLoop className="loop-icon" style={{color: this.state.isLoopAudio ? 'black' : 'whitesmoke'}} onClick={() => {
+                        // т к состояние изменяется асинхронно, то помещаем код, зависящтй от него в функцию обратного вызова
+                        this.setState({isLoopAudio: !this.state.isLoopAudio}, () => { 
+                            this.state.isLoopAudio ? this.audio.loop = true : this.audio.loop = false
+                        })
+                    }}/>
+                    <TbArrowsShuffle className="mix-icon" style={{color: this.state.isMixingAudio ? 'black' : 'whitesmoke'}} onClick={() => {
+                        this.setState({isMixingAudio: !this.state.isMixingAudio})
+                    }}/>
 
                 </div>
 
@@ -99,16 +111,24 @@ class AudioRecoder extends React.Component {
 
 
     nextPreviousMusic(index) {
-        localStorage.setItem('indexProduct', JSON.stringify(+JSON.parse(localStorage.getItem("indexProduct")) + index))
+        if (!this.state.isMixingAudio) {
+            localStorage.setItem('indexProduct', JSON.stringify(+JSON.parse(localStorage.getItem("indexProduct")) + index))
+        } else {
+            let randomIndex = Math.floor(Math.random() * JSON.parse(localStorage.getItem('dataProducts')).length)
+            localStorage.setItem('indexProduct', JSON.stringify(randomIndex))
+        }
+        
+        // т к состояние изменяется асинхронно, то помещаем код, зависящтй от него в функцию обратного вызова
         this.setState({
             dataProduct: JSON.parse(localStorage.getItem("dataProducts"))[JSON.parse(localStorage.getItem("indexProduct"))],
             isPlayFlag: false,
             isLoadAudio: false,
             timeAudio: 0,
             durationAudio: 0,
+        }, () => {
+            this.audio.pause()
+            this.newAudioAndPostServerQuery()
         })
-        this.audio.pause()
-        this.newAudioAndPostServerQuery()
     }
 
     newAudioAndPostServerQuery() {
@@ -116,14 +136,24 @@ class AudioRecoder extends React.Component {
 
         this.audio.preload = 'auto'
         this.audio.oncanplaythrough = () => {// если аудио загружено, меняем состояние и запускаем таймер
-            this.setState({isLoadAudio: true})
             this.setState({durationAudio: this.audio.duration})
-            if (this.state.isPlayFlag) {this.interval = setInterval(() => {this.setState({timeAudio: this.audio.currentTime})}, 100)}
+            this.setState({isLoadAudio: true, isPlayFlag: true}, () => {
+                if (this.state.isPlayFlag) {this.interval = setInterval(() => {this.setState({timeAudio: this.audio.currentTime})}, 100)}
+            })
+            
+            this.audio.play()
         }
          // при завершении кнопка паузы меняется на play,счетчик обнуляется и выключается
         this.audio.onended = () => {
             clearInterval(this.interval)
-            this.setState({isPlayFlag: false, timeAudio: 0})
+            this.audio.pause()
+            this.setState({isPlayFlag: false, timeAudio: 0}, () => {
+                if (this.state.isLoopAudio) {
+                    return
+                } else {
+                    this.nextPreviousMusic(1)
+                }
+            })
         }
     }
 }

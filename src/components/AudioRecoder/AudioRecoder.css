@@ -2,6 +2,10 @@
     --index: calc(1vh + 1vw)
 }
 
+.audio-block {
+    user-select: none;
+}
+
 .audio-block .image-player {
     position: absolute;
     top: 10vh;
