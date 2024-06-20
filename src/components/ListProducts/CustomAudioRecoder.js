@@ -1,7 +1,7 @@
 import React from "react";
 import './CustomAudioRecoder.css'
 
-import qwerty from 'C:/Users/Nikita_2727/Downloads/qwerty.mp3'
+
 
 import { FaPlay } from "react-icons/fa";
 import { FaPause } from "react-icons/fa";
@@ -19,7 +19,7 @@ class CustomAudioRecoder extends React.Component {
             timeAudio: 0,
         }
         
-        this.audio = new Audio(qwerty)
+        this.audio = new Audio(null)
 
         this.audio.preload = 'none'
         this.audio.oncanplaythrough = () => {
