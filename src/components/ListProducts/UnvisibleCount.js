@@ -5,6 +5,8 @@ import { IoIosCheckmarkCircle } from "react-icons/io";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import './UnvisibleCount.css';
 
+import { HOST_SERVER_API } from "../../../env"
+
 
 
 class UnvisibleCount extends React.Component {
@@ -93,7 +95,7 @@ class UnvisibleCount extends React.Component {
     requestAddProduct() {
 
         // отправляю на сервер данные продукта, который хотят добавить в корзину
-        fetch(process.env.HOST_SERVER_API + 'add-product', {
+        fetch(HOST_SERVER_API + 'add-product', {
             method: 'POST',
             body: JSON.stringify(this.props.productProps),
             headers: {
@@ -113,7 +115,7 @@ class UnvisibleCount extends React.Component {
         })
 
         // получаем id пользователя из tg и отправляем на сервер
-        fetch(process.env.HOST_SERVER_API + 'getChatId', {
+        fetch(HOST_SERVER_API + 'getChatId', {
             method: 'POST',
             body: JSON.stringify(this.tgData),
             headers: {
@@ -131,7 +133,7 @@ class UnvisibleCount extends React.Component {
     requestDelProduct() {
 
         // отправляю на сервер данные продукта, который хотят добавить в корзину
-        fetch(process.env.HOST_SERVER_API + 'del-product', {
+        fetch(HOST_SERVER_API + 'del-product', {
             method: 'POST',
             body: JSON.stringify(this.props.productProps),
             headers: {
@@ -151,7 +153,7 @@ class UnvisibleCount extends React.Component {
         })
 
         // получаем id пользователя из tg и отправляем на сервер
-        fetch(process.env.HOST_SERVER_API + 'getChatId', {
+        fetch(HOST_SERVER_API + 'getChatId', {
             method: 'POST',
             body: JSON.stringify(this.tgData),
             headers: {

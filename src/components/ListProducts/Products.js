@@ -6,7 +6,7 @@ import './Products.css'
 import UnvisibleCount from "./UnvisibleCount";
 import CustomAudioRecoder from "./CustomAudioRecoder";
 
-
+import { HOST_SERVER_API } from "../../../env"
 
 export class Product extends React.Component {
     render() {
@@ -211,7 +211,7 @@ function ListProducts(props) {
 
     useEffect(() => {
         // получаем данные из корзины, чтобы знать какой рендерить unvisibleCount
-        fetch(process.env.HOST_SERVER_API + 'cart', {method: 'GET'})
+        fetch(HOST_SERVER_API + 'cart', {method: 'GET'})
         .then(data => data.json())
         .then(data => changeData(data))
 

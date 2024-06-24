@@ -4,7 +4,7 @@ import './header.css'
 import '../ListProducts/Products.css'
 import { Link } from 'react-router-dom';
 
-
+import { HOST_CLIENT } from "../../../env"
 
 class Header extends Component {
     constructor(props) {
@@ -68,7 +68,7 @@ class Header extends Component {
             menu.style.top = 'calc(var(--index) * 18.3)'
         }
         // если человек на главной странице, записываем его информацию о скролле страницы каждую секунду
-        if (window.location.href == process.env.HOST_CLIENT) {
+        if (window.location.href == HOST_CLIENT) {
             setTimeout(() => localStorage.setItem('scroll-products', window.pageYOffset), 500)
         }
         

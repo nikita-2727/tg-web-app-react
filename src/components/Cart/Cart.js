@@ -5,6 +5,7 @@ import { FaDownload } from "react-icons/fa6";
 import './Cart.css';
 import { Link } from 'react-router-dom';
 
+import { HOST_SERVER_API } from "../../../env"
 
 export default function Cart(props) {
     const [totalCount, setTotalCount] = useState(0)
@@ -12,7 +13,7 @@ export default function Cart(props) {
     
 
     useEffect(() => {
-        fetch(process.env.HOST_SERVER_API + 'cart', {method: 'GET'})
+        fetch(HOST_SERVER_API + 'cart', {method: 'GET'})
         .then(response => response.json())
         .then(response => getdata(response))
     }, [])
