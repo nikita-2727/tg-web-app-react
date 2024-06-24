@@ -26,7 +26,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        fetch(process.env.HOST_SERVER_API, { // юзаем переменные окружения
+        fetch('http://localhost:3001/api', { // юзаем переменные окружения
             method: 'GET',
         })
         .then(response => response.json()) // переводим содержимое body в json
