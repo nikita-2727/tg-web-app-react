@@ -12,7 +12,7 @@ export default function Cart(props) {
     
 
     useEffect(() => {
-        fetch('http://localhost:3001/api/cart', {method: 'GET'})
+        fetch(process.env.HOST_SERVER_API + 'cart', {method: 'GET'})
         .then(response => response.json())
         .then(response => getdata(response))
     }, [])

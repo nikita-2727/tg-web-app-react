@@ -84,6 +84,7 @@ ul {
     font-family: Comic Sans MS, Comic Sans, cursive;
     font-size: calc(var(--index) * 2.75);
     color: rgb(0, 0, 0);
+    text-shadow: calc(var(--index) * .1) calc(var(--index) * .1) whitesmoke;
     font-weight: 900;
 }
 
@@ -102,6 +103,7 @@ ul {
 .thekillingmachinebeats-header {
     display: block;
     font-weight: 900;
+    text-shadow: calc(var(--index) * .1) calc(var(--index) * .1) whitesmoke, calc(-var(--index) * .1) calc(-var(--index) * .1) whitesmoke;
     margin-top: calc(var(--index) * 1.5);
     margin-bottom: calc(var(--index) * 1.5);
     font-size: calc(var(--index) * 1.8);

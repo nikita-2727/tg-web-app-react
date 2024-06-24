@@ -3,6 +3,10 @@
     --font: Arial Narrow, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .product-cell {
     font-family: var(--font);
     border: calc(var(--index) * 0.3) #202020 solid;
@@ -16,6 +20,8 @@
     background-color: #000000;
 
 }
+
+
 
 .product-photo {
     border-radius: var(--index) var(--index) 0 0;

@@ -1,10 +1,11 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import './Products.css'
 
 import UnvisibleCount from "./UnvisibleCount";
 import CustomAudioRecoder from "./CustomAudioRecoder";
+
 
 
 export class Product extends React.Component {
@@ -210,7 +211,7 @@ function ListProducts(props) {
 
     useEffect(() => {
         // получаем данные из корзины, чтобы знать какой рендерить unvisibleCount
-        fetch('http://localhost:3001/api/cart', {method: 'GET'})
+        fetch(process.env.HOST_SERVER_API + 'cart', {method: 'GET'})
         .then(data => data.json())
         .then(data => changeData(data))
 
@@ -220,7 +221,9 @@ function ListProducts(props) {
     useEffect(() => {
         // если покупатель перешел на другую страницу и перешел обратно к продуктам, то перематываем его к тому месту, где он остановился
         scrollByY(localStorage.getItem('scroll-products'), 1000)
-    })
+    }, [])
+
+
 
 
     const listProductComponent = []
@@ -252,9 +255,6 @@ function ListProducts(props) {
 
     return (
         <>
-        <a href="https://freekassa.ru" target="_blank" rel="noopener noreferrer">
-            <img src="https://cdn.freekassa.ru/banners/big-dark-1.png" title="Прием платежей на сайте"></img>
-        </a>
             <ListPerformers />
             {listProductComponent.map(productComponent => productComponent)}
         </>

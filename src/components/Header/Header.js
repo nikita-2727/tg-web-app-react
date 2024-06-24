@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 
 
-
 class Header extends Component {
     constructor(props) {
         super(props)
@@ -69,7 +68,7 @@ class Header extends Component {
             menu.style.top = 'calc(var(--index) * 18.3)'
         }
         // если человек на главной странице, записываем его информацию о скролле страницы каждую секунду
-        if (window.location.href == 'http://localhost:3000/') {
+        if (window.location.href == process.env.HOST_CLIENT) {
             setTimeout(() => localStorage.setItem('scroll-products', window.pageYOffset), 500)
         }
         

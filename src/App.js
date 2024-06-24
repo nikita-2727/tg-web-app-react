@@ -9,6 +9,7 @@ import CartPage from "./Pages/CartPage";
 import LoadingPage from "./Pages/LoadingPage";
 import PayPage from "./Pages/PayPage";
 
+
 class App extends React.Component {
     constructor (props) {
         super(props)
@@ -25,7 +26,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3001/api', {
+        fetch(process.env.HOST_SERVER_API, { // юзаем переменные окружения
             method: 'GET',
         })
         .then(response => response.json()) // переводим содержимое body в json
@@ -36,7 +37,7 @@ class App extends React.Component {
         .catch((error) => console.log(error)) 
 
         // получаем id пользователя для получения доступа k его корзине
-        fetch('http://localhost:3001/getChatId', {
+        fetch(process.env.HOST_SERVER_API + 'getChatId', {
             method: 'POST',
             body: JSON.stringify(this.tgData),
             headers: {

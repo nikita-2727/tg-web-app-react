@@ -7,7 +7,6 @@ import './UnvisibleCount.css';
 
 
 
-
 class UnvisibleCount extends React.Component {
     constructor(props) {
         super(props)
@@ -94,7 +93,7 @@ class UnvisibleCount extends React.Component {
     requestAddProduct() {
 
         // отправляю на сервер данные продукта, который хотят добавить в корзину
-        fetch('http://localhost:3001/api/add-product', {
+        fetch(process.env.HOST_SERVER_API + 'add-product', {
             method: 'POST',
             body: JSON.stringify(this.props.productProps),
             headers: {
@@ -114,7 +113,7 @@ class UnvisibleCount extends React.Component {
         })
 
         // получаем id пользователя из tg и отправляем на сервер
-        fetch('http://localhost:3001/getChatId', {
+        fetch(process.env.HOST_SERVER_API + 'getChatId', {
             method: 'POST',
             body: JSON.stringify(this.tgData),
             headers: {
@@ -132,7 +131,7 @@ class UnvisibleCount extends React.Component {
     requestDelProduct() {
 
         // отправляю на сервер данные продукта, который хотят добавить в корзину
-        fetch('http://localhost:3001/api/del-product', {
+        fetch(process.env.HOST_SERVER_API + 'del-product', {
             method: 'POST',
             body: JSON.stringify(this.props.productProps),
             headers: {
@@ -152,7 +151,7 @@ class UnvisibleCount extends React.Component {
         })
 
         // получаем id пользователя из tg и отправляем на сервер
-        fetch('http://localhost:3001/getChatId', {
+        fetch(process.env.HOST_SERVER_API + 'getChatId', {
             method: 'POST',
             body: JSON.stringify(this.tgData),
             headers: {

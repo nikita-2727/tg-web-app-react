@@ -6,7 +6,7 @@ class LoadingPage extends React.Component {
 
         return(
             <div className="loading-page">
-                <audio src="http://provotoro4.temp.swtest.ru/BossMan%20Dlow%20Type%20Beat%20Suave%20.mp3" controls></audio>
+                {/* <audio src="http://provotoro4.temp.swtest.ru/BossMan%20Dlow%20Type%20Beat%20Suave%20.mp3" controls></audio> */}
                 <div style={{background: 'linear-gradient(to bottom, transparent, black 99%)', position: 'absolute', height: '71vh', width: '100vw'}}></div>
                 <img src="https://i.postimg.cc/23pzX72w/doc-2024-04-04-21-48-33.gif" 
                 style={{height: '70vh', width: '100vw', userSelect: 'none'}}></img>
