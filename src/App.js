@@ -8,7 +8,7 @@ import ContactsPage from "./Pages/ContactsPage";
 import CartPage from "./Pages/CartPage";
 import LoadingPage from "./Pages/LoadingPage";
 import PayPage from "./Pages/PayPage";
-import { HOST_SERVER_API } from "../env"
+import { HOST_SERVER_API } from "./env"
 
 
 class App extends React.Component {

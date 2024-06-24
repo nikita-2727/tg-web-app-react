@@ -4,7 +4,7 @@ import './header.css'
 import '../ListProducts/Products.css'
 import { Link } from 'react-router-dom';
 
-import { HOST_CLIENT } from "../../../env"
+import { HOST_CLIENT } from "../../env"
 
 class Header extends Component {
     constructor(props) {

@@ -5,7 +5,7 @@ import { FaDownload } from "react-icons/fa6";
 import './Cart.css';
 import { Link } from 'react-router-dom';
 
-import { HOST_SERVER_API } from "../../../env"
+import { HOST_SERVER_API } from "../../env"
 
 export default function Cart(props) {
     const [totalCount, setTotalCount] = useState(0)

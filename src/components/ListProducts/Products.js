@@ -6,7 +6,7 @@ import './Products.css'
 import UnvisibleCount from "./UnvisibleCount";
 import CustomAudioRecoder from "./CustomAudioRecoder";
 
-import { HOST_SERVER_API } from "../../../env"
+import { HOST_SERVER_API } from "../../env"
 
 export class Product extends React.Component {
     render() {
