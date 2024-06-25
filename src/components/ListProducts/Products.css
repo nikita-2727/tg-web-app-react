@@ -3,9 +3,6 @@
     --font: Arial Narrow, sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
 
 .product-cell {
     font-family: var(--font);
@@ -104,4 +101,23 @@ html {
     
 }
 
+.open-block {
+    background-color: whitesmoke;
+    height: 3.5vh;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 100% 100% ;
+    position: absolute;
+    left: 30vw;
+    margin-top: -2vh;
+}
+
+.open {
+    background-color: whitesmoke;
+    border-radius: 50%;
+    color: black;
+    transform: scale(1.2);
+}
 

@@ -1,14 +1,13 @@
 
-import ListProducts from "../components/ListProducts/Products";
 import Header from "../components/Header/Header";
-
+import Main from "../components/Menu/Main";
 
 export default function MainPage(props) {
+    localStorage.setItem('page', JSON.stringify('/'))
     return (
-        <div className="main-page">
-            <Header />
-            <ListProducts products={props.products} onClick={props.onClick}/>
-        </div>
-    );
+        <>
+            <Header photo='https://i.postimg.cc/BvLdbpb1/photo-2024-04-25-17-10-46-2.jpg'/>
+            <Main />
+        </>
+    )
 }
-

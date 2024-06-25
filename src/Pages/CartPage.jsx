@@ -5,7 +5,7 @@ export default function CartPage() {
     return (
         <div className="cart-page">
             <Cart />
-            <ButtonBack />
+            <ButtonBack path={JSON.parse(localStorage.getItem('page'))}/>
         </div>
         
     )

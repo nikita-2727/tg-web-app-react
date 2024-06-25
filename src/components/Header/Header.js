@@ -19,7 +19,15 @@ class Header extends Component {
 
     render() {
         return (
-            <div className='header' >
+            <div className='header' id='header' style={{
+                background: `url(${this.props.photo})`, 
+                backgroundRepeat: 'no-repeat', 
+                backgroundPosition: 'center center',
+                backgroundSize: 'cover',
+                fontFamily: 'Arial Narrow, sans-serif',
+                marginBottom: 'calc(var(--index) * 1)',
+                height: 'calc(var(--index) * 25)'
+            }}>
 
                 <div className='header-menu' id='menu'>
                     <Link to="/about-as" className={'custom-link ' + (this.props.selectedPage === 1 ? 'selected-block' : '')}>
@@ -43,11 +51,16 @@ class Header extends Component {
                     </Link>
                 </div>
             </div>
+            
         )
     }
 
     componentDidMount() {
         document.addEventListener('scroll', this.headerFixedRelative, { passive: true })
+        let menu = document.getElementById('menu')
+        if (window.location.href != (HOST_CLIENT) + '/') {
+            menu.style.paddingBottom = '3vh'
+        } 
     }
 
     componentWillUnmount() {
@@ -57,18 +70,23 @@ class Header extends Component {
     // функции для обработки скролла страницы
     headerFixedRelative() {
         let menu = document.getElementById('menu')
+        if (window.location.href == (HOST_CLIENT) + '/') {
+            menu.style.paddingBottom = 0
+        } 
         // если меню выходит за верхнюю границу то фиксируем его в верхней части видимой области
-        if (window.pageYOffset > 200) {
+        else if (window.pageYOffset > 200 ) {
             menu.style.background = 'linear-gradient(to bottom, black, transparent 600%)'
             menu.style.position = 'fixed'
             menu.style.top = 0
+            menu.style.paddingBottom = 0
         } else {
             menu.style.background = 'linear-gradient(to bottom, transparent, black 99%)'
             menu.style.position = 'absolute'
             menu.style.top = 'calc(var(--index) * 18.3)'
+            menu.style.paddingBottom = '3vh'
         }
         // если человек на главной странице, записываем его информацию о скролле страницы каждую секунду
-        if (window.location.href == HOST_CLIENT) {
+        if (window.location.href == (HOST_CLIENT + '/detroit') || window.location.href == (HOST_CLIENT + '/drill')) {
             setTimeout(() => localStorage.setItem('scroll-products', window.pageYOffset), 500)
         }
         

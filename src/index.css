@@ -5,6 +5,7 @@
 }
 html, body {
     overflow-x: hidden; /* чтобы события скролла работали стабильно */
+
   }
 
 body {

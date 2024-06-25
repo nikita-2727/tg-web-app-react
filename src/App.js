@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes, BrowserRouter} from "react-router-dom";
-import MainPage from "./Pages/MainPage";
+import DetroitPage from "./Pages/DetroitPage";
+import DrillPage from "./Pages/DrillPage";
 import AudioRecoderPage from "./Pages/AudioRecoderPage";
 import AboutUsPage from "./Pages/AboutUsPage";
 import ReviewsPage from "./Pages/ReviewsPage";
@@ -8,6 +9,7 @@ import ContactsPage from "./Pages/ContactsPage";
 import CartPage from "./Pages/CartPage";
 import LoadingPage from "./Pages/LoadingPage";
 import PayPage from "./Pages/PayPage";
+import MainPage from "./Pages/MainPage";
 import { HOST_SERVER_API } from "./env"
 
 
@@ -63,7 +65,9 @@ class App extends React.Component {
                 <BrowserRouter>
                     <Routes>
                         {/* при клике получаем id элемента и добавляем его в состояние */} 
-                        <Route path="/" element={<MainPage products={this.state.productsDescription} onClick={e => this.getValueId(e.target.id)}/>} > </Route>
+                        <Route path="/" element={<MainPage />}></Route>
+                        <Route path="drill" element={<DrillPage />}></Route>
+                        <Route path="detroit" element={<DetroitPage products={this.state.productsDescription} onClick={e => this.getValueId(e.target.id)}/>} > </Route>
                         {/* т. к. id соответствует индексации в списке продуктов, то рендерим станицу с информацией из списка с индексом кликабельного элемента */}
                         <Route path="audio-recoder" element={<AudioRecoderPage />}></Route> 
                         <Route path="about-as" element={<AboutUsPage />}></Route>

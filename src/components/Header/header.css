@@ -2,19 +2,7 @@
     --index: calc(1vh + 1vw)
 }
 
-.header {
-    background: url('https://i.postimg.cc/BvLdbpb1/photo-2024-04-25-17-10-46-2.jpg');
 
-    background-repeat: no-repeat;
-    background-position: center center;
-
-
-    background-size: cover;
-    font-family: Arial Narrow, sans-serif;
-    margin-bottom: calc(var(--index) * 1);
-    height: calc(var(--index) * 25);
-    
-}
 
 
 .header-menu {
@@ -25,6 +13,7 @@
     align-items: center;
     height: calc(var(--index) * 5);
     top: calc(var(--index) * 18.3);
+    padding-bottom: 3vh;
 }
 
 
@@ -93,7 +82,6 @@
 }
 
 .selected-button {
-    border-top-color: black;
-    background-color: whitesmoke;
-    color: black;
+    transform: scale(1.1);
+    border: calc(var(--index) * .2) solid whitesmoke;
 }

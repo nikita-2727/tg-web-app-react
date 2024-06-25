@@ -45,7 +45,7 @@ class AudioRecoder extends React.Component {
     render() {
         return (
             <div className="audio-block">
-                <Link to='/'>
+                <Link to={JSON.parse(localStorage.getItem('page'))}>
                     <FaChevronDown className="back-icon" />
                 </Link>
                 

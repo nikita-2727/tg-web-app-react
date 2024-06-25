@@ -5,6 +5,8 @@ import './Products.css'
 
 import UnvisibleCount from "./UnvisibleCount";
 import CustomAudioRecoder from "./CustomAudioRecoder";
+import { FaArrowDown } from "react-icons/fa6";
+
 
 import { HOST_SERVER_API } from "../../env"
 
@@ -13,7 +15,7 @@ export class Product extends React.Component {
         return (
             <div id={"product-cell-" + this.props.productProps.id} className="product-cell">
                 
-                <Link to="audio-recoder" > 
+                <Link to="/audio-recoder" > 
                     <img id={this.props.productProps.id} onClick={this.props.onClick} src={this.props.productProps.photo} className="product-photo" alt={this.props.productProps.name}></img>
                 </Link>
                 <div className="name-music">
@@ -115,11 +117,32 @@ function ListPerformers(props) {
                     element.style.height = 'calc(var(--index) * 5)'
                     valueChange(false)
                 }
-            }}>{performersComponents.map(performerComponent => performerComponent)}</div>
+            }}>{performersComponents.map(performerComponent => performerComponent)}
+            </div>
+
+            <div className="open-block" onClick={() => {
+                let element = document.getElementsByClassName('performer-block')[0]
+                let button = document.getElementsByClassName('open-block')[0]
+                if (!isVisible) {
+                    button.style.borderRadius = '100% 100% 0 0'
+                    button.style.transform = 'rotate(180deg)'
+                    element.style.overflow = 'visible'
+                    element.style.height = 'auto'
+                    valueChange(true)
+                } else {
+                    button.style.borderRadius = '0 0 100% 100%'
+                    button.style.transform = 'rotate(0)'
+                    element.style.overflow = 'hidden'
+                    element.style.height = 'calc(var(--index) * 5)'
+                    valueChange(false)
+                }
+            }}><FaArrowDown className="open"/></div>
         </>
         
     )
 }
+
+
 
 function LabelMusic(props) {
     const performersAndLabelImg = [
@@ -220,7 +243,7 @@ function ListProducts(props) {
 
     useEffect(() => {
         // если покупатель перешел на другую страницу и перешел обратно к продуктам, то перематываем его к тому месту, где он остановился
-        scrollByY(localStorage.getItem('scroll-products'), 1000)
+        scrollByY(localStorage.getItem('scroll-products'), 100)
     }, [])
 
 
