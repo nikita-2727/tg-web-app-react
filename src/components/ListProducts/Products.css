@@ -102,6 +102,7 @@
 }
 
 .open-block {
+    cursor: pointer;
     background-color: whitesmoke;
     height: 3.5vh;
     width: 40vw;

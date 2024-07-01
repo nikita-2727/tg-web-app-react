@@ -25,10 +25,6 @@ class UnvisibleCount extends React.Component {
 
     }
 
-    componentDidMount() {
-        // пересичтываем общее количество в корзине
-        window.sumCounterProduct()
-    }
     
     render() {
         if (this.state.counter === 1) {
@@ -40,7 +36,7 @@ class UnvisibleCount extends React.Component {
                         this.props.productProps.price = this.props.price 
                         this.editStateCart(0)
                         this.requestDelProduct()
-                        setTimeout(() => window.sumCounterProduct(), 1) // ПОД ЗАМЕНУ
+                        window.sumCounterProduct() // ПОД ЗАМЕНУ
                     }}><RiDeleteBin5Fill className="icon-delete"/></button>
 
                     {/* псевдоэлемент для быстрого подсчёта товаров в корзине без обращения к серверу 
@@ -69,14 +65,14 @@ class UnvisibleCount extends React.Component {
                         this.props.productProps.price = 50
                         this.requestAddProduct() // добавление информации о товаре в базу данных корзины
                         this.editStateCart(1) // изменяем counter
-                        setTimeout(() => window.sumCounterProduct(), 1) // изменяем состояние счетчика в Header 
+                        window.sumCounterProduct() // изменяем состояние счетчика в Header 
                     }} >leasing</button>
                     <button className="button-exclusive" onClick={() => {
                         this.editStateFlag(false) // полностью аналогично
                         this.props.productProps.price = 120
                         this.requestAddProduct()
                         this.editStateCart(1)
-                        setTimeout(() => window.sumCounterProduct(), 1) // ПОД ЗАМЕНУ
+                        window.sumCounterProduct() // ПОД ЗАМЕНУ
                     }} >exclusive <FaCrown /></button>
                 
                     {/* псевдоэлемент для быстрого подсчёта товаров в корзине без обращения к серверу 

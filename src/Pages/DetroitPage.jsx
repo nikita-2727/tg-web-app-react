@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 export default class DetroitPage extends React.Component {
     render() {
         return (
-            <div className="main-page">
+            <div className="detroit-page">
                 <Header photo='https://i.postimg.cc/j2mpg9kQ/maxresdefault-3.jpg'/>
                 <ListProducts products={this.props.products} onClick={this.props.onClick}/>
                 <Link to='/' style={{textDecoration: 'none'}}>

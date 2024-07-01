@@ -14,6 +14,7 @@ import { TbArrowsShuffle } from "react-icons/tb";
 
 
 import { Link } from "react-router-dom";
+import { px } from "framer-motion";
 
 
 
@@ -32,15 +33,17 @@ class AudioRecoder extends React.Component {
 
             isLoopAudio: false,
             isMixingAudio: false,
+            timeLineIndicator: 0,
+
+            isNotUnload: true,
         }
 
         this.newAudioAndPostServerQuery()
     }
-
-    componentWillUnmount() {
-        this.audio.pause() // при размонтировании компонента выключаем музыку
-    }
     
+    componentWillUnmount() {
+        this.audio.pause()
+    }
 
     render() {
         return (
@@ -67,8 +70,13 @@ class AudioRecoder extends React.Component {
                         this.audio.play()
                         this.setState({isPlayFlag: true}) // при клике на play эта кнопка исчезает и появляется кнопка pause, меняется флаг воспроизведения
                         if (this.state.isLoadAudio) {
+                            const timeLineWidth = document.getElementsByClassName('time-line')[0].clientWidth
+                            const pxInSecond = timeLineWidth / this.state.durationAudio
                             // обновляю состояние времени каждую секунду, если флаг загрузки true
-                            this.interval = setInterval(() => this.setState({timeAudio: this.audio.currentTime}), 100) 
+                            this.interval = setInterval(() => this.setState({
+                                timeAudio: this.audio.currentTime,
+                                timeLineIndicator: (this.audio.currentTime * pxInSecond),
+                            }), 100) 
                         } 
                         
                     }} />
@@ -82,12 +90,16 @@ class AudioRecoder extends React.Component {
 
                     <AiOutlineLoading3Quarters className="loading" style={{display: !this.state.isPlayFlag && !this.state.isLoadAudio ? "block" : "none"}}/>
 
-                    <div className="time-line" onClick={() => {
-                        this.audio.currentTime = 100
-                        this.setState({timeAudio: 100})
-                    }}></div>
+                    <div className="time-line" onClick={(e) => this.timeLineCoordinate(e.clientX)}>
+                        <img src="https://i.postimg.cc/k4Dmgdsw/93-1.png" className="indicator" 
+                        style={{left: `calc(${this.state.timeLineIndicator}px - 4vw)`}}></img>
+                    </div>
 
-                    <ImPrevious className="next-icon" onClick={() => {this.nextPreviousMusic(-1)}} />
+                    <ImPrevious className="next-icon" onClick={() => {
+                        this.audio.pause()
+                        this.setState({isPlayFlag: false})
+                        this.nextPreviousMusic(-1)
+                    }} />
                     <ImNext className="previous-icon" onClick={() => {this.nextPreviousMusic(1)}} />
 
                     <ImLoop className="loop-icon" style={{color: this.state.isLoopAudio ? 'black' : 'whitesmoke'}} onClick={() => {
@@ -101,14 +113,29 @@ class AudioRecoder extends React.Component {
                     }}/>
 
                 </div>
-
-
-
-                
             </div>
         )
     }
 
+    timeLineCoordinate(x) {
+        const timeLineWidth = document.getElementsByClassName('time-line')[0].clientWidth
+        
+        const pxInSecond = timeLineWidth / this.audio.duration
+        const realX = x - (window.innerWidth - timeLineWidth) / 2 
+        for (let second = 0; second < this.state.durationAudio; second++) {
+            if (pxInSecond * second > realX) {
+                if (this.state.isPlayFlag) {
+                    this.audio.currentTime = second
+                } else {
+                    this.audio.currentTime = second
+                }
+                
+                this.setState({timeAudio: second})
+
+                break
+            }
+        }
+    }
 
     nextPreviousMusic(index) {
         if (!this.state.isMixingAudio) {
@@ -125,6 +152,7 @@ class AudioRecoder extends React.Component {
             isLoadAudio: false,
             timeAudio: 0,
             durationAudio: 0,
+            timeLineIndicator: 0
         }, () => {
             this.audio.pause()
             this.newAudioAndPostServerQuery()
@@ -132,22 +160,33 @@ class AudioRecoder extends React.Component {
     }
 
     newAudioAndPostServerQuery() {
-        this.audio = new Audio(this.state.dataProduct.music)
+        const Music = require('../../music/detroit/' + this.state.dataProduct.music)
+        this.audio = new Audio(Music)
 
         this.audio.preload = 'auto'
         this.audio.oncanplaythrough = () => {// если аудио загружено, меняем состояние и запускаем таймер
             this.setState({durationAudio: this.audio.duration})
-            this.setState({isLoadAudio: true, isPlayFlag: true}, () => {
-                if (this.state.isPlayFlag) {this.interval = setInterval(() => {this.setState({timeAudio: this.audio.currentTime})}, 100)}
+            this.setState({isLoadAudio: true, isPlayFlag: true}, () => { // каждые 100мс меняем состояние таймера аудио
+
+                const timeLineWidth = document.getElementsByClassName('time-line')[0].clientWidth
+                const pxInSecond = timeLineWidth / this.state.durationAudio
+                if (this.state.isPlayFlag) {this.interval = setInterval(() => {
+                    this.setState({
+                        timeAudio: this.audio.currentTime, 
+                        timeLineIndicator: this.state.timeAudio * pxInSecond
+                    })
+                }, 100)}
             })
-            
+
             this.audio.play()
+
+            
         }
          // при завершении кнопка паузы меняется на play,счетчик обнуляется и выключается
         this.audio.onended = () => {
             clearInterval(this.interval)
             this.audio.pause()
-            this.setState({isPlayFlag: false, timeAudio: 0}, () => {
+            this.setState({isPlayFlag: false, timeAudio: 0, timeLineIndicator: 0}, () => {
                 if (this.state.isLoopAudio) {
                     return
                 } else {

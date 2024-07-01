@@ -2,15 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import './Products.css'
-
+import infoPage from "../../info";
 import UnvisibleCount from "./UnvisibleCount";
 import CustomAudioRecoder from "./CustomAudioRecoder";
 import { FaArrowDown } from "react-icons/fa6";
-
-
 import { HOST_SERVER_API } from "../../env"
 
+
 export class Product extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            music: undefined
+        }
+    }
     render() {
         return (
             <div id={"product-cell-" + this.props.productProps.id} className="product-cell">
@@ -22,7 +28,14 @@ export class Product extends React.Component {
                     <p>{this.props.nameAndExecutor[0]}</p>
                 </div>
                 
-                <CustomAudioRecoder src={this.props.productProps.music} />
+                <CustomAudioRecoder src={this.props.productProps.music} toParent={(music) => {
+                    this.setState({
+                        music: music,
+                    }, () => {
+                        this.props.toGrandParent(this.state.music)
+                    })
+                    
+                }} id={this.props.productProps.id} />
                 <UnvisibleCount productProps={this.props.productProps} price={this.props.price} mode={this.props.mode}/>
             </div>
         )
@@ -32,62 +45,8 @@ export class Product extends React.Component {
 
 function ListPerformers(props) {
     const [isVisible, valueChange] = useState(false)
-
-
-    const performersAndButtonImg = [
-        {
-            name: '21 Savage',
-            url: 'https://i.postimg.cc/R0FhpNdT/photo-2024-04-25-20-57-24.jpg'
-        }, 
-        {
-            name: 'Baby Tron',
-            url: 'https://i.postimg.cc/cLW8hxPD/photo-2024-04-25-21-02-20.jpg'
-        }, 
-        {
-            name: 'Big30',
-            url: 'https://i.postimg.cc/cCYr72hy/photo-2024-04-25-21-13-47.jpg'
-        }, 
-        {
-            name: 'BossMan Dlow',
-            url: 'https://i.postimg.cc/sgK1JpYX/photo-2024-04-25-20-59-15.jpg'
-        }, 
-        {
-            name: 'Est Gee',
-            url: 'https://i.postimg.cc/T2WLX567/photo-2024-04-25-21-14-14.jpg'
-        }, 
-        {
-            name: 'GetRichZay',
-            url: 'https://i.postimg.cc/HsDJWWWp/photo-2024-04-25-21-14-47.jpg'
-        }, 
-        {
-            name: 'Key Glock',
-            url: 'https://i.postimg.cc/Zq7BJrng/photo-2024-04-25-21-10-13.jpg'
-        }, 
-        {
-            name: 'Lil Baby',
-            url: 'https://i.postimg.cc/yYcZ0gpg/photo-2024-04-25-21-01-14.jpg'
-        }, 
-        {
-            name: 'Lil Durk',
-            url: 'https://i.postimg.cc/9Xv94tbH/photo-2024-04-25-21-00-43.jpg'
-        }, 
-        {
-            name: 'Nardo Wick',
-            url: 'https://i.postimg.cc/sXGXyqtQ/photo-2024-04-25-21-00-01.jpg'
-        }, 
-        {
-            name: 'Rio Da Yang Og',
-            url: 'https://i.postimg.cc/4dYKymh3/photo-2024-04-25-21-12-04.jpg'
-        },
-        {
-            name: 'Rob49',
-            url: 'https://i.postimg.cc/QdqKyL3j/photo-2024-04-25-21-04-25.jpg'
-        },
-        {
-            name: 'YTB Fatt',
-            url: 'https://i.postimg.cc/G264ydkx/photo-2024-04-25-21-13-20.jpg'
-        },
-    ]
+    const info = infoPage((window.location.href).split('/').at(-1))
+    const performersAndButtonImg = info[0]
 
     let index = 0
     const performersComponents = []
@@ -106,18 +65,8 @@ function ListPerformers(props) {
 
     return(
         <>
-            <div className="performer-block" onClick={() => {
-                let element = document.getElementsByClassName('performer-block')[0]
-                if (!isVisible) {
-                    element.style.overflow = 'visible'
-                    element.style.height = 'auto'
-                    valueChange(true)
-                } else {
-                    element.style.overflow = 'hidden'
-                    element.style.height = 'calc(var(--index) * 5)'
-                    valueChange(false)
-                }
-            }}>{performersComponents.map(performerComponent => performerComponent)}
+            <div className="performer-block" >
+                {performersComponents.map(performerComponent => performerComponent)}
             </div>
 
             <div className="open-block" onClick={() => {
@@ -145,60 +94,8 @@ function ListPerformers(props) {
 
 
 function LabelMusic(props) {
-    const performersAndLabelImg = [
-        {
-            name: '21 Savage',
-            url: 'https://i.postimg.cc/50RR5FrF/photo-2024-04-23-22-18-49.jpg'
-        }, 
-        {
-            name: 'Baby Tron',
-            url: 'https://i.postimg.cc/x1jQr4GJ/photo-2024-04-23-01-36-22.jpg'
-        }, 
-        {
-            name: 'Big30',
-            url: 'https://i.postimg.cc/Fztv2FGN/photo-2024-04-23-00-04-51.jpg'
-        }, 
-        {
-            name: 'BossMan Dlow',
-            url: 'https://i.postimg.cc/8cfnZz8X/photo-2024-04-23-23-03-28.jpg'
-        }, 
-        {
-            name: 'Est Gee',
-            url: 'https://i.postimg.cc/020vBsS1/photo-2024-04-22-23-04-08.jpg'
-        }, 
-        {
-            name: 'GetRichZay',
-            url: 'https://i.postimg.cc/j5MhDRP4/photo-2024-04-22-22-25-54.jpg'
-        }, 
-        {
-            name: 'Key Glock',
-            url: 'https://i.postimg.cc/7YkD96fN/photo-2024-04-23-00-16-30.jpg'
-        }, 
-        {
-            name: 'Lil Baby',
-            url: 'https://i.postimg.cc/FRkmWkyT/photo-2024-04-22-23-50-03.jpg'
-        }, 
-        {
-            name: 'Lil Durk',
-            url: 'https://i.postimg.cc/V66hbFK8/photo-2024-04-23-22-51-51.jpg'
-        }, 
-        {
-            name: 'Nardo Wick',
-            url: 'https://i.postimg.cc/xd4n33zk/photo-2024-04-22-23-03-59.jpg'
-        }, 
-        {
-            name: 'Rio Da Yang Og',
-            url: 'https://i.postimg.cc/pryJ83Bb/photo-2024-04-22-22-25-53.jpg'
-        },
-        {
-            name: 'Rob49',
-            url: 'https://i.postimg.cc/v89b59HB/photo-2024-04-22-23-04-22.jpg'
-        },
-        {
-            name: 'YTB Fatt',
-            url: 'https://i.postimg.cc/hv9ngF3x/photo-2024-04-23-00-29-42.jpg'
-        },
-    ]
+    const info = infoPage((window.location.href).split('/').at(-1))
+    const performersAndLabelImg = info[1]
 
     let labelUrl = '' 
     let labelName = ''
@@ -231,6 +128,9 @@ function LabelMusic(props) {
 
 function ListProducts(props) {
     const [dataInCart, changeData] = useState(undefined)
+    const [musicPlay, changeMusicPlay] = useState(undefined)
+
+    // const [id, changeId] = useState(undefined)
 
     useEffect(() => {
         // получаем данные из корзины, чтобы знать какой рендерить unvisibleCount
@@ -271,7 +171,20 @@ function ListProducts(props) {
                 } 
             } if (!fuckingFlag) {
                 listProductComponent.push(<Product nameAndExecutor={nameAndExecutor} key={index} 
-                    productProps={props.products[index]} onClick={props.onClick} price={undefined} mode={undefined}/>)
+                    productProps={props.products[index]} onClick={props.onClick} price={undefined} mode={undefined}
+                    toGrandParent={(music) => {
+                        if (musicPlay != undefined && musicPlay != music) {
+                            musicPlay.pause()
+                            // let pause = document.getElementsByClassName(`pause-${id}`)[0]
+                            // let play = document.getElementsByClassName(`play-${id}`)[0]
+                            // pause.style.display = 'none'
+                            // play.style.display = 'block'
+                            // console.log('dsd')
+                        }
+                        changeMusicPlay(music)
+                        // changeId(props.products[index].id)
+  
+                    }} />)
             }
         }
     }
@@ -286,10 +199,8 @@ function ListProducts(props) {
 
 function newName(name) {
     /* функция для кастомного отображения названий битов */
-    let lstDelStr = [
-        '21 Savage ', 'Baby Tron ', 'Big30 ', 'BossMan Dlow ', 'Est Gee ', 'GetRichZay ', 'Key Glock ', 'Lil Baby ',
-        'Lil Durk ', 'Nardo Wick ', 'Rio Da Yang Og ', 'Rob49 ', 'YTB Fatt '
-    ]
+    const info = infoPage((window.location.href).split('/').at(-1))
+    const lstDelStr = info[2]
 
     let newName = name
     let executor = undefined

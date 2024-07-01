@@ -41,3 +41,12 @@
     padding: .5vh;
     animation: loading 5s linear infinite;
 }
+#indicator {
+    
+    user-select: none;
+    position: absolute;
+    height: 4vw;
+    width: 4vw;
+    border-radius: 50%;
+}
+

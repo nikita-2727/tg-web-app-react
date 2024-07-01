@@ -4,7 +4,7 @@ import './header.css'
 import '../ListProducts/Products.css'
 import { Link } from 'react-router-dom';
 
-import { HOST_CLIENT } from "../../env"
+import { HOST_CLIENT, HOST_SERVER_API } from "../../env"
 
 class Header extends Component {
     constructor(props) {
@@ -95,28 +95,15 @@ class Header extends Component {
 
     // функции пересчета количества товаров в корзине
     sumCounterProduct() {
-        if (document.getElementsByClassName('counter') !== undefined) {
-            let elements = document.getElementsByClassName('counter');
-            let counter = 0
-            for (let element of elements) {
-                counter += Number(element.innerHTML)  
-            }
-            this.setState({buyCounter: counter})
-        } else {
-            this.setState({buyCounter: this.state.buyCounter + 1})
-        }    
-        setTimeout(() => this.ifCounterIsNull(), 1)
+        fetch(HOST_SERVER_API + 'length', {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(data => this.setState({buyCounter: data}))
+        .catch(error => console.log(error))
+        
     }
-
-    ifCounterIsNull() {
-        let element  = document.getElementsByClassName('circle-counter');
-        if (this.state.buyCounter === 0) {
-            element[0].style.display = 'none'
-        } else {
-            element[0].style.display = 'flex'
-        }
-    }
-
+    
 }
 
 export default Header;

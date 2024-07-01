@@ -68,25 +68,32 @@
 
 .audio-block .timer {
     position: absolute;
-    top: 5vh;
+    top: 6vh;
     left: 5vw;
     font-size: calc(var(--index) * 1.8);
 }
 .audio-block .total-timer {
     position: absolute;
-    top: 5vh;
+    top: 6vh;
     right: 5vw;
     font-size: calc(var(--index) * 1.8);
 }
 
 .audio-block .time-line {
+    display: flex;
+    align-items: center;
     position: absolute;
     background-color: rgb(155, 155, 155);
     border-radius: var(--index);
     height: 1vh;
     width: 90vw;
     right: 5vw;
-    top: 5vh;
+    top: 3vh;
+
+    border-top: 3vw solid rgb(17, 17, 17);
+    border-bottom: 3vw solid rgb(17, 17, 17);
+
+
 }
 
 @keyframes loading {
@@ -121,4 +128,12 @@
     width: 4.5vh;
     right: 5.5vw;
     bottom: 5vh;
+}
+
+.indicator {
+    user-select: none;
+    position: absolute;
+    height: 8vw;
+    width: 8vw;
+    border-radius: 50%;
 }
