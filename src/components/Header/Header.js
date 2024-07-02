@@ -11,6 +11,7 @@ class Header extends Component {
         super(props)
         this.state = {
             buyCounter: 0,
+            isGetChatId: false
         }
         this.sumCounterProduct = this.sumCounterProduct.bind(this)
 
@@ -95,12 +96,32 @@ class Header extends Component {
 
     // функции пересчета количества товаров в корзине
     sumCounterProduct() {
-        fetch(HOST_SERVER_API + 'length', {
-            method: 'GET'
+        // получаем id пользователя для получения доступа k его корзине
+        fetch(HOST_SERVER_API + 'getChatId', {
+            method: 'POST',
+            body: JSON.stringify(this.tgData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
-        .then(response => response.json())
-        .then(data => this.setState({buyCounter: data}))
-        .catch(error => console.log(error))
+        .then(response => {
+            if (response.ok) {
+                console.log('Запрос отправлен')
+            }
+        })
+        .then(() => this.setState({isGetChatId: true}))
+
+
+
+        if (this.state.isGetChatId) {
+            fetch(HOST_SERVER_API + 'length', {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data => this.setState({buyCounter: data}))
+            .catch(error => console.log(error))
+        }
+        
         
     }
     
