@@ -10,12 +10,13 @@ class Header extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            buyCounter: 0,
+            buyCounter: undefined,
             isGetChatId: false
         }
         this.sumCounterProduct = this.sumCounterProduct.bind(this)
 
         window.sumCounterProduct = this.sumCounterProduct
+        this.sumCounterProduct()
     }
 
     render() {
@@ -48,7 +49,8 @@ class Header extends Component {
                     
                     <Link to="/cart" className='cart-button'>
                         <SlBasket className='cart-icon' />
-                        <span className='circle-counter'>{this.state.buyCounter}</span>
+                        <span className='circle-counter' style={{display: this.state.buyCounter ? 'flex' : 'none'}}
+                        >{this.state.buyCounter}</span>
                     </Link>
                 </div>
             </div>
@@ -96,33 +98,13 @@ class Header extends Component {
 
     // функции пересчета количества товаров в корзине
     sumCounterProduct() {
-        // получаем id пользователя для получения доступа k его корзине
-        fetch(HOST_SERVER_API + 'getChatId', {
-            method: 'POST',
-            body: JSON.stringify(this.tgData),
-            headers: {
-                'Content-Type': 'application/json'
-            }
+        fetch(HOST_SERVER_API + 'length', {
+            method: 'GET'
         })
-        .then(response => {
-            if (response.ok) {
-                console.log('Запрос отправлен')
-            }
-        })
-        .then(() => this.setState({isGetChatId: true}))
+        .then(response => response.json())
+        .then(data => this.setState({buyCounter: data.length}, () => console.log(this.state.buyCounter)))
+        .catch(error => console.log(error))
 
-
-
-        if (this.state.isGetChatId) {
-            fetch(HOST_SERVER_API + 'length', {
-                method: 'GET'
-            })
-            .then(response => response.json())
-            .then(data => this.setState({buyCounter: data}))
-            .catch(error => console.log(error))
-        }
-        
-        
     }
     
 }

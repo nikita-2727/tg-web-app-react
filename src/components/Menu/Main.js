@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import './Main.css'
 
 export default function Main(props) {
-    window.sumCounterProduct()
     return (
         <>
             <Link to="detroit" onClick={() => {

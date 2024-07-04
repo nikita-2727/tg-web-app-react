@@ -84,8 +84,14 @@ function ProductCellCart(props) {
             </div>
             
             <span className='price-cart'>{props.product.price} $</span>
-            <a  href={props.product.music}><FaDownload className="download-cart"/></a>
+            <Link to={'/music' + JSON.parse(localStorage.getItem('page')) + '/' + props.product.music} target="_blank" download>
+                <FaDownload className="download-cart" />
+            </Link>
         </div>
     )
+}
+
+function downloadFile() {
+
 }
 

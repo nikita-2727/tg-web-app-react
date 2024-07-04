@@ -32,11 +32,11 @@ class UnvisibleCount extends React.Component {
                 <div className="delete-check-mark-cart">
                     <span className="add-to-cart">Added <IoIosCheckmarkCircle /></span>
                     <button className="delete-button" onClick={() => {
+
                         // при перезагрузке страницы у нас исчезают цены, поэтому подгружаем их из базы данных для конкретного продукта
                         this.props.productProps.price = this.props.price 
                         this.editStateCart(0)
                         this.requestDelProduct()
-                        window.sumCounterProduct() // ПОД ЗАМЕНУ
                     }}><RiDeleteBin5Fill className="icon-delete"/></button>
 
                     {/* псевдоэлемент для быстрого подсчёта товаров в корзине без обращения к серверу 
@@ -61,18 +61,21 @@ class UnvisibleCount extends React.Component {
             return (
                 <div className="custom-market-cart">
                     <button className="button-lizing" onClick={() => {
+                        
                         this.editStateFlag(false) // заменяем компоненту на delete-check-mark-cart через состояние
                         this.props.productProps.price = 50
                         this.requestAddProduct() // добавление информации о товаре в базу данных корзины
                         this.editStateCart(1) // изменяем counter
-                        window.sumCounterProduct() // изменяем состояние счетчика в Header 
+                        
                     }} >leasing</button>
                     <button className="button-exclusive" onClick={() => {
+                        
                         this.editStateFlag(false) // полностью аналогично
                         this.props.productProps.price = 120
                         this.requestAddProduct()
                         this.editStateCart(1)
-                        window.sumCounterProduct() // ПОД ЗАМЕНУ
+
+                        
                     }} >exclusive <FaCrown /></button>
                 
                     {/* псевдоэлемент для быстрого подсчёта товаров в корзине без обращения к серверу 
@@ -105,6 +108,7 @@ class UnvisibleCount extends React.Component {
         })
         .then(() => {
             console.log('ok')
+            setTimeout(() =>window.sumCounterProduct(), 500) // изменяем состояние счетчика в Header 
         })
         .catch((error) => {
             console.error(error)
@@ -143,6 +147,7 @@ class UnvisibleCount extends React.Component {
         })
         .then(() => {
             console.log('ok')
+            setTimeout(() =>window.sumCounterProduct(), 500) // изменяем состояние счетчика в Header 
         })
         .catch((error) => {
             console.error(error)

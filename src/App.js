@@ -75,8 +75,10 @@ class App extends React.Component {
     render() {
         if (this.state.isLoadedData.every((e) => e == true) && this.state.isGetChatId) { /* пока не получили данные от сервера, рендер станицы загрузки
         иначе возвращаем маршрутизатор с главной страницей списка продуктов */
+
             localStorage.setItem('dataProducts', JSON.stringify(this.state.productsDetroit)) // закидываем весь список продуктов в localstorage
 
+            
             return (
                 <BrowserRouter>
                     <Routes>

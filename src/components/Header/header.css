@@ -74,7 +74,7 @@
     height: calc(var(--index) * 2.4);
     width: calc(var(--index) * 2.4);
     border-radius: 100%;
-    border: #000000 solid calc(var(--index) * .1);
+    border: #000000 solid calc(var(--index) * .25);
 }
 
 .selected-block {
