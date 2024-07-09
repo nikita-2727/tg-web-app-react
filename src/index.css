@@ -1,8 +1,13 @@
 * {
     margin: 0;
     padding: 0;
-
 }
+
+iframe
+{
+    display: none;
+}
+
 html, body {
     overflow-x: hidden; /* чтобы события скролла работали стабильно */
 

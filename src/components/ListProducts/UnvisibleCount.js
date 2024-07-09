@@ -92,6 +92,19 @@ class UnvisibleCount extends React.Component {
 
     // методы управления данными
     requestAddProduct() {
+        // получаем id пользователя из tg и отправляем на сервер
+        fetch(HOST_SERVER_API + 'getChatId', {
+            method: 'POST',
+            body: JSON.stringify(this.tgData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Запрос отправлен')
+            }
+        })
 
         // отправляю на сервер данные продукта, который хотят добавить в корзину
         fetch(HOST_SERVER_API + 'add-product', {
@@ -114,6 +127,11 @@ class UnvisibleCount extends React.Component {
             console.error(error)
         })
 
+
+    }
+
+
+    requestDelProduct() {
         // получаем id пользователя из tg и отправляем на сервер
         fetch(HOST_SERVER_API + 'getChatId', {
             method: 'POST',
@@ -127,10 +145,6 @@ class UnvisibleCount extends React.Component {
                 console.log('Запрос отправлен')
             }
         })
-    }
-
-
-    requestDelProduct() {
 
         // отправляю на сервер данные продукта, который хотят добавить в корзину
         fetch(HOST_SERVER_API + 'del-product', {
@@ -153,19 +167,7 @@ class UnvisibleCount extends React.Component {
             console.error(error)
         })
 
-        // получаем id пользователя из tg и отправляем на сервер
-        fetch(HOST_SERVER_API + 'getChatId', {
-            method: 'POST',
-            body: JSON.stringify(this.tgData),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log('Запрос отправлен')
-            }
-        })
+
     }
 }
 

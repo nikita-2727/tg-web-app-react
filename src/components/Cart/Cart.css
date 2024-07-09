@@ -20,38 +20,41 @@
 }
 
 .name-box {
-    display: flex;
-    justify-content: center;
-    margin-top: -15vh;
-    margin-left: 15vh;
-    width: 70vw;
+    margin-top: -14.5vh;
+    margin-left: 18vh;
+    width: 56vw;
     height: 9vh;
 }
 .name-cart {
     font-family: Arial Narrow, sans-serif;
     font-size: calc(var(--index) * 2);
-    width: 65vw;
+    width: 55vw;
     color: rgb(194, 194, 194);
 }
 
-.download-cart {
-    transform: scale(1.2);
-    color: rgb(135, 135, 135);
-    transition: transform 1s, opacity 1s;
+.delete-icon {
+    cursor: pointer;
+    transform: scale(1.7);
+    color: rgb(167, 0, 0);
+    transition: transform .5s, color 1s;
 }
-.download-cart:hover {
-    transform: scale(1.4);
-    opacity: .7;
+.delete-icon:hover {
+    transform: scale(1.8);
+    color: #e80000;
 }
-.download-cart:active {
-    transform: scale(1);
+
+.delete-icon:active {
+    transform: scale(1.5);
+    color: #e80000;
 }
+
+
 
 .price-cart {
     font-family: Comic Sans MS, Comic Sans, cursive;
     color: whitesmoke;
     margin-left: 28vw;
-    margin-right: 45vw;
+    margin-right: 31vw;
 }
 
 
@@ -135,8 +138,35 @@
     width: 88vw;
 }
 
-.button-back {
+#back {
     left: 0;
     border-radius: 0 var(--index) var(--index) 0;
     width: 35vw;
+}
+
+.download-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 3.1vw;
+    height: 15vh;
+    width: 15vw;
+    border-radius: 0 var(--index) var(--index) 0;
+    background-color: whitesmoke;
+    margin-top: -9.5vh;
+}
+
+.download-cart {
+    transform: scale(1.7);
+    color: #101010;
+    transition: transform 1s, opacity 1s;
+}
+
+.download-cart:hover {
+    transform: scale(1.4);
+    opacity: .7;
+}
+.download-cart:active {
+    transform: scale(1);
 }

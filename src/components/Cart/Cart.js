@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react';
 import LoadingPage from '../../Pages/LoadingPage';
 import { FaDownload } from "react-icons/fa6";
+import { MdDeleteForever } from "react-icons/md";
+
 
 import './Cart.css';
 import { Link } from 'react-router-dom';
@@ -11,6 +13,9 @@ export default function Cart(props) {
     const [totalCount, setTotalCount] = useState(0)
     const [data, getdata] = useState(undefined)
     
+    const change = (data) => {
+        getdata(data)
+    }
 
     useEffect(() => {
         fetch(HOST_SERVER_API + 'cart', {method: 'GET'})
@@ -36,7 +41,7 @@ export default function Cart(props) {
     if (data) {
 
         for (let product of data) {
-            listProductsComponents.push(<ProductCellCart product={product}></ProductCellCart>)   
+            listProductsComponents.push(<ProductCellCart product={product} change={change}></ProductCellCart>)   
         }
         
         if (totalCount !== 0) {
@@ -44,7 +49,7 @@ export default function Cart(props) {
                 <>
                     {listProductsComponents.map(product => product)}
                     <p className='total-cart'>Total amount: <span className='total-price'>{totalCount} $</span></p>
-                    <Link to='pay' className='buy-button'>
+                    <Link to='pay' className='buy-button' onClick={() => changeCount()}>
                         <span>Pay</span>
                     </Link>
                     
@@ -74,6 +79,10 @@ export default function Cart(props) {
 }
 
 
+function changeCount(props) {
+
+}
+
 
 function ProductCellCart(props) {
     return (
@@ -82,16 +91,64 @@ function ProductCellCart(props) {
             <div className='name-box'>
                 <span className='name-cart'>{props.product.productname}</span>
             </div>
+            <a href={require('../../music/' + props.product.style + '/' + props.product.music)} download={true}
+            className='download-block'>
+                <FaDownload className="download-cart" />
+            </a>
+            
             
             <span className='price-cart'>{props.product.price} $</span>
-            <Link to={'/music' + JSON.parse(localStorage.getItem('page')) + '/' + props.product.music} target="_blank" download>
-                <FaDownload className="download-cart" />
-            </Link>
+            <MdDeleteForever className='delete-icon' 
+            onClick={() => {
+                deleteProductInCart({"productProps": props.product })
+                setTimeout(() => {
+                    fetch(HOST_SERVER_API + 'cart', {method: 'GET'})
+                    .then(response => response.json())
+                    .then(response => props.change(response))
+                }, 500) 
+            }}/>
         </div>
     )
 }
 
-function downloadFile() {
+
+
+function deleteProductInCart(props) {   
+    
+    const tgData = window.Telegram.WebApp.initDataUnsafe
+
+    // получаем id пользователя из tg и отправляем на сервер
+    fetch(HOST_SERVER_API + 'getChatId', {
+        method: 'POST',
+        body: JSON.stringify(tgData),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Запрос отправлен')
+        }
+    })
+
+    fetch(HOST_SERVER_API + 'del-product', {
+        method: 'POST',
+        body: JSON.stringify(props.productProps),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Запрос отправлен')
+        }
+    })
+    .catch((error) => {
+        console.error(error)
+    })
+
+
+
+
 
 }
-

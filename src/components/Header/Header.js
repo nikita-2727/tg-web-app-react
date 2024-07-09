@@ -89,7 +89,7 @@ class Header extends Component {
             menu.style.paddingBottom = '3vh'
         }
         // если человек на главной странице, записываем его информацию о скролле страницы каждую секунду
-        if (window.location.href == (HOST_CLIENT + '/detroit') || window.location.href == (HOST_CLIENT + '/drill')) {
+        if (window.location.href == (HOST_CLIENT + '/detroit') || window.location.href == (HOST_CLIENT + '/trap')) {
             setTimeout(() => localStorage.setItem('scroll-products', window.pageYOffset), 500)
         }
         
@@ -102,7 +102,7 @@ class Header extends Component {
             method: 'GET'
         })
         .then(response => response.json())
-        .then(data => this.setState({buyCounter: data.length}, () => console.log(this.state.buyCounter)))
+        .then(data => this.setState({buyCounter: data.length}))
         .catch(error => console.log(error))
 
     }

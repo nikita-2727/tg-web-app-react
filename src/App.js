@@ -75,8 +75,8 @@ class App extends React.Component {
     render() {
         if (this.state.isLoadedData.every((e) => e == true) && this.state.isGetChatId) { /* пока не получили данные от сервера, рендер станицы загрузки
         иначе возвращаем маршрутизатор с главной страницей списка продуктов */
-
-            localStorage.setItem('dataProducts', JSON.stringify(this.state.productsDetroit)) // закидываем весь список продуктов в localstorage
+            localStorage.setItem('detroit', JSON.stringify(this.state.productsDetroit)) // закидываем весь список продуктов в localstorage
+            localStorage.setItem('trap', JSON.stringify(this.state.productsTrap)) // закидываем весь список продуктов в localstorage
 
             
             return (
@@ -112,7 +112,7 @@ class App extends React.Component {
 
     getValueId(id) {
         /* метод для записи id элемента в storage */
-        localStorage.setItem("indexProduct", JSON.stringify(id - 1))  
+        localStorage.setItem("indexProduct", JSON.stringify(id))  
     }
 }
 

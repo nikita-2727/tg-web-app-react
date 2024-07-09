@@ -1,4 +1,6 @@
 
+import ButtonBack from "../components/Header/HeaderComponents/ButtonBack/ButtonBack";
+
 export default function ComingSoon(props) {
     return (
         <>
@@ -7,7 +9,8 @@ export default function ComingSoon(props) {
             style={{width: '100%', height: '45vh'}}></img>
             <p style={{fontSize: '7vh', userSelect: 'none', fontFamily: 'Arial Narrow, sans-serif', 
                 width: '100vw', marginTop: '5vh', marginLeft: '5vw'}}>
-                    <span style={{color:'grey'}}>Bro,</span> we're just working on it for now.</p>
+            <span style={{color:'grey'}}>Bro,</span> we're just working on it for now.</p>
+            <ButtonBack />
         </>
     )
 }

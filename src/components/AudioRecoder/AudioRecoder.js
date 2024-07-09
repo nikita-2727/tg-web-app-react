@@ -11,13 +11,24 @@ import { ImPrevious } from "react-icons/im";
 import { FaChevronDown } from "react-icons/fa";
 import { ImLoop } from "react-icons/im";
 import { TbArrowsShuffle } from "react-icons/tb";
-
+import infoPage from "../../info";
 
 import { Link } from "react-router-dom";
 import { px } from "framer-motion";
 
 
-
+// ищем продукт на который кликнули через поиск по сохраненному индексу по списку всех продуктов данной страницы
+const searchIdMusic = () => {
+    const data = JSON.parse(localStorage.getItem(
+        JSON.parse(localStorage.getItem('page')).slice(1)
+    ))
+    for (let product of data) {
+        let id = JSON.parse(localStorage.getItem("indexProduct"))
+        if (product.id == id) {
+            return product
+        }
+    }
+}
 
 
 class AudioRecoder extends React.Component {
@@ -25,7 +36,7 @@ class AudioRecoder extends React.Component {
         super(props)
 
         this.state = {
-            dataProduct: JSON.parse(localStorage.getItem("dataProducts"))[JSON.parse(localStorage.getItem("indexProduct"))],
+            dataProduct: searchIdMusic(),
             isPlayFlag: false,
             isLoadAudio: false,
             timeAudio: 0,
@@ -37,17 +48,25 @@ class AudioRecoder extends React.Component {
 
             isNotUnload: true,
         }
-
-        this.newAudioAndPostServerQuery()
+        try {
+            this.newAudioAndPostServerQuery()
+        } catch (error) {
+            console.log('sdfsdf')
+        }
     }
     
     componentWillUnmount() {
         this.audio.pause()
     }
 
+    componentDidCatch(error) {
+        console.log('sdfsdfsdf')
+    }
+
     render() {
         return (
             <div className="audio-block">
+
                 <Link to={JSON.parse(localStorage.getItem('page'))}>
                     <FaChevronDown className="back-icon" />
                 </Link>
@@ -147,7 +166,7 @@ class AudioRecoder extends React.Component {
         
         // т к состояние изменяется асинхронно, то помещаем код, зависящтй от него в функцию обратного вызова
         this.setState({
-            dataProduct: JSON.parse(localStorage.getItem("dataProducts"))[JSON.parse(localStorage.getItem("indexProduct"))],
+            dataProduct: searchIdMusic(),
             isPlayFlag: false,
             isLoadAudio: false,
             timeAudio: 0,
@@ -160,7 +179,7 @@ class AudioRecoder extends React.Component {
     }
 
     newAudioAndPostServerQuery() {
-        const Music = require('../../music/detroit/' + this.state.dataProduct.music)
+        const Music = require('../../music' + JSON.parse(localStorage.getItem('page')) + '/' + this.state.dataProduct.music)
         this.audio = new Audio(Music)
 
         this.audio.preload = 'auto'
@@ -177,8 +196,11 @@ class AudioRecoder extends React.Component {
                     })
                 }, 100)}
             })
-
-            this.audio.play()
+            try {this.audio.play()}
+            catch (Error) {
+                this.setState({isPlayFlag: false})
+            }
+            
 
             
         }
@@ -210,10 +232,7 @@ function CorrectFormTime(timeAudio) {
 
 function newName(name) {
     /* функция для кастомного отображения названий битов */
-    let lstDelStr = [
-        '21 Savage ', 'Baby Tron ', 'Big30 ', 'BossMan Dlow ', 'Est Gee ', 'GetRichZay ', 'Key Glock ', 'Lil Baby ',
-        'Lil Durk ', 'Nardo Wick ', 'Rio Da Yang Og ', 'Rob49 ', 'YTB Fatt '
-    ]
+    let lstDelStr = infoPage(JSON.parse(localStorage.getItem('page')).slice(1))[2]
 
     let newName = name
     let executor = undefined
