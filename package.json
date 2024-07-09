@@ -49,7 +49,7 @@
   },
   "options": {
     "allowedHosts": ["localhost", ".localhost"],
-    "proxy": "http://77.222.38.197:3001/"
+    "proxy": "http://localhost:3001/"
   }
 }
 
