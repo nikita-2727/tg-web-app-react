@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://77.222.38.197:3001/api/',
+      target: 'https://lilveezee.store/api/',
       changeOrigin: true,
     })
   );

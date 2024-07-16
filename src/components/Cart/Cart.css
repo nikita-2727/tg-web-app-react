@@ -22,12 +22,12 @@
 .name-box {
     margin-top: -14.5vh;
     margin-left: 18vh;
-    width: 56vw;
+    width: 50vw;
     height: 9vh;
 }
 .name-cart {
     font-family: Arial Narrow, sans-serif;
-    font-size: calc(var(--index) * 2);
+    font-size: calc(var(--index) * 1.2);
     width: 55vw;
     color: rgb(194, 194, 194);
 }
@@ -53,14 +53,15 @@
 .price-cart {
     font-family: Comic Sans MS, Comic Sans, cursive;
     color: whitesmoke;
-    margin-left: 28vw;
-    margin-right: 31vw;
+    margin-left: 33vw;
+    margin-right: 26vw;
 }
 
 
 
 .total-cart {
     font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: calc(var(--index) * 1.7);
     background-color: rgb(194, 194, 194);
     border: 2vw solid rgb(194, 194, 194);
     color: black;

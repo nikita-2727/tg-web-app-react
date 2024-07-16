@@ -92,9 +92,9 @@
 
 .performer-button {
     height: calc(var(--index) * 4);
-    width: calc(var(--index) * 7.3);
+    width: 25vw;
     display: inline-block;
-    margin: calc(var(--index) * .5);
+    margin: 2.5vw;
     border-radius: var(--index);
     cursor: pointer;
     user-select: none;

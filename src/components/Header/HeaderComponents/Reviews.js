@@ -6,6 +6,9 @@ export default function Reviews() {
     return (
         <div className="reviews-page">
             <Header selectedPage={2} photo={getPhoto()}/>
+            <div className="prices-block">
+                <h1>Prices and stocks</h1>
+            </div>
             <ButtonBack path={JSON.parse(localStorage.getItem('page'))}/>
         </div>
     )

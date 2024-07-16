@@ -12,6 +12,7 @@ import PayPage from "./Pages/PayPage";
 import MainPage from "./Pages/MainPage";
 import ComingSoon from "./Pages/ComingSoon";
 import { HOST_SERVER_API } from "./env"
+import FkVerify from "./Pages/FkVerify";
 
 
 

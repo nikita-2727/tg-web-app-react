@@ -16,7 +16,7 @@
 
     text-decoration: none;
     font-weight: 600;
-    font-size: calc(var(--index) * 1.5);
+    font-size: calc(var(--index) * 1.25);
     border-radius: var(--index) 0 0 var(--index) ;
 
     background-color: #ffffff;
