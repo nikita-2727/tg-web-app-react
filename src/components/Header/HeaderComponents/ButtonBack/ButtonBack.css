@@ -12,7 +12,7 @@
     bottom: 0;
     right: 0;
 
-    padding: calc(var(--index) * 1.7) calc(var(--index) * 1.5);
+    padding: calc(var(--index) * 1.7) 3vw;
 
     text-decoration: none;
     font-weight: 600;

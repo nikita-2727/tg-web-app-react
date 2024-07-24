@@ -5,6 +5,7 @@ class LoadingPage extends React.Component {
     render() {
 
         return(
+            
             <div className="loading-page">
                 {/* <audio src="http://provotoro4.temp.swtest.ru/BossMan%20Dlow%20Type%20Beat%20Suave%20.mp3" controls></audio> */}
                 <div style={{background: 'linear-gradient(to bottom, transparent, black 99%)', position: 'absolute', height: '71vh', width: '100vw'}}></div>

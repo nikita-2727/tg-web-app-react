@@ -7,7 +7,14 @@ export default function Reviews() {
         <div className="reviews-page">
             <Header selectedPage={2} photo={getPhoto()}/>
             <div className="prices-block">
-                <h1>Prices and stocks</h1>
+                <h1 className="prices-header">Prices</h1>
+                <p className="title">Leasing <span className="separator">--------------</span> <span className="price">50$</span></p>
+                <p className="title">Exclusive <span className="separator">--------------</span> <span className="price">120$</span></p>
+            </div>
+
+            <div className="stocks-block">
+                <h1 className="stocks-header">Stocks</h1>
+                <p className="title">SOON</p>
             </div>
             <ButtonBack path={JSON.parse(localStorage.getItem('page'))}/>
         </div>

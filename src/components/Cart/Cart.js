@@ -49,9 +49,9 @@ export default function Cart(props) {
                 <>
                     {listProductsComponents.map(product => product)}
                     <p className='total-cart'>Total amount: <span className='total-price'>{totalCount} $</span></p>
-                    <Link to='pay' className='buy-button' onClick={() => changeCount()}>
+                    <a href='https://t.me/veezeepayment_bot' className='buy-button' onClick={() => changeCount()}>
                         <span>Pay</span>
-                    </Link>
+                    </a> 
                     
                 </>
             )

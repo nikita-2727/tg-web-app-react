@@ -138,12 +138,8 @@ function ListProducts(props) {
         .then(data => data.json())
         .then(data => changeData(data))
 
-        
-    }, [])
-
-    useEffect(() => {
         // если покупатель перешел на другую страницу и перешел обратно к продуктам, то перематываем его к тому месту, где он остановился
-        scrollByY(localStorage.getItem('scroll-products'), 100)
+        scrollByY(localStorage.getItem('scroll-products'), 500)
     }, [])
 
 
@@ -165,7 +161,13 @@ function ListProducts(props) {
                 if (dataInCart[indexCart].productname == props.products[index].productname) {
                     // если данные товара из корзины совпадают с рендерируемым, то передаем мод куплено
                     listProductComponent.push(<Product nameAndExecutor={nameAndExecutor} key={index} 
-                        productProps={props.products[index]} onClick={props.onClick} price={dataInCart[indexCart].price} mode='sold'/>)
+                        productProps={props.products[index]} onClick={props.onClick} price={dataInCart[indexCart].price} mode='sold'
+                        toGrandParent={(music) => {
+                            if (musicPlay != undefined && musicPlay != music) {
+                                musicPlay.pause()
+                            }
+                            changeMusicPlay(music)     
+                        }}/>)
                     fuckingFlag = true
                     break
                 } 

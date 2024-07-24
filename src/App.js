@@ -8,11 +8,9 @@ import ReviewsPage from "./Pages/ReviewsPage";
 import ContactsPage from "./Pages/ContactsPage";
 import CartPage from "./Pages/CartPage";
 import LoadingPage from "./Pages/LoadingPage";
-import PayPage from "./Pages/PayPage";
 import MainPage from "./Pages/MainPage";
 import ComingSoon from "./Pages/ComingSoon";
 import { HOST_SERVER_API } from "./env"
-import FkVerify from "./Pages/FkVerify";
 
 
 
@@ -38,44 +36,58 @@ class App extends React.Component {
             method: 'GET',
         })
         .then(response => response.json()) // переводим содержимое body в json
-        .then(data => this.setState({ // закидываем полученный объект в состояние и обновляем статус загрузки страницы
-            productsDetroit: data,
-            isLoadedData: [true, false]
-        }))
-        .catch((error) => console.log(error)) 
-
-        fetch(HOST_SERVER_API + 'trap', { // юзаем переменные окружения
-            method: 'GET',
+        .then(data => {
+            this.setState({ // закидываем полученный объект в состояние и обновляем статус загрузки страницы
+                productsDetroit: data,
+                isLoadedData: [true, false]
+            })
+            console.log(data)
         })
-        .then(response => response.json()) // переводим содержимое body в json
-        .then(data => this.setState({ // закидываем полученный объект в состояние и обновляем статус загрузки страницы
-            productsTrap: data,
-            isLoadedData: [true, true]
-        }))
         .catch((error) => console.log(error)) 
 
 
+        setTimeout(() => {
+            fetch(HOST_SERVER_API + 'trap', { // юзаем переменные окружения
+                method: 'GET',
+            })
+            .then(response => response.json()) // переводим содержимое body в json
+            .then(data => {
+                this.setState({ // закидываем полученный объект в состояние и обновляем статус загрузки страницы
+                    productsTrap: data,
+                    isLoadedData: [true, true]
+                })
+                console.log(data)
+            })
+            .catch((error) => console.log(error)) 
+        }, 1000);
+            
+        
 
-        // получаем id пользователя для получения доступа k его корзине
-        fetch(HOST_SERVER_API + 'getChatId', {
-            method: 'POST',
-            body: JSON.stringify(this.tgData),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log('Запрос отправлен')
-            }
-        })
-        .then(() => this.setState({isGetChatId: true}))
 
+        setTimeout(() => {
+            // получаем id пользователя для получения доступа k его корзине
+            fetch(HOST_SERVER_API + 'getChatId', {
+                method: 'POST',
+                body: JSON.stringify(this.tgData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Запрос отправлен')
+                }
+            })
+            .then(() => this.setState({isGetChatId: true}))
+        }, 1000);
+        
     }
     
     render() {
         if (this.state.isLoadedData.every((e) => e == true) && this.state.isGetChatId) { /* пока не получили данные от сервера, рендер станицы загрузки
         иначе возвращаем маршрутизатор с главной страницей списка продуктов */
+            console.log(this.state.isLoadedData)
+
             localStorage.setItem('detroit', JSON.stringify(this.state.productsDetroit)) // закидываем весь список продуктов в localstorage
             localStorage.setItem('trap', JSON.stringify(this.state.productsTrap)) // закидываем весь список продуктов в localstorage
 
@@ -97,7 +109,6 @@ class App extends React.Component {
                         <Route path="reviews" element={<ReviewsPage />}></Route>
                         <Route path="contacts" element={<ContactsPage />}></Route>
                         <Route path="cart" element={<CartPage />}></Route>
-                        <Route path="cart/pay" element={<PayPage />}></Route>
                     </Routes>
                 </BrowserRouter>
             )

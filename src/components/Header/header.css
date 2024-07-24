@@ -21,10 +21,10 @@
 .cart-button {
     display: flex;
     height: calc(var(--index) * 4.3);
-    width: 20vw;
+    width: 18vw;
     align-items: center;
     justify-content: center;
-    margin-left: 4vw;
+    margin-left: 3.5vw;
     border-radius: var(--index);
     transition: background-color .3s;
     border: calc(var(--index) * .2) solid rgb(0, 0, 0);

@@ -1,0 +1,44 @@
+:root {
+    --index: calc(1vh + 1vw)
+}
+
+.prices-block {
+    background-color: black;
+    margin: var(--index);
+    padding: var(--index);
+    border-radius: var(--index);
+    margin-top: calc(var(--index) * 2);
+}
+
+.prices-header,
+.stocks-header {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-weight: 600;
+    font-size: calc(var(--index) * 2.75);
+    color: whitesmoke;
+}
+
+.stocks-block {
+    background-color: #111;
+    margin: var(--index);
+    padding: var(--index);
+    border-radius: var(--index);
+    margin-top: calc(var(--index) * 2);
+}
+
+.title {
+    display: block;
+    font-weight: 600;
+    font-size: calc(var(--index) * 1.6);
+    margin-top: var(--index);
+    color: #a6a6a6;
+}
+
+.price {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    color: rgb(0, 219, 95);
+}
+
+.separator {
+    color: whitesmoke;
+}

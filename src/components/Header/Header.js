@@ -68,6 +68,7 @@ class Header extends Component {
 
     componentWillUnmount() {
         document.removeEventListener('scroll', this.headerFixedRelative)
+        localStorage.setItem('scroll-products', Math.floor(window.pageYOffset))
     }
 
     // функции для обработки скролла страницы
@@ -90,7 +91,7 @@ class Header extends Component {
         }
         // если человек на главной странице, записываем его информацию о скролле страницы каждую секунду
         if (window.location.href == (HOST_CLIENT + '/detroit') || window.location.href == (HOST_CLIENT + '/trap')) {
-            setTimeout(() => localStorage.setItem('scroll-products', window.pageYOffset), 500)
+            setTimeout(() => localStorage.setItem('scroll-products', Math.floor(window.pageYOffset)), 100)
         }
         
     }
